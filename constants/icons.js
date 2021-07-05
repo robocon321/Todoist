@@ -17,4 +17,5 @@ export const setting = require("../assets/icons/setting.png");
 export const label = require("../assets/icons/label.png");
 export const priority = require("../assets/icons/priority.png");
 export const dot = require("../assets/icons/dot.png");
+export const comment = require("../assets/icons/comment.png");
 

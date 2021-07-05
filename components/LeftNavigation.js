@@ -1,10 +1,11 @@
 import React from "react";
-import { StyleSheet, View, Image, Text, ScrollView} from "react-native";
+import { StyleSheet, View, Image, Text, ScrollView, TouchableOpacity} from "react-native";
 import * as IMAGE from "../constants/images";
 import * as ICON from "../constants/icons";
 import * as COLOR from "../constants/colors";
 import MenuItem from "./MenuItem";
 import MenuGroup from "./MenuGroup";
+
 
 export default class LeftNavigaiton extends React.Component{
     constructor(props){
@@ -12,19 +13,28 @@ export default class LeftNavigaiton extends React.Component{
     }
 
     render(){
+        const {navigation} = this.props;
         return ( 
             <ScrollView>
                 <View style={styles.container}>
-                    <View style={styles.wrap}>
-                        <Image style={styles.avatar} source={IMAGE.avatar}/>
-                        <View style={styles.info}>
-                            <Text style={styles.name}>Nguyễn Thanh Nhật</Text>
-                            <Text style={styles.completed}>Hoàn thành: <Text>3/5</Text></Text>
+                    <TouchableOpacity activeOpacity={0.9}>
+                        <View style={styles.wrap}>
+                            <Image style={styles.avatar} source={IMAGE.avatar}/>
+                            <View style={styles.info}>
+                                <Text style={styles.name}>Nguyễn Thanh Nhật</Text>
+                                <Text style={styles.completed}>Hoàn thành: <Text>3/5</Text></Text>
+                            </View>
                         </View>
-                    </View>
-                    <MenuItem icon={ICON.inbox} leftContent="Inbox" rightContent="3" color={COLOR.blue_light}/>
-                    <MenuItem icon={ICON.today} leftContent="Today" rightContent="2" color={COLOR.green_light}/>
-                    <MenuItem icon={ICON.calendar} leftContent="Upcoming" rightContent="" color={COLOR.purple_light}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=> navigation.navigate('Inbox')}>
+                        <MenuItem icon={ICON.inbox} leftContent="Inbox" rightContent="3" color={COLOR.blue_light}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=> navigation.navigate('Today')}>
+                        <MenuItem icon={ICON.today} leftContent="Today" rightContent="2" color={COLOR.green_light}/>                    
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <MenuItem icon={ICON.calendar} leftContent="Upcoming" rightContent="" color={COLOR.purple_light}/>                        
+                    </TouchableOpacity>
                     <MenuGroup content="Projects">
                         <MenuItem icon={ICON.dot} leftContent="Welcome" rightContent="9" color={COLOR.gray_dark}/>
                         <MenuItem icon={ICON.setting} leftContent="Manage projects" rightContent="" color={COLOR.gray_dark}/>
@@ -45,8 +55,10 @@ export default class LeftNavigaiton extends React.Component{
                         <MenuItem icon={ICON.priority} leftContent="No due date" rightContent="1" color={COLOR.blue_light}/>
                         <MenuItem icon={ICON.setting} leftContent="Manage filters" rightContent="" color={COLOR.gray_dark}/>
                     </MenuGroup>         
-                     <View style={styles.break}/>          
-                    <MenuItem icon={ICON.setting} leftContent="Settings" rightContent="" color={COLOR.black}/>
+                     <View style={styles.break}/>   
+                     <TouchableOpacity>
+                         <MenuItem icon={ICON.setting} leftContent="Settings" rightContent="" color={COLOR.black}/>
+                     </TouchableOpacity>       
                 </View>
             </ScrollView>
         )

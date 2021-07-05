@@ -1,13 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import LeftNavigation from './components/LeftNavigation';
+import Inbox from './screens/Inbox';
 import Today from './screens/Today';
-import LeftNavigaiton from './components/LeftNavigation';
 
 export default function App() {
+  const Drawer = createDrawerNavigator();
   return (
     <View style={styles.container}>
-      <LeftNavigaiton />
+      <NavigationContainer>
+        <Drawer.Navigator 
+              initialRouteName="Today"  
+              drawerContent={props => <LeftNavigation {...props} />}>
+          <Drawer.Screen name="Today" component={Today}/>
+          <Drawer.Screen name="Inbox" component={Inbox}/>
+        </Drawer.Navigator>
+      </NavigationContainer>
     </View>
   );
 }

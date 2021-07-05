@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, View, StatusBar } from "react-native";
-import TodayTopbar from "../components/TodayTopbar";
-import DayTask from "../components/DayTasks";
+import InboxTopbar from "../components/InboxTopbar";
+import Task from "../components/Task";
 
-export default class Today extends React.Component{
+export default class Inbox extends React.Component{
     constructor(props){
         super(props);
     }
@@ -12,8 +12,9 @@ export default class Today extends React.Component{
         return (
             <View style={styles.container}>
                 <StatusBar />
-                <TodayTopbar />
-                <DayTask />
+                <InboxTopbar />
+                <Task />
+                <Task />
             </View>
         )
     }
