@@ -34,7 +34,7 @@ export default class Login extends React.Component{
                         <Image source={ICON.facebook} style={styles.iconButton}/>
                     } titleStyle={styles.titleStyleBtnFbIp} buttonStyle={[styles.buttonStyleBtnFbIp, styles.buttonStyleFb]} />
                 </View>
-                <Text style={styles.policyText}>By continuing you agree to Todoist's <Text style={{textDecorationLine:"underline"}}>Terms of service and Privacy Policy.</Text></Text>
+                <Text style={styles.policyText}>By continuing you agree to Todoist's <Text style={{textDecorationLine:"underline"}}>Terms of service</Text> and <Text style={{textDecorationLine:"underline"}}>Privacy Policy.</Text></Text>
             </View>
         )
     }
@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
         justifyContent: "space-between"
     },
     logo:{
-        width: 55,
-        height: 55,
+        width: 50,
+        height: 50,
         alignSelf: "center",
         resizeMode: "cover"
     },
