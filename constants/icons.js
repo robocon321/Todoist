@@ -9,6 +9,12 @@ export const check = require("../assets/icons/check.png");
 export const o = require("../assets/icons/o.png");
 export const inbox = require("../assets/icons/inbox.png");
 export const yesterday = require("../assets/icons/yesterday.png");
-
-
+export const today = require("../assets/icons/today.png");
+export const calendar = require("../assets/icons/calendar.png");
+export const add = require("../assets/icons/add.png");
+export const down = require("../assets/icons/down.png");
+export const setting = require("../assets/icons/setting.png");
+export const label = require("../assets/icons/label.png");
+export const priority = require("../assets/icons/priority.png");
+export const dot = require("../assets/icons/dot.png");
 
