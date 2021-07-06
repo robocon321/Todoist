@@ -9,13 +9,14 @@ export default class DayTask extends React.Component{
     }
 
     render(){
+        const {onShowPopup} = this.props;
         return (
             <View style={styles.container}>
                 <View style={styles.day}>
                     <Text style={styles.textLeft}>Overdue</Text>
                     <Text style={styles.textRight}>Reschedule</Text>
                 </View>
-                <Task />
+                <Task onShowPopup={onShowPopup}/>
             </View>
         )
     }

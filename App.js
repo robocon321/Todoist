@@ -13,6 +13,7 @@ export default function App() {
     <View style={styles.container}>
       <NavigationContainer>
         <Drawer.Navigator 
+              drawerStyle={{width:"85%"}}
               initialRouteName="Today"  
               drawerContent={props => <LeftNavigation {...props} />}>
           <Drawer.Screen name="Today" component={Today}/>
@@ -26,6 +27,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
   }
 });

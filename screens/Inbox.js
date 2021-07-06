@@ -8,11 +8,15 @@ export default class Inbox extends React.Component{
         super(props);
     }
 
+    openSideNav = ()=>{
+        this.props.navigation.openDrawer();
+    }
+
     render(){
         return (
             <View style={styles.container}>
                 <StatusBar />
-                <InboxTopbar />
+                <InboxTopbar openSideNav={this.openSideNav}/>
                 <Task />
                 <Task />
             </View>

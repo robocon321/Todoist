@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableWithoutFeedback } from "react-native";
 import * as ICON from "../constants/icons";
 import * as COLOR from "../constants/colors";
 
@@ -8,27 +8,30 @@ export default class Task extends React.Component{
         super(props);
     }
     render(){
+        const {onShowPopup} = this.props;
         return (
-            <View style={styles.container}>
-                <View style={styles.left}>
-                    <Image style={styles.check} source={ICON.o}/>
-                    <View style={styles.col2}>
-                        <Text style={styles.title}>Read book</Text>
-                        <View style={styles.yesterday}>
-                            <Image style={styles.iconYesterday} source={ICON.yesterday}/>
-                            <Text style={styles.textYesterday}>Yesterday</Text>
-                        </View>
-                        <View style={styles.label}>
-                            <Text style={styles.labelItem}>a</Text>
-                            <Text style={styles.labelItem}>b</Text>
+            <TouchableWithoutFeedback onPress={()=>onShowPopup()}>
+                <View style={styles.container}>
+                    <View style={styles.left}>
+                        <Image style={styles.check} source={ICON.o}/>
+                        <View style={styles.col2}>
+                            <Text style={styles.title}>Read book</Text>
+                            <View style={styles.yesterday}>
+                                <Image style={styles.iconYesterday} source={ICON.yesterday}/>
+                                <Text style={styles.textYesterday}>Yesterday</Text>
+                            </View>
+                            <View style={styles.label}>
+                                <Text style={styles.labelItem}>a</Text>
+                                <Text style={styles.labelItem}>b</Text>
+                            </View>
                         </View>
                     </View>
+                    <View style={styles.col3}>
+                        <Text style={styles.textInbox}>Inbox</Text>
+                        <Image style={styles.iconInbox} source={ICON.inbox}/>
+                    </View>
                 </View>
-                <View style={styles.col3}>
-                    <Text style={styles.textInbox}>Inbox</Text>
-                    <Image style={styles.iconInbox} source={ICON.inbox}/>
-                </View>
-            </View>
+            </TouchableWithoutFeedback>
         )
     }
 }
@@ -54,8 +57,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff5f5"
     },
     col2:{
-        paddingHorizontal: 10,
-        justifyContent: "space-between"
+        paddingHorizontal: 10
     },
     title:{
         paddingVertical: 5,
@@ -85,11 +87,13 @@ const styles = StyleSheet.create({
         paddingRight: 10
     },
     col3:{
+        flexDirection:"row",
         alignSelf: "flex-end"
     },
     textInbox:{
         fontSize: 15,
-        color: COLOR.gray_dark
+        color: COLOR.gray_dark,
+        marginRight: 10
     },
     iconInbox:{
         width: 20,

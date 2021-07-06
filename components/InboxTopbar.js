@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Image, Text} from "react-native";
+import { StyleSheet, View, Image, Text, TouchableWithoutFeedback} from "react-native";
 import * as ICON from "../constants/icons";
 import * as COLOR from "../constants/colors";
 
@@ -9,10 +9,13 @@ export default class InboxTopbar extends React.Component{
     }
 
     render(){
+        const {openSideNav} = this.props;
         return (
             <View style={styles.container}>
                 <View style={styles.left}>
+                <TouchableWithoutFeedback onPress={() => openSideNav()}>
                     <Image style={[styles.image, styles.item]} source={ICON.nav_side} />
+                </TouchableWithoutFeedback>
                     <Text style={[styles.text, styles.item]}>Inbox</Text>
                 </View>
                 <View style={styles.right}>
