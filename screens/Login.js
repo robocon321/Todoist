@@ -1,10 +1,19 @@
 import React from "react";
 import { StyleSheet,View, Image, Text} from "react-native";
 import {Button} from "react-native-elements"
+import {
+    GoogleSignin,
+    GoogleSigninButton,
+    statusCodes,
+  } from '@react-native-google-signin/google-signin';
 import * as COLOR from "../constants/colors";
 import * as ICON from "../constants/icons";
 import * as IMAGE from "../constants/images"
 
+GoogleSignin.configure({
+    webClientId: "403316022954-ef2ecb5sbscm7i3rg0td50gt7mn8n3pa.apps.googleusercontent.com",
+    offlineAccess: true
+})
 export default class Login extends React.Component{
     render(){
         return (
@@ -23,7 +32,7 @@ export default class Login extends React.Component{
                         }
                     }
                 } titleStyle={styles.titleStyleBtnEmail} buttonStyle={styles.buttonStyleBtnEmail} title="CONTINUE WITH EMAIL"/>
-                <Button icon={
+                <Button onPress={this.signIn} icon={
                     <Image source={ICON.gmail} style={styles.iconButton}/>
                 } titleStyle={styles.titleStyleBtnGmail} buttonStyle={styles.buttonStyleBtnGmail} title="CONTINUE WITH GOOGLE"/>
                 <View style={styles.wrapFbIp}>

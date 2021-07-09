@@ -1,52 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
-import React,{useRef} from 'react';
-import { StyleSheet, View } from 'react-native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
-import { Provider, FAB } from "react-native-paper";
-import LeftNavigation from './components/LeftNavigation';
-import TaskBottomPopUp_Add from './components/TaskBottomPopUp_Add';
-import Inbox from './screens/Inbox';
-import Today from './screens/Today';
-import * as COLOR from "./constants/colors";
+import React from 'react';
+import { StyleSheet, View, AsyncStorage } from 'react-native';
+import Login from "./screens/Login";
+import Home from "./screens/Home";
+
 
 export default function App() {
-  const Drawer = createDrawerNavigator();
-  const addTaskPopup = useRef(null);
+  const _retrieveData = async () => {
+    try {
+      const value = await AsyncStorage.getItem("account_id");
+      return value;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+  }
 
-  return (
-    <Provider>
+  const value = _retrieveData();
+  if(value != null){
+    return (
       <View style={styles.container}>
-        <NavigationContainer>
-          <Drawer.Navigator 
-                drawerStyle={{width:"85%"}}
-                initialRouteName="Today"  
-                drawerContent={props => <LeftNavigation {...props} />}>
-            <Drawer.Screen name="Today" component={Today}/>
-            <Drawer.Screen name="Inbox" component={Inbox}/>
-          </Drawer.Navigator>
-        </NavigationContainer>
-        <TaskBottomPopUp_Add ref={addTaskPopup} />
-        <FAB  
-          color={"white"}   
-          style={styles.fab}
-          icon="plus"
-          onPress={()=>addTaskPopup.current.onShowPopup()}/>
+        <Login />
       </View>
-    </Provider>
-  );
-}
+    )
+  
+  }else{
+    return (
+      <View style={styles.container}>
+        <Home />
+      </View>
+    )  
+  }
+
+};  
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff'
-  },
-  fab: {
-    position: 'absolute',
-    margin: 30,
-    right: 0,
-    bottom: 0,
-    backgroundColor: COLOR.red_light
-  },
-});
+  }});
