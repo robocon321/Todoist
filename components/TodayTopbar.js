@@ -3,7 +3,7 @@ import React from "react";
 import { StyleSheet, View, Image, Text, TouchableWithoutFeedback} from "react-native";
 import * as ICON from "../constants/icons";
 import * as COLOR from "../constants/colors";
-import {Menu, Divider, Provider } from 'react-native-paper';
+import {Menu } from 'react-native-paper';
 
 export default class Topbar extends React.Component{
     constructor(props){

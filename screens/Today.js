@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View, StatusBar, Button, Text } from "react-native";
 import TodayTopbar from "../components/TodayTopbar";
 import DayTask from "../components/DayTasks";
-import TaskBottomPopUp from "../components/TaskBottomPopUp";
+import TaskBottomPopUp_Edit from "../components/TaskBottomPopUp_Edit";
 import * as COLOR from "../constants/colors";
 
 export default class Today extends React.Component{
@@ -25,7 +25,7 @@ export default class Today extends React.Component{
                 <StatusBar />
                 <TodayTopbar openSideNav={this.openSideNav}/>
                 <DayTask onShowPopup={this.onShowPopup}/>
-                <TaskBottomPopUp ref={this.popup}/>
+                <TaskBottomPopUp_Edit ref={this.popup}/>
             </View>
         )
     }

@@ -10,3 +10,5 @@ export const green_light = "#00bf1d";
 export const green_dark = "#006b10";
 export const purple_light = "#8a00b8";
 export const purple_dark = "#5a0078";
+export const pink_light = "#ffe8ef";
+export const pink_dark = "#ff739d";

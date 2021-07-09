@@ -21,4 +21,4 @@ export const comment = require("../assets/icons/comment.png");
 export const flag = require("../assets/icons/flag.png");
 export const alarm = require("../assets/icons/alarm.png");
 export const branch = require("../assets/icons/branch.png");
-
+export const send = require("../assets/icons/send.png");

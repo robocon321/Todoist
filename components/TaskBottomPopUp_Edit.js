@@ -4,13 +4,14 @@ import * as COLOR from "../constants/colors";
 import * as ICON  from "../constants/icons";
 
 const {height} = Dimensions.get("window");
-export default class TaskBottomPopUp extends React.Component{
+export default class TaskBottomPopUp_Add extends React.Component{
     constructor(props){
         super(props)
+        this.levelBottom = [-300, -200, 0]
         this.state = {
             bottom: 0,
             currentPopUpY: 0,
-            visible: true
+            visible: false
         }
     }
 
@@ -40,7 +41,7 @@ export default class TaskBottomPopUp extends React.Component{
                 bottom : -this.heightComponent,
                 visible: false
             })
-        }else if(bottom > this.levelBottom[0] && bottom < this.levelBottom[1]+150){
+        }else if(bottom > this.levelBottom[0] && bottom < this.levelBottom[1]+50){
             this.setState({
                 ...this.state,
                 bottom : this.levelBottom[1]
@@ -56,7 +57,8 @@ export default class TaskBottomPopUp extends React.Component{
     onShowPopup = () =>{
         this.setState({
             ...this.state,
-            bottom: this.levelBottom[1]
+            bottom: this.levelBottom[1],
+            visible: true
         })
     }
 
@@ -70,9 +72,7 @@ export default class TaskBottomPopUp extends React.Component{
     onLayout = (e) =>{
         const {layout} = e.nativeEvent;
         this.heightComponent = layout.height
-        this.levelBottom = [-this.heightComponent/1.5, -this.heightComponent/2+30, 0]
     } 
-
     render(){
         const {bottom, visible} = this.state;
         return (
