@@ -1,68 +1,95 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:1:1-25:12
-INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:1:1-25:12
-INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:1:1-25:12
-INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:1:1-25:12
-MERGED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:1:1-25:12
-MERGED from [com.facebook.flipper:flipper:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a8f6015f96666ab8d93bfe5b64998bc8\jetified-flipper-0.75.1\AndroidManifest.xml:8:1-18:12
-MERGED from [com.facebook.flipper:flipper-network-plugin:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\d8279ebfbcca51b68586de1b9bc17210\jetified-flipper-network-plugin-0.75.1\AndroidManifest.xml:8:1-15:12
-MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\13e0ca18817a9e59a8c4a94704ec8c3c\jetified-flipper-fresco-plugin-0.75.1\AndroidManifest.xml:8:1-15:12
+ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:1:1-26:12
+MERGED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:1:1-26:12
+MERGED from [com.facebook.flipper:flipper:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\f790b8d601e4a5305c842adb2c9a9802\jetified-flipper-0.75.1\AndroidManifest.xml:8:1-18:12
+MERGED from [com.facebook.flipper:flipper-network-plugin:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\aa702d4c784e2ab3037da715d7d1c020\jetified-flipper-network-plugin-0.75.1\AndroidManifest.xml:8:1-15:12
+MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\59aa0861eac951f06c388d53aa5f3fc9\jetified-flipper-fresco-plugin-0.75.1\AndroidManifest.xml:8:1-15:12
 MERGED from [:react-native-community_masked-view] E:\Resource\Project\ReactNative\Todoist\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-google-signin_google-signin] E:\Resource\Project\ReactNative\Todoist\node_modules\@react-native-google-signin\google-signin\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-fbsdk] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-fbsdk\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:1-28:12
 MERGED from [:react-native-gesture-handler] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-safe-area-context] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-vector-icons] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\f48ad73390f9d41c4966ce25bccc3bb7\jetified-react-native-0.64.2\AndroidManifest.xml:2:1-13:12
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5c64f35c4f864d4cd139ccbbff91ceb9\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [org.webkit:android-jsc:r245459] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\65337ca8c0783fc27be60d476a5f6b75\jetified-android-jsc-r245459\AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-reanimated] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-reanimated\android\build\.transforms\da8de9359631c3df7aa022207953eeb7\jetified-react-native-reanimated-64-jsc\AndroidManifest.xml:2:1-11:12
-MERGED from [com.facebook.fresco:flipper:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\84c6a932a42f35f9b796c5d67e6eb742\jetified-flipper-2.2.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:stetho:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5f2c193a45b1b439ec8f5a8edcb37f33\jetified-stetho-2.2.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:fresco:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\336cee0c87f467fe6bfb36840b0630b2\jetified-fresco-2.2.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:drawee:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\8850ed829d25245e8497182323bc73d2\jetified-drawee-2.2.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:nativeimagefilters:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cedca5e04b0c20fa79ac1887f71f3325\jetified-nativeimagefilters-2.2.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:memory-type-native:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\e5db14b71da4d91c0ca7d2ee268e707a\jetified-memory-type-native-2.2.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:memory-type-java:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3c0394800bb3c89c17ec23de03c5f2ca\jetified-memory-type-java-2.2.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-native:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cf4b730f71bf97441bdf4ebe8cfeeb88\jetified-imagepipeline-native-2.2.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:soloader:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\c35a46a0a862651f1e0a89250dcee30d\jetified-soloader-2.2.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.soloader:soloader:0.10.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5fb5c0c623111e89d0cb2cc6cbe55df8\jetified-soloader-0.10.1\AndroidManifest.xml:2:1-13:12
-MERGED from [com.google.android.material:material:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\747f53e70e3372703b3570ac3dfbfb03\material-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\d14dbad7340cad958a2e361a440b498d\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ce476dc2f1f7d59691ad234de1ec2fb1\sqlite-framework-2.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\f66a3370e9e4f8cb0ae0c6936c538c41\jetified-imagepipeline-okhttp3-2.0.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:memory-type-ashmem:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\fc37ff7af2e3c5de8e592a9550a0df07\jetified-memory-type-ashmem-2.2.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cda5d9a1a957ef402e55e5ba5c5bfd6d\jetified-imagepipeline-2.2.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:nativeimagetranscoder:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\8f540c10f5114d05b8ee24db3e19e1f8\jetified-nativeimagetranscoder-2.2.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-base:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\b51f59890c1c9ada8eed6d21cecc075e\jetified-imagepipeline-base-2.2.0\AndroidManifest.xml:2:1-9:12
-MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\baebfc24ee3e9d675a4614c1f27f118a\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\2ee35bfe9d2e9019f071c4a047a96db2\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\6e0f82970a69a6b386ee45a08ac362fe\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\803d31b2df2f8d968e6cb7c3ffa37ef9\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5e5754defa7ec1b661ffd11a17838c67\fragment-1.2.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3c1c25210c9523b781f68f6e5260d398\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\22a5d9f52d495a432176451a4c4ba982\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\2f70304b103eacfab05dbe55739e869f\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\49dee3543bc65746b6bba9f83aa0b18a\loader-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.activity:activity:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\412f4e60090d6c7e949274f12fef4b1d\jetified-activity-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\c38f0dcdb4eabb88f8961812937ce545\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\86cf751735e9e9dd0416cce35c4a71a1\customview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.transition:transition:1.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ae1a1dddf9cea612695d8157e2ff38cd\transition-1.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\361553562ce35cf8cf447832c4a7d1ec\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.core:core:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\d67cd79abd1ca209502f51c69d23182b\core-1.1.0\AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\bae4382a703142a8f82a100a412243f1\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\74153744c3b76afb34d0c28a686a981b\sqlite-2.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\af9af86a2035b10a0514f89f66cf8a9a\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cbff631e500aff82164944184b49a648\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5af1825acc1d96709826d913b19b2820\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\dcc76cd07ebcaa6166d73d461b1667fa\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\b37a656be7da34e79d326523a32fbcaa\lifecycle-runtime-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\29e9e6ac99026fff5bb21139b2ad74ac\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\15faa7fdc535e832982b4615d300cb77\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\27e0ecfbdce6f985a506017f5fd54aeb\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\268ebc0b2bd661fb18fff0cceeca14c7\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [com.facebook.fresco:fbcore:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5ff10ad0f2bea4b2419e86a549e99aac\jetified-fbcore-2.2.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:ui-common:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ffdaca04e33e18187dfc99a2b0ddad3b\jetified-ui-common-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\06df65ce4b16a96f2fff46a3da50093f\jetified-react-native-0.64.2\AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0bc2f2784a6e219530a5897c01738c4b\jetified-play-services-auth-16.0.1\AndroidManifest.xml:17:1-39:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:16.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\40a5594a66a81c987fa61108eb8e6be8\jetified-play-services-auth-api-phone-16.0.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5e7cd2d15117fd201c0edba6aedb0be3\jetified-play-services-auth-base-16.0.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a6e09c84f3b1636e1c96516de939da6f\jetified-play-services-base-16.0.1\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\68a029275d1857a60959f84e441c7502\jetified-play-services-tasks-16.0.1\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3a19df6e4832cfbd99325441825a0168\jetified-play-services-basement-16.0.1\AndroidManifest.xml:17:1-28:12
+MERGED from [com.facebook.android:facebook-android-sdk:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\19ccd8560d11237b341b1aef621af878\jetified-facebook-android-sdk-8.2.0\AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-login:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ba36110a7a77e384869f443cc0fc16d8\jetified-facebook-login-8.2.0\AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-gamingservices:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\7ed8a38036747af865fa140c370acc4b\jetified-facebook-gamingservices-8.2.0\AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-share:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\8ff5fc395aea942b97303412e1d80f0c\jetified-facebook-share-8.2.0\AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-common:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad359a508ff8765395700837f96e5e94\jetified-facebook-common-8.2.0\AndroidManifest.xml:21:1-52:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\087314bbcbdd87ae530d1c6c05a32859\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0cdb6ede7b658dd888d8704df2ac7830\browser-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5dfb1f6d2d0839a2c9a99e4f44202d7f\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ea54a404e0ba3fd008cbe04168520b98\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0e13778e93607c0043921e8999f8eea5\jetified-android-jsc-r245459\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-reanimated] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-reanimated\android\build\.transforms\9d545a8a12efd54acc8cb6cf6c21f681\jetified-react-native-reanimated-64-jsc\AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.fresco:flipper:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\b67e4652830274294495e4e383209110\jetified-flipper-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:stetho:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\da48cb5a712712f40ac4fdef1f4949cf\jetified-stetho-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:fresco:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5f94ee86acb202e704e1dca4b4ed9850\jetified-fresco-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5db716ae69dc9412c6af2ce6344515ea\jetified-drawee-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5ea83279d99c884cf4f5156e7e0e4134\jetified-nativeimagefilters-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:memory-type-native:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\394ce756688f64d0587f8204acae5909\jetified-memory-type-native-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:memory-type-java:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ca038f754f0e2b30aac935abead2b594\jetified-memory-type-java-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-native:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\6b84aa71bdfcb1859c8a4aa8c94c4463\jetified-imagepipeline-native-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:soloader:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\530bcad1455ccc8e4a2bd0839518a9ad\jetified-soloader-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.10.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5aa88482790a14e84569fa1b144649e8\jetified-soloader-0.10.1\AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cf1d65f145ab1561355de8d65e7e16a2\material-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\93c8e25eaa4326f2a212ce97a30ae785\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\38fa5562f992aec3c8a9c78d7257f184\sqlite-framework-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.facebook.android:facebook-applinks:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5c510f196ebf1c074e65337f5ac0914e\jetified-facebook-applinks-8.2.0\AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-messenger:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\2ffcd7def3f7822399c30a3467c32d86\jetified-facebook-messenger-8.2.0\AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-core:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0c9f8178ec5d4ed278391b8c42a1f6c0\jetified-facebook-core-8.2.0\AndroidManifest.xml:21:1-53:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\879d630a30a66c6c1dd9e1889eba2e41\jetified-imagepipeline-okhttp3-2.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:memory-type-ashmem:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\98f058d6de613ecf6ab7e85b226d3d91\jetified-memory-type-ashmem-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\93a90ef457087d28b8086828237caaf9\jetified-imagepipeline-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\1b6f29286357fc5c3198a4e0fdb11e3d\jetified-nativeimagetranscoder-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad558b07cbbfc7c4fe7b90e35c82da7a\jetified-imagepipeline-base-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\18d278fb47be573ba80a327609df8d9b\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\fd60fc4d32769c1f5d85072f1c5eb0b1\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\c3931fcf4091ba102ec9db02819dcfb8\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\4824fcbb3cb5549e8416ed3b70d54a53\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\c6207c29811f80c3638c20a331313014\fragment-1.2.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\04c6a0109bdd4689adb61f23ae32507d\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\1c5ce621774571ffd8b73e70cd3e4426\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\7abc49b1f5c64802d4c206fbe29af9a9\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\72e9832296c903e7480d7b8423fcfe16\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\8e6cf0986029698bc072c29e4c234a30\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\7180d4e6aa7b3d7c271846a31432c72b\jetified-activity-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\e13183910d9a1963ccf0d0e8ed9aa984\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\80bef7b63bdb531ce011060950922211\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\64361abf4845a8fe6dfaade12084f86a\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a7fa0e4606228800c8c063aa04dcb918\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ff513f083dc6cfb0a53981413c21236b\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3e16881a2d3af60ecb1a8202944dacf5\media-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\54920250f2c8c4e9da39cb5d22a68511\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\58b3f1d82ed43c61f911f4cf74f29cd8\core-1.1.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\22f129c417392592a4a1a906d4a84092\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\28d99d2099977f145ac3a0a92c4caa39\sqlite-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5521da4834d14724cb3a78ee9a19befc\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\65aa1be61a5aa271175afba2912f6c9f\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\7f12c05ff579849d21ef3c55d761613f\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\c1b1cd767e1220be73026f7c35df8024\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\b0bff280ef5cc4272e04982c4bab8359\lifecycle-runtime-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\d003e2c3035dcb2c532791ff622ac828\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\310b0229f6aaf0e884b60b5e5c379a59\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\1a2855e453906aa52f4c09690220ecf1\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a9e882679d9df5410d3665483b45d70a\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\63777342dfe4040c718a271474dd48e9\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\26b577ae79b491440adcaa95b9ce5c7d\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\9b06cf24aeaedc8112d824a10820c5c5\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fbcore:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\e35b2076250708f0c6812ef296e68233\jetified-fbcore-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:ui-common:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\05b9b00b6a7b0d2edbac4edb6683f20c\jetified-ui-common-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\84313ed0ca8a7d4df939a4a5a404fdc6\jetified-installreferrer-1.0\AndroidManifest.xml:2:1-13:12
 INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\debug\AndroidManifest.xml:2:1-13:12
 INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\debug\AndroidManifest.xml:2:1-13:12
 INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\debug\AndroidManifest.xml:2:1-13:12
@@ -73,38 +100,66 @@ INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\debug\Andr
 		INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\debug\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml
-		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:1:1-25:12
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:1:1-26:12
 		INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\debug\AndroidManifest.xml
 	xmlns:tools
 		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\debug\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml
-		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:1:1-25:12
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:1:1-26:12
 		INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
 ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:4:5-67
-MERGED from [com.facebook.flipper:flipper:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a8f6015f96666ab8d93bfe5b64998bc8\jetified-flipper-0.75.1\AndroidManifest.xml:15:5-67
-MERGED from [com.facebook.flipper:flipper:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a8f6015f96666ab8d93bfe5b64998bc8\jetified-flipper-0.75.1\AndroidManifest.xml:15:5-67
+MERGED from [com.facebook.flipper:flipper:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\f790b8d601e4a5305c842adb2c9a9802\jetified-flipper-0.75.1\AndroidManifest.xml:15:5-67
+MERGED from [com.facebook.flipper:flipper:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\f790b8d601e4a5305c842adb2c9a9802\jetified-flipper-0.75.1\AndroidManifest.xml:15:5-67
 	android:name
 		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:6:5-24:19
-MERGED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:6:5-24:19
-MERGED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:6:5-24:19
-MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\f48ad73390f9d41c4966ce25bccc3bb7\jetified-react-native-0.64.2\AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\f48ad73390f9d41c4966ce25bccc3bb7\jetified-react-native-0.64.2\AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.soloader:soloader:0.10.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5fb5c0c623111e89d0cb2cc6cbe55df8\jetified-soloader-0.10.1\AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.soloader:soloader:0.10.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5fb5c0c623111e89d0cb2cc6cbe55df8\jetified-soloader-0.10.1\AndroidManifest.xml:11:5-20
-MERGED from [com.google.android.material:material:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\747f53e70e3372703b3570ac3dfbfb03\material-1.1.0\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.material:material:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\747f53e70e3372703b3570ac3dfbfb03\material-1.1.0\AndroidManifest.xml:22:5-20
-MERGED from [androidx.core:core:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\d67cd79abd1ca209502f51c69d23182b\core-1.1.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\d67cd79abd1ca209502f51c69d23182b\core-1.1.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\af9af86a2035b10a0514f89f66cf8a9a\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\af9af86a2035b10a0514f89f66cf8a9a\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:6:5-25:19
+MERGED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:6:5-25:19
+MERGED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:6:5-25:19
+MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\06df65ce4b16a96f2fff46a3da50093f\jetified-react-native-0.64.2\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\06df65ce4b16a96f2fff46a3da50093f\jetified-react-native-0.64.2\AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0bc2f2784a6e219530a5897c01738c4b\jetified-play-services-auth-16.0.1\AndroidManifest.xml:22:5-37:19
+MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0bc2f2784a6e219530a5897c01738c4b\jetified-play-services-auth-16.0.1\AndroidManifest.xml:22:5-37:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a6e09c84f3b1636e1c96516de939da6f\jetified-play-services-base-16.0.1\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a6e09c84f3b1636e1c96516de939da6f\jetified-play-services-base-16.0.1\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\68a029275d1857a60959f84e441c7502\jetified-play-services-tasks-16.0.1\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\68a029275d1857a60959f84e441c7502\jetified-play-services-tasks-16.0.1\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3a19df6e4832cfbd99325441825a0168\jetified-play-services-basement-16.0.1\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3a19df6e4832cfbd99325441825a0168\jetified-play-services-basement-16.0.1\AndroidManifest.xml:22:5-26:19
+MERGED from [com.facebook.android:facebook-android-sdk:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\19ccd8560d11237b341b1aef621af878\jetified-facebook-android-sdk-8.2.0\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-android-sdk:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\19ccd8560d11237b341b1aef621af878\jetified-facebook-android-sdk-8.2.0\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-login:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ba36110a7a77e384869f443cc0fc16d8\jetified-facebook-login-8.2.0\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-login:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ba36110a7a77e384869f443cc0fc16d8\jetified-facebook-login-8.2.0\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-gamingservices:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\7ed8a38036747af865fa140c370acc4b\jetified-facebook-gamingservices-8.2.0\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-gamingservices:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\7ed8a38036747af865fa140c370acc4b\jetified-facebook-gamingservices-8.2.0\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-share:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\8ff5fc395aea942b97303412e1d80f0c\jetified-facebook-share-8.2.0\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-share:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\8ff5fc395aea942b97303412e1d80f0c\jetified-facebook-share-8.2.0\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-common:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad359a508ff8765395700837f96e5e94\jetified-facebook-common-8.2.0\AndroidManifest.xml:29:5-50:19
+MERGED from [com.facebook.android:facebook-common:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad359a508ff8765395700837f96e5e94\jetified-facebook-common-8.2.0\AndroidManifest.xml:29:5-50:19
+MERGED from [com.facebook.soloader:soloader:0.10.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5aa88482790a14e84569fa1b144649e8\jetified-soloader-0.10.1\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.10.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5aa88482790a14e84569fa1b144649e8\jetified-soloader-0.10.1\AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cf1d65f145ab1561355de8d65e7e16a2\material-1.1.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cf1d65f145ab1561355de8d65e7e16a2\material-1.1.0\AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.android:facebook-applinks:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5c510f196ebf1c074e65337f5ac0914e\jetified-facebook-applinks-8.2.0\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-applinks:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5c510f196ebf1c074e65337f5ac0914e\jetified-facebook-applinks-8.2.0\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-messenger:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\2ffcd7def3f7822399c30a3467c32d86\jetified-facebook-messenger-8.2.0\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-messenger:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\2ffcd7def3f7822399c30a3467c32d86\jetified-facebook-messenger-8.2.0\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-core:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0c9f8178ec5d4ed278391b8c42a1f6c0\jetified-facebook-core-8.2.0\AndroidManifest.xml:28:5-51:19
+MERGED from [com.facebook.android:facebook-core:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0c9f8178ec5d4ed278391b8c42a1f6c0\jetified-facebook-core-8.2.0\AndroidManifest.xml:28:5-51:19
+MERGED from [androidx.core:core:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\58b3f1d82ed43c61f911f4cf74f29cd8\core-1.1.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\58b3f1d82ed43c61f911f4cf74f29cd8\core-1.1.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5521da4834d14724cb3a78ee9a19befc\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5521da4834d14724cb3a78ee9a19befc\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\84313ed0ca8a7d4df939a4a5a404fdc6\jetified-installreferrer-1.0\AndroidManifest.xml:11:5-20
+MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\84313ed0ca8a7d4df939a4a5a404fdc6\jetified-installreferrer-1.0\AndroidManifest.xml:11:5-20
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\d67cd79abd1ca209502f51c69d23182b\core-1.1.0\AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\58b3f1d82ed43c61f911f4cf74f29cd8\core-1.1.0\AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from [com.facebook.android:facebook-android-sdk:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\19ccd8560d11237b341b1aef621af878\jetified-facebook-android-sdk-8.2.0\AndroidManifest.xml:28:18-44
 	android:label
 		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:8:7-39
 		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:8:7-39
@@ -129,40 +184,90 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ro
 	android:name
 		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:7:7-38
 		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:7:7-38
-activity#com.todoist.MainActivity
-ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:7-23:18
+meta-data#com.facebook.sdk.ApplicationId
+ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:7-105
+	android:value
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:64-103
+	android:name
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:18-63
+activity#com.facebook.FacebookActivity
+ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:106-281
+MERGED from [com.facebook.android:facebook-common:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad359a508ff8765395700837f96e5e94\jetified-facebook-common-8.2.0\AndroidManifest.xml:30:9-33:66
+MERGED from [com.facebook.android:facebook-common:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad359a508ff8765395700837f96e5e94\jetified-facebook-common-8.2.0\AndroidManifest.xml:30:9-33:66
 	android:label
-		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:15:9-41
-	android:launchMode
-		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:17:9-40
-	android:windowSoftInputMode
-		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:18:9-51
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:246-278
 	android:configChanges
-		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:16:9-86
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:161-245
+	android:theme
+		ADDED from [com.facebook.android:facebook-common:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad359a508ff8765395700837f96e5e94\jetified-facebook-common-8.2.0\AndroidManifest.xml:33:13-63
 	android:name
-		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:14:9-37
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:116-160
+activity#com.facebook.CustomTabActivity
+ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:282-641
+MERGED from [com.facebook.android:facebook-common:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad359a508ff8765395700837f96e5e94\jetified-facebook-common-8.2.0\AndroidManifest.xml:35:9-49:20
+MERGED from [com.facebook.android:facebook-common:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad359a508ff8765395700837f96e5e94\jetified-facebook-common-8.2.0\AndroidManifest.xml:35:9-49:20
+	tools:node
+		ADDED from [com.facebook.android:facebook-common:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad359a508ff8765395700837f96e5e94\jetified-facebook-common-8.2.0\AndroidManifest.xml:38:13-31
+	android:exported
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:338-361
+	android:name
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:292-337
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:@string/fb_login_protocol_scheme
+ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:363-629
+action#android.intent.action.VIEW
+ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:379-431
+	android:name
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:387-428
+category#android.intent.category.DEFAULT
+ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:432-491
+	android:name
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:442-488
+category#android.intent.category.BROWSABLE
+ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:492-553
+	android:name
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:502-550
+data
+ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:554-612
+	android:scheme
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:13:560-609
+activity#com.todoist.MainActivity
+ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:14:7-24:18
+	android:label
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:16:9-41
+	android:launchMode
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:18:9-40
+	android:windowSoftInputMode
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:19:9-51
+	android:configChanges
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:17:9-86
+	android:name
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:15:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:19:9-22:25
+ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:20:9-23:25
 action#android.intent.action.MAIN
-ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:20:13-65
+ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:21:13-65
 	android:name
-		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:20:21-62
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:21:21-62
 category#android.intent.category.LAUNCHER
-ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:21:13-73
+ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:22:13-73
 	android:name
-		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:21:23-70
+		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml:22:23-70
 uses-sdk
 INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml
 INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\main\AndroidManifest.xml
-MERGED from [com.facebook.flipper:flipper:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a8f6015f96666ab8d93bfe5b64998bc8\jetified-flipper-0.75.1\AndroidManifest.xml:11:5-13:41
-MERGED from [com.facebook.flipper:flipper:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a8f6015f96666ab8d93bfe5b64998bc8\jetified-flipper-0.75.1\AndroidManifest.xml:11:5-13:41
-MERGED from [com.facebook.flipper:flipper-network-plugin:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\d8279ebfbcca51b68586de1b9bc17210\jetified-flipper-network-plugin-0.75.1\AndroidManifest.xml:11:5-13:41
-MERGED from [com.facebook.flipper:flipper-network-plugin:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\d8279ebfbcca51b68586de1b9bc17210\jetified-flipper-network-plugin-0.75.1\AndroidManifest.xml:11:5-13:41
-MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\13e0ca18817a9e59a8c4a94704ec8c3c\jetified-flipper-fresco-plugin-0.75.1\AndroidManifest.xml:11:5-13:41
-MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\13e0ca18817a9e59a8c4a94704ec8c3c\jetified-flipper-fresco-plugin-0.75.1\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\f790b8d601e4a5305c842adb2c9a9802\jetified-flipper-0.75.1\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\f790b8d601e4a5305c842adb2c9a9802\jetified-flipper-0.75.1\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper-network-plugin:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\aa702d4c784e2ab3037da715d7d1c020\jetified-flipper-network-plugin-0.75.1\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper-network-plugin:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\aa702d4c784e2ab3037da715d7d1c020\jetified-flipper-network-plugin-0.75.1\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\59aa0861eac951f06c388d53aa5f3fc9\jetified-flipper-fresco-plugin-0.75.1\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\59aa0861eac951f06c388d53aa5f3fc9\jetified-flipper-fresco-plugin-0.75.1\AndroidManifest.xml:11:5-13:41
 MERGED from [:react-native-community_masked-view] E:\Resource\Project\ReactNative\Todoist\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-community_masked-view] E:\Resource\Project\ReactNative\Todoist\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-google-signin_google-signin] E:\Resource\Project\ReactNative\Todoist\node_modules\@react-native-google-signin\google-signin\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-google-signin_google-signin] E:\Resource\Project\ReactNative\Todoist\node_modules\@react-native-google-signin\google-signin\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-fbsdk] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-fbsdk\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:5-26:41
+MERGED from [:react-native-fbsdk] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-fbsdk\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:5-26:41
 MERGED from [:react-native-gesture-handler] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-safe-area-context] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
@@ -171,106 +276,156 @@ MERGED from [:react-native-screens] E:\Resource\Project\ReactNative\Todoist\node
 MERGED from [:react-native-screens] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\f48ad73390f9d41c4966ce25bccc3bb7\jetified-react-native-0.64.2\AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\f48ad73390f9d41c4966ce25bccc3bb7\jetified-react-native-0.64.2\AndroidManifest.xml:7:5-9:41
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5c64f35c4f864d4cd139ccbbff91ceb9\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5c64f35c4f864d4cd139ccbbff91ceb9\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [org.webkit:android-jsc:r245459] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\65337ca8c0783fc27be60d476a5f6b75\jetified-android-jsc-r245459\AndroidManifest.xml:7:5-9:41
-MERGED from [org.webkit:android-jsc:r245459] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\65337ca8c0783fc27be60d476a5f6b75\jetified-android-jsc-r245459\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-reanimated] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-reanimated\android\build\.transforms\da8de9359631c3df7aa022207953eeb7\jetified-react-native-reanimated-64-jsc\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-reanimated] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-reanimated\android\build\.transforms\da8de9359631c3df7aa022207953eeb7\jetified-react-native-reanimated-64-jsc\AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.fresco:flipper:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\84c6a932a42f35f9b796c5d67e6eb742\jetified-flipper-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:flipper:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\84c6a932a42f35f9b796c5d67e6eb742\jetified-flipper-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:stetho:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5f2c193a45b1b439ec8f5a8edcb37f33\jetified-stetho-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:stetho:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5f2c193a45b1b439ec8f5a8edcb37f33\jetified-stetho-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fresco:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\336cee0c87f467fe6bfb36840b0630b2\jetified-fresco-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fresco:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\336cee0c87f467fe6bfb36840b0630b2\jetified-fresco-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\8850ed829d25245e8497182323bc73d2\jetified-drawee-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\8850ed829d25245e8497182323bc73d2\jetified-drawee-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagefilters:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cedca5e04b0c20fa79ac1887f71f3325\jetified-nativeimagefilters-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagefilters:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cedca5e04b0c20fa79ac1887f71f3325\jetified-nativeimagefilters-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:memory-type-native:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\e5db14b71da4d91c0ca7d2ee268e707a\jetified-memory-type-native-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:memory-type-native:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\e5db14b71da4d91c0ca7d2ee268e707a\jetified-memory-type-native-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:memory-type-java:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3c0394800bb3c89c17ec23de03c5f2ca\jetified-memory-type-java-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:memory-type-java:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3c0394800bb3c89c17ec23de03c5f2ca\jetified-memory-type-java-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-native:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cf4b730f71bf97441bdf4ebe8cfeeb88\jetified-imagepipeline-native-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-native:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cf4b730f71bf97441bdf4ebe8cfeeb88\jetified-imagepipeline-native-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:soloader:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\c35a46a0a862651f1e0a89250dcee30d\jetified-soloader-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:soloader:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\c35a46a0a862651f1e0a89250dcee30d\jetified-soloader-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.soloader:soloader:0.10.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5fb5c0c623111e89d0cb2cc6cbe55df8\jetified-soloader-0.10.1\AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.soloader:soloader:0.10.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5fb5c0c623111e89d0cb2cc6cbe55df8\jetified-soloader-0.10.1\AndroidManifest.xml:7:5-9:41
-MERGED from [com.google.android.material:material:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\747f53e70e3372703b3570ac3dfbfb03\material-1.1.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.material:material:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\747f53e70e3372703b3570ac3dfbfb03\material-1.1.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\d14dbad7340cad958a2e361a440b498d\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\d14dbad7340cad958a2e361a440b498d\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ce476dc2f1f7d59691ad234de1ec2fb1\sqlite-framework-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ce476dc2f1f7d59691ad234de1ec2fb1\sqlite-framework-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\f66a3370e9e4f8cb0ae0c6936c538c41\jetified-imagepipeline-okhttp3-2.0.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\f66a3370e9e4f8cb0ae0c6936c538c41\jetified-imagepipeline-okhttp3-2.0.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:memory-type-ashmem:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\fc37ff7af2e3c5de8e592a9550a0df07\jetified-memory-type-ashmem-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:memory-type-ashmem:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\fc37ff7af2e3c5de8e592a9550a0df07\jetified-memory-type-ashmem-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cda5d9a1a957ef402e55e5ba5c5bfd6d\jetified-imagepipeline-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cda5d9a1a957ef402e55e5ba5c5bfd6d\jetified-imagepipeline-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagetranscoder:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\8f540c10f5114d05b8ee24db3e19e1f8\jetified-nativeimagetranscoder-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:nativeimagetranscoder:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\8f540c10f5114d05b8ee24db3e19e1f8\jetified-nativeimagetranscoder-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\b51f59890c1c9ada8eed6d21cecc075e\jetified-imagepipeline-base-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\b51f59890c1c9ada8eed6d21cecc075e\jetified-imagepipeline-base-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\baebfc24ee3e9d675a4614c1f27f118a\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\baebfc24ee3e9d675a4614c1f27f118a\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\2ee35bfe9d2e9019f071c4a047a96db2\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\2ee35bfe9d2e9019f071c4a047a96db2\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\6e0f82970a69a6b386ee45a08ac362fe\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\6e0f82970a69a6b386ee45a08ac362fe\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\803d31b2df2f8d968e6cb7c3ffa37ef9\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\803d31b2df2f8d968e6cb7c3ffa37ef9\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5e5754defa7ec1b661ffd11a17838c67\fragment-1.2.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5e5754defa7ec1b661ffd11a17838c67\fragment-1.2.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3c1c25210c9523b781f68f6e5260d398\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3c1c25210c9523b781f68f6e5260d398\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\22a5d9f52d495a432176451a4c4ba982\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\22a5d9f52d495a432176451a4c4ba982\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\2f70304b103eacfab05dbe55739e869f\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\2f70304b103eacfab05dbe55739e869f\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\49dee3543bc65746b6bba9f83aa0b18a\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\49dee3543bc65746b6bba9f83aa0b18a\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\412f4e60090d6c7e949274f12fef4b1d\jetified-activity-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\412f4e60090d6c7e949274f12fef4b1d\jetified-activity-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\c38f0dcdb4eabb88f8961812937ce545\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\c38f0dcdb4eabb88f8961812937ce545\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\86cf751735e9e9dd0416cce35c4a71a1\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\86cf751735e9e9dd0416cce35c4a71a1\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.transition:transition:1.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ae1a1dddf9cea612695d8157e2ff38cd\transition-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.transition:transition:1.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ae1a1dddf9cea612695d8157e2ff38cd\transition-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\361553562ce35cf8cf447832c4a7d1ec\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\361553562ce35cf8cf447832c4a7d1ec\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\d67cd79abd1ca209502f51c69d23182b\core-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\d67cd79abd1ca209502f51c69d23182b\core-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\bae4382a703142a8f82a100a412243f1\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\bae4382a703142a8f82a100a412243f1\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\74153744c3b76afb34d0c28a686a981b\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\74153744c3b76afb34d0c28a686a981b\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\af9af86a2035b10a0514f89f66cf8a9a\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\af9af86a2035b10a0514f89f66cf8a9a\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cbff631e500aff82164944184b49a648\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cbff631e500aff82164944184b49a648\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5af1825acc1d96709826d913b19b2820\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5af1825acc1d96709826d913b19b2820\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\dcc76cd07ebcaa6166d73d461b1667fa\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\dcc76cd07ebcaa6166d73d461b1667fa\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\b37a656be7da34e79d326523a32fbcaa\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\b37a656be7da34e79d326523a32fbcaa\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\29e9e6ac99026fff5bb21139b2ad74ac\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\29e9e6ac99026fff5bb21139b2ad74ac\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\15faa7fdc535e832982b4615d300cb77\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\15faa7fdc535e832982b4615d300cb77\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\27e0ecfbdce6f985a506017f5fd54aeb\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\27e0ecfbdce6f985a506017f5fd54aeb\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\268ebc0b2bd661fb18fff0cceeca14c7\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\268ebc0b2bd661fb18fff0cceeca14c7\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [com.facebook.fresco:fbcore:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5ff10ad0f2bea4b2419e86a549e99aac\jetified-fbcore-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5ff10ad0f2bea4b2419e86a549e99aac\jetified-fbcore-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:ui-common:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ffdaca04e33e18187dfc99a2b0ddad3b\jetified-ui-common-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:ui-common:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ffdaca04e33e18187dfc99a2b0ddad3b\jetified-ui-common-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\06df65ce4b16a96f2fff46a3da50093f\jetified-react-native-0.64.2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\06df65ce4b16a96f2fff46a3da50093f\jetified-react-native-0.64.2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0bc2f2784a6e219530a5897c01738c4b\jetified-play-services-auth-16.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0bc2f2784a6e219530a5897c01738c4b\jetified-play-services-auth-16.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:16.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\40a5594a66a81c987fa61108eb8e6be8\jetified-play-services-auth-api-phone-16.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:16.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\40a5594a66a81c987fa61108eb8e6be8\jetified-play-services-auth-api-phone-16.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5e7cd2d15117fd201c0edba6aedb0be3\jetified-play-services-auth-base-16.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5e7cd2d15117fd201c0edba6aedb0be3\jetified-play-services-auth-base-16.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a6e09c84f3b1636e1c96516de939da6f\jetified-play-services-base-16.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a6e09c84f3b1636e1c96516de939da6f\jetified-play-services-base-16.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\68a029275d1857a60959f84e441c7502\jetified-play-services-tasks-16.0.1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\68a029275d1857a60959f84e441c7502\jetified-play-services-tasks-16.0.1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3a19df6e4832cfbd99325441825a0168\jetified-play-services-basement-16.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3a19df6e4832cfbd99325441825a0168\jetified-play-services-basement-16.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.android:facebook-android-sdk:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\19ccd8560d11237b341b1aef621af878\jetified-facebook-android-sdk-8.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-android-sdk:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\19ccd8560d11237b341b1aef621af878\jetified-facebook-android-sdk-8.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-login:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ba36110a7a77e384869f443cc0fc16d8\jetified-facebook-login-8.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-login:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ba36110a7a77e384869f443cc0fc16d8\jetified-facebook-login-8.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-gamingservices:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\7ed8a38036747af865fa140c370acc4b\jetified-facebook-gamingservices-8.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-gamingservices:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\7ed8a38036747af865fa140c370acc4b\jetified-facebook-gamingservices-8.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-share:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\8ff5fc395aea942b97303412e1d80f0c\jetified-facebook-share-8.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-share:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\8ff5fc395aea942b97303412e1d80f0c\jetified-facebook-share-8.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-common:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad359a508ff8765395700837f96e5e94\jetified-facebook-common-8.2.0\AndroidManifest.xml:25:5-27:41
+MERGED from [com.facebook.android:facebook-common:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad359a508ff8765395700837f96e5e94\jetified-facebook-common-8.2.0\AndroidManifest.xml:25:5-27:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\087314bbcbdd87ae530d1c6c05a32859\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\087314bbcbdd87ae530d1c6c05a32859\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0cdb6ede7b658dd888d8704df2ac7830\browser-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0cdb6ede7b658dd888d8704df2ac7830\browser-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5dfb1f6d2d0839a2c9a99e4f44202d7f\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5dfb1f6d2d0839a2c9a99e4f44202d7f\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ea54a404e0ba3fd008cbe04168520b98\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ea54a404e0ba3fd008cbe04168520b98\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0e13778e93607c0043921e8999f8eea5\jetified-android-jsc-r245459\AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0e13778e93607c0043921e8999f8eea5\jetified-android-jsc-r245459\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-reanimated\android\build\.transforms\9d545a8a12efd54acc8cb6cf6c21f681\jetified-react-native-reanimated-64-jsc\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] E:\Resource\Project\ReactNative\Todoist\node_modules\react-native-reanimated\android\build\.transforms\9d545a8a12efd54acc8cb6cf6c21f681\jetified-react-native-reanimated-64-jsc\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:flipper:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\b67e4652830274294495e4e383209110\jetified-flipper-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:flipper:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\b67e4652830274294495e4e383209110\jetified-flipper-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:stetho:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\da48cb5a712712f40ac4fdef1f4949cf\jetified-stetho-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:stetho:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\da48cb5a712712f40ac4fdef1f4949cf\jetified-stetho-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5f94ee86acb202e704e1dca4b4ed9850\jetified-fresco-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5f94ee86acb202e704e1dca4b4ed9850\jetified-fresco-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5db716ae69dc9412c6af2ce6344515ea\jetified-drawee-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5db716ae69dc9412c6af2ce6344515ea\jetified-drawee-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5ea83279d99c884cf4f5156e7e0e4134\jetified-nativeimagefilters-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5ea83279d99c884cf4f5156e7e0e4134\jetified-nativeimagefilters-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-native:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\394ce756688f64d0587f8204acae5909\jetified-memory-type-native-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-native:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\394ce756688f64d0587f8204acae5909\jetified-memory-type-native-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-java:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ca038f754f0e2b30aac935abead2b594\jetified-memory-type-java-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-java:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ca038f754f0e2b30aac935abead2b594\jetified-memory-type-java-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-native:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\6b84aa71bdfcb1859c8a4aa8c94c4463\jetified-imagepipeline-native-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-native:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\6b84aa71bdfcb1859c8a4aa8c94c4463\jetified-imagepipeline-native-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:soloader:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\530bcad1455ccc8e4a2bd0839518a9ad\jetified-soloader-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:soloader:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\530bcad1455ccc8e4a2bd0839518a9ad\jetified-soloader-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.10.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5aa88482790a14e84569fa1b144649e8\jetified-soloader-0.10.1\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.10.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5aa88482790a14e84569fa1b144649e8\jetified-soloader-0.10.1\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cf1d65f145ab1561355de8d65e7e16a2\material-1.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\cf1d65f145ab1561355de8d65e7e16a2\material-1.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\93c8e25eaa4326f2a212ce97a30ae785\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\93c8e25eaa4326f2a212ce97a30ae785\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\38fa5562f992aec3c8a9c78d7257f184\sqlite-framework-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\38fa5562f992aec3c8a9c78d7257f184\sqlite-framework-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.facebook.android:facebook-applinks:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5c510f196ebf1c074e65337f5ac0914e\jetified-facebook-applinks-8.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-applinks:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5c510f196ebf1c074e65337f5ac0914e\jetified-facebook-applinks-8.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-messenger:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\2ffcd7def3f7822399c30a3467c32d86\jetified-facebook-messenger-8.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-messenger:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\2ffcd7def3f7822399c30a3467c32d86\jetified-facebook-messenger-8.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-core:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0c9f8178ec5d4ed278391b8c42a1f6c0\jetified-facebook-core-8.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-core:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0c9f8178ec5d4ed278391b8c42a1f6c0\jetified-facebook-core-8.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\879d630a30a66c6c1dd9e1889eba2e41\jetified-imagepipeline-okhttp3-2.0.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\879d630a30a66c6c1dd9e1889eba2e41\jetified-imagepipeline-okhttp3-2.0.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-ashmem:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\98f058d6de613ecf6ab7e85b226d3d91\jetified-memory-type-ashmem-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-ashmem:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\98f058d6de613ecf6ab7e85b226d3d91\jetified-memory-type-ashmem-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\93a90ef457087d28b8086828237caaf9\jetified-imagepipeline-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\93a90ef457087d28b8086828237caaf9\jetified-imagepipeline-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\1b6f29286357fc5c3198a4e0fdb11e3d\jetified-nativeimagetranscoder-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\1b6f29286357fc5c3198a4e0fdb11e3d\jetified-nativeimagetranscoder-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad558b07cbbfc7c4fe7b90e35c82da7a\jetified-imagepipeline-base-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad558b07cbbfc7c4fe7b90e35c82da7a\jetified-imagepipeline-base-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\18d278fb47be573ba80a327609df8d9b\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\18d278fb47be573ba80a327609df8d9b\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\fd60fc4d32769c1f5d85072f1c5eb0b1\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\fd60fc4d32769c1f5d85072f1c5eb0b1\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\c3931fcf4091ba102ec9db02819dcfb8\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\c3931fcf4091ba102ec9db02819dcfb8\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\4824fcbb3cb5549e8416ed3b70d54a53\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\4824fcbb3cb5549e8416ed3b70d54a53\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\c6207c29811f80c3638c20a331313014\fragment-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\c6207c29811f80c3638c20a331313014\fragment-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\04c6a0109bdd4689adb61f23ae32507d\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\04c6a0109bdd4689adb61f23ae32507d\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\1c5ce621774571ffd8b73e70cd3e4426\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\1c5ce621774571ffd8b73e70cd3e4426\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\7abc49b1f5c64802d4c206fbe29af9a9\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\7abc49b1f5c64802d4c206fbe29af9a9\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\72e9832296c903e7480d7b8423fcfe16\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\72e9832296c903e7480d7b8423fcfe16\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\8e6cf0986029698bc072c29e4c234a30\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\8e6cf0986029698bc072c29e4c234a30\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\7180d4e6aa7b3d7c271846a31432c72b\jetified-activity-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\7180d4e6aa7b3d7c271846a31432c72b\jetified-activity-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\e13183910d9a1963ccf0d0e8ed9aa984\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\e13183910d9a1963ccf0d0e8ed9aa984\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\80bef7b63bdb531ce011060950922211\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\80bef7b63bdb531ce011060950922211\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\64361abf4845a8fe6dfaade12084f86a\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\64361abf4845a8fe6dfaade12084f86a\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a7fa0e4606228800c8c063aa04dcb918\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a7fa0e4606228800c8c063aa04dcb918\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ff513f083dc6cfb0a53981413c21236b\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ff513f083dc6cfb0a53981413c21236b\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3e16881a2d3af60ecb1a8202944dacf5\media-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3e16881a2d3af60ecb1a8202944dacf5\media-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\54920250f2c8c4e9da39cb5d22a68511\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\54920250f2c8c4e9da39cb5d22a68511\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\58b3f1d82ed43c61f911f4cf74f29cd8\core-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\58b3f1d82ed43c61f911f4cf74f29cd8\core-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\22f129c417392592a4a1a906d4a84092\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\22f129c417392592a4a1a906d4a84092\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\28d99d2099977f145ac3a0a92c4caa39\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\28d99d2099977f145ac3a0a92c4caa39\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5521da4834d14724cb3a78ee9a19befc\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\5521da4834d14724cb3a78ee9a19befc\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\65aa1be61a5aa271175afba2912f6c9f\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\65aa1be61a5aa271175afba2912f6c9f\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\7f12c05ff579849d21ef3c55d761613f\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\7f12c05ff579849d21ef3c55d761613f\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\c1b1cd767e1220be73026f7c35df8024\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\c1b1cd767e1220be73026f7c35df8024\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\b0bff280ef5cc4272e04982c4bab8359\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\b0bff280ef5cc4272e04982c4bab8359\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\d003e2c3035dcb2c532791ff622ac828\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\d003e2c3035dcb2c532791ff622ac828\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\310b0229f6aaf0e884b60b5e5c379a59\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\310b0229f6aaf0e884b60b5e5c379a59\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\1a2855e453906aa52f4c09690220ecf1\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\1a2855e453906aa52f4c09690220ecf1\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a9e882679d9df5410d3665483b45d70a\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a9e882679d9df5410d3665483b45d70a\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\63777342dfe4040c718a271474dd48e9\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\63777342dfe4040c718a271474dd48e9\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\26b577ae79b491440adcaa95b9ce5c7d\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\26b577ae79b491440adcaa95b9ce5c7d\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\9b06cf24aeaedc8112d824a10820c5c5\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\9b06cf24aeaedc8112d824a10820c5c5\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fbcore:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\e35b2076250708f0c6812ef296e68233\jetified-fbcore-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\e35b2076250708f0c6812ef296e68233\jetified-fbcore-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:ui-common:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\05b9b00b6a7b0d2edbac4edb6683f20c\jetified-ui-common-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:ui-common:2.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\05b9b00b6a7b0d2edbac4edb6683f20c\jetified-ui-common-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\84313ed0ca8a7d4df939a4a5a404fdc6\jetified-installreferrer-1.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\84313ed0ca8a7d4df939a4a5a404fdc6\jetified-installreferrer-1.0\AndroidManifest.xml:5:5-7:41
 INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\debug\AndroidManifest.xml
 INJECTED from E:\Resource\Project\ReactNative\Todoist\android\app\src\debug\AndroidManifest.xml
 	android:targetSdkVersion
@@ -288,6 +443,70 @@ ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\debug\Android
 	android:name
 		ADDED from E:\Resource\Project\ReactNative\Todoist\android\app\src\debug\AndroidManifest.xml:11:19-83
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from [com.facebook.flipper:flipper:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a8f6015f96666ab8d93bfe5b64998bc8\jetified-flipper-0.75.1\AndroidManifest.xml:16:5-76
+ADDED from [com.facebook.flipper:flipper:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\f790b8d601e4a5305c842adb2c9a9802\jetified-flipper-0.75.1\AndroidManifest.xml:16:5-76
 	android:name
-		ADDED from [com.facebook.flipper:flipper:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a8f6015f96666ab8d93bfe5b64998bc8\jetified-flipper-0.75.1\AndroidManifest.xml:16:22-73
+		ADDED from [com.facebook.flipper:flipper:0.75.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\f790b8d601e4a5305c842adb2c9a9802\jetified-flipper-0.75.1\AndroidManifest.xml:16:22-73
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0bc2f2784a6e219530a5897c01738c4b\jetified-play-services-auth-16.0.1\AndroidManifest.xml:23:9-27:75
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0bc2f2784a6e219530a5897c01738c4b\jetified-play-services-auth-16.0.1\AndroidManifest.xml:25:13-46
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0bc2f2784a6e219530a5897c01738c4b\jetified-play-services-auth-16.0.1\AndroidManifest.xml:26:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0bc2f2784a6e219530a5897c01738c4b\jetified-play-services-auth-16.0.1\AndroidManifest.xml:27:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0bc2f2784a6e219530a5897c01738c4b\jetified-play-services-auth-16.0.1\AndroidManifest.xml:24:13-93
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0bc2f2784a6e219530a5897c01738c4b\jetified-play-services-auth-16.0.1\AndroidManifest.xml:33:9-36:110
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0bc2f2784a6e219530a5897c01738c4b\jetified-play-services-auth-16.0.1\AndroidManifest.xml:35:13-36
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0bc2f2784a6e219530a5897c01738c4b\jetified-play-services-auth-16.0.1\AndroidManifest.xml:36:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0bc2f2784a6e219530a5897c01738c4b\jetified-play-services-auth-16.0.1\AndroidManifest.xml:34:13-89
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a6e09c84f3b1636e1c96516de939da6f\jetified-play-services-base-16.0.1\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a6e09c84f3b1636e1c96516de939da6f\jetified-play-services-base-16.0.1\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a6e09c84f3b1636e1c96516de939da6f\jetified-play-services-base-16.0.1\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\a6e09c84f3b1636e1c96516de939da6f\jetified-play-services-base-16.0.1\AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3a19df6e4832cfbd99325441825a0168\jetified-play-services-basement-16.0.1\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3a19df6e4832cfbd99325441825a0168\jetified-play-services-basement-16.0.1\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\3a19df6e4832cfbd99325441825a0168\jetified-play-services-basement-16.0.1\AndroidManifest.xml:24:13-58
+activity#com.facebook.CustomTabMainActivity
+ADDED from [com.facebook.android:facebook-common:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad359a508ff8765395700837f96e5e94\jetified-facebook-common-8.2.0\AndroidManifest.xml:34:9-71
+	android:name
+		ADDED from [com.facebook.android:facebook-common:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad359a508ff8765395700837f96e5e94\jetified-facebook-common-8.2.0\AndroidManifest.xml:34:19-68
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:cct.${applicationId}+data:scheme:fbconnect
+ADDED from [com.facebook.android:facebook-common:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad359a508ff8765395700837f96e5e94\jetified-facebook-common-8.2.0\AndroidManifest.xml:39:13-48:29
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:cct.com.todoist+data:scheme:fbconnect
+ADDED from [com.facebook.android:facebook-common:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\ad359a508ff8765395700837f96e5e94\jetified-facebook-common-8.2.0\AndroidManifest.xml:39:13-48:29
+provider#com.facebook.internal.FacebookInitProvider
+ADDED from [com.facebook.android:facebook-core:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0c9f8178ec5d4ed278391b8c42a1f6c0\jetified-facebook-core-8.2.0\AndroidManifest.xml:39:9-42:40
+	android:authorities
+		ADDED from [com.facebook.android:facebook-core:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0c9f8178ec5d4ed278391b8c42a1f6c0\jetified-facebook-core-8.2.0\AndroidManifest.xml:41:13-72
+	android:exported
+		ADDED from [com.facebook.android:facebook-core:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0c9f8178ec5d4ed278391b8c42a1f6c0\jetified-facebook-core-8.2.0\AndroidManifest.xml:42:13-37
+	android:name
+		ADDED from [com.facebook.android:facebook-core:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0c9f8178ec5d4ed278391b8c42a1f6c0\jetified-facebook-core-8.2.0\AndroidManifest.xml:40:13-70
+receiver#com.facebook.CurrentAccessTokenExpirationBroadcastReceiver
+ADDED from [com.facebook.android:facebook-core:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0c9f8178ec5d4ed278391b8c42a1f6c0\jetified-facebook-core-8.2.0\AndroidManifest.xml:44:9-50:20
+	android:exported
+		ADDED from [com.facebook.android:facebook-core:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0c9f8178ec5d4ed278391b8c42a1f6c0\jetified-facebook-core-8.2.0\AndroidManifest.xml:46:13-37
+	android:name
+		ADDED from [com.facebook.android:facebook-core:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0c9f8178ec5d4ed278391b8c42a1f6c0\jetified-facebook-core-8.2.0\AndroidManifest.xml:45:13-86
+intent-filter#action:name:com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED
+ADDED from [com.facebook.android:facebook-core:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0c9f8178ec5d4ed278391b8c42a1f6c0\jetified-facebook-core-8.2.0\AndroidManifest.xml:47:13-49:29
+action#com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED
+ADDED from [com.facebook.android:facebook-core:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0c9f8178ec5d4ed278391b8c42a1f6c0\jetified-facebook-core-8.2.0\AndroidManifest.xml:48:17-95
+	android:name
+		ADDED from [com.facebook.android:facebook-core:8.2.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\0c9f8178ec5d4ed278391b8c42a1f6c0\jetified-facebook-core-8.2.0\AndroidManifest.xml:48:25-92
+uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+ADDED from [com.android.installreferrer:installreferrer:1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\84313ed0ca8a7d4df939a4a5a404fdc6\jetified-installreferrer-1.0\AndroidManifest.xml:9:5-110
+	android:name
+		ADDED from [com.android.installreferrer:installreferrer:1.0] C:\Users\roboc\.gradle\caches\transforms-2\files-2.1\84313ed0ca8a7d4df939a4a5a404fdc6\jetified-installreferrer-1.0\AndroidManifest.xml:9:22-107

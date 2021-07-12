@@ -4,7 +4,7 @@
             "outputFile": "E:\\Resource\\Project\\ReactNative\\Todoist\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v21\\values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\d14dbad7340cad958a2e361a440b498d\\appcompat-1.1.0\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\93c8e25eaa4326f2a212ce97a30ae785\\appcompat-1.1.0\\res\\values-watch-v21\\values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",

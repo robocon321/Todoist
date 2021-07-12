@@ -1,10 +1,71 @@
 import React from 'react';
 import {StyleSheet, View, Image, Text} from 'react-native';
 import {Button} from 'react-native-elements';
+import {
+  GoogleSignin,
+  statusCodes,
+} from '@react-native-google-signin/google-signin';
+import {LoginManager, AccessToken} from 'react-native-fbsdk';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
 import * as IMAGE from '../constants/images';
+
+GoogleSignin.configure({
+  webClientId:
+    '1059667390919-rn5mjeq30qq68dhbs1gmv8re7qmoqs95.apps.googleusercontent.com',
+  offlineAccess: true,
+});
 export default class Login extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  signInByGg = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      console.log(userInfo);
+    } catch (error) {
+      console.log(error);
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        // user cancelled the login flow
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        // operation (e.g. sign in) is in progress already
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        // play services not available or outdated
+      } else {
+        // some other error happened
+      }
+    }
+  };
+
+  signInByFb = () => {
+    LoginManager.logInWithPermissions(['public_profile']).then(
+      function (result) {
+        if (result.isCancelled) {
+          console.log('Login cancelled');
+        } else {
+          AccessToken.getCurrentAccessToken().then(data => {
+            const {accessToken} = data;
+            fetch(
+              'https://graph.facebook.com/v2.5/me?fields=id,name,picture&access_token=' +
+                accessToken,
+            )
+              .then(response => response.json())
+              .then(json => {
+                console.log(json);
+              })
+              .catch(() => {
+                console.log('Fetch data error');
+              });
+          });
+        }
+      },
+      function (error) {
+        console.log('Login fail with error: ' + error);
+      },
+    );
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -18,12 +79,13 @@ export default class Login extends React.Component {
               style={[styles.iconButton, {tintColor: COLOR.white}]}
             />
           }
+          onPress={this.signInByGg}
           titleStyle={styles.titleStyleBtnEmail}
           buttonStyle={styles.buttonStyleBtnEmail}
           title="CONTINUE WITH EMAIL"
         />
         <Button
-          onPress={this.signIn}
+          onPress={this.signInByGg}
           icon={<Image source={ICON.gmail} style={styles.iconButton} />}
           titleStyle={styles.titleStyleBtnGmail}
           buttonStyle={styles.buttonStyleBtnGmail}
@@ -36,6 +98,7 @@ export default class Login extends React.Component {
             buttonStyle={[styles.buttonStyleBtnFbIp, styles.buttonStyleIp]}
           />
           <Button
+            onPress={this.signInByFb}
             icon={<Image source={ICON.facebook} style={styles.iconButton} />}
             titleStyle={styles.titleStyleBtnFbIp}
             buttonStyle={[styles.buttonStyleBtnFbIp, styles.buttonStyleFb]}
@@ -60,6 +123,7 @@ const styles = StyleSheet.create({
     paddingVertical: 30,
     paddingHorizontal: 10,
     justifyContent: 'space-between',
+    backgroundColor: COLOR.white,
   },
   logo: {
     width: 50,
