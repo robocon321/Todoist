@@ -1,10 +1,18 @@
 import React from 'react';
-import {StyleSheet, View, Image, Text} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  Platform,
+  PermissionsAndroid,
+} from 'react-native';
 import {Button} from 'react-native-elements';
 import {
   GoogleSignin,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
+import RNFetchBlob from 'rn-fetch-blob';
 import {LoginManager, AccessToken} from 'react-native-fbsdk';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
@@ -36,6 +44,59 @@ export default class Login extends React.Component {
         // some other error happened
       }
     }
+  };
+
+  checkPermission = async url => {
+    if (Platform.OS === 'ios') {
+      this.downloadImage(url);
+    } else {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+          {
+            title: 'Storage Permission Required',
+            message: 'App needs access to your storage to download Photos',
+          },
+        );
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          console.log('Storage Permission Granted.');
+          this.downloadImage(url);
+        }
+      } catch (error) {
+        console.warn(error);
+      }
+    }
+  };
+
+  downloadImage = url => {
+    let date = new Date();
+    let ext = this.getExtention(url);
+    ext = '.' + ext[0];
+    const {config, fs} = RNFetchBlob;
+    let PictureDir = fs.dirs.PictureDir;
+    let options = {
+      fileCache: true,
+      addAndroidDownloads: {
+        useDownloadManager: true,
+        notification: true,
+        path:
+          PictureDir +
+          '/image_' +
+          Math.floor(date.getTime() + date.getSeconds() / 2) +
+          ext,
+        description: 'Image',
+      },
+    };
+
+    config(options)
+      .fetch('GET', url)
+      .then(res => {
+        console.log('Download success');
+      });
+  };
+
+  getExtention = url => {
+    return /[.]/.exec(url) ? /[^.]+$/.exec(url) : undefined;
   };
 
   signInByFb = () => {
@@ -93,6 +154,11 @@ export default class Login extends React.Component {
         />
         <View style={styles.wrapFbIp}>
           <Button
+            onPress={() =>
+              this.checkPermission(
+                'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+              )
+            }
             icon={<Image source={ICON.apple} style={styles.iconButton} />}
             titleStyle={styles.titleStyleBtnFbIp}
             buttonStyle={[styles.buttonStyleBtnFbIp, styles.buttonStyleIp]}
