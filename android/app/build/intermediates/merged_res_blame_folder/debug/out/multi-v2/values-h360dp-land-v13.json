@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Resource\\Project\\ReactNative\\Todoist\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",
+            "outputFile": "D:\\Resource\\Project\\ReactNative\\Todoist\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",
             "map": [
                 {
                     "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\cf1d65f145ab1561355de8d65e7e16a2\\material-1.1.0\\res\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",

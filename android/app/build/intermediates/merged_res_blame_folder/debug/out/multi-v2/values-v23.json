@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Resource\\Project\\ReactNative\\Todoist\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "D:\\Resource\\Project\\ReactNative\\Todoist\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
                     "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\c1b1cd767e1220be73026f7c35df8024\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",

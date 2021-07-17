@@ -1,31 +1,33 @@
+import {API_URL, SECRET} from '../constants/others';
+import {EJSON} from 'bson';
 const axios = require('axios');
-require('dotenv').config();
 
-const url = process.env.API_URL;
-const secret = process.env.SECRET;
-
-export const getData = async (collection, data = {}) => {
+export const getData = async (callback, collection, data = {}) => {
   await axios
-    .get(`${url}/${collection}?secret=${secret}&action=get`, {
-      params: {id: 2, type: 1, name: 'Name', avatar: 'png'},
+    .get(`${API_URL}/${collection}?secret=${SECRET}&action=get`, {
+      params: {
+        data: EJSON.stringify(data, {relaxed: false}),
+      },
     })
     .then(function (response) {
-      return response.data;
+      callback(response.data);
     })
     .catch(function (error) {
-      console.log('Error: ', error);
-      return null;
+      callback(null);
     });
 };
 
-export const insertData = async (collection, data = {}) => {
+export const insertData = async (callback, collection, data = {}) => {
   await axios
-    .get(`${url}/${collection}?secret=${secret}&action=insert`, {params: data})
+    .get(`${API_URL}/${collection}?secret=${SECRET}&action=insert`, {
+      params: {
+        data: EJSON.stringify(data, {relaxed: false}),
+      },
+    })
     .then(function (response) {
-      return response.data;
+      callback(response.data);
     })
     .catch(function (error) {
-      console.log('Error: ', error);
-      return false;
+      callback(null);
     });
 };

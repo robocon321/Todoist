@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Resource\\Project\\ReactNative\\Todoist\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rHK\\values-zh-rHK.xml",
+            "outputFile": "D:\\Resource\\Project\\ReactNative\\Todoist\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rHK\\values-zh-rHK.xml",
             "map": [
-                {
-                    "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\3a19df6e4832cfbd99325441825a0168\\jetified-play-services-basement-16.0.1\\res\\values-zh-rHK\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "166",
-                        "endOffsets": "417"
-                    },
-                    "to": {
-                        "startLines": "60",
-                        "startColumns": "4",
-                        "startOffsets": "5907",
-                        "endColumns": "166",
-                        "endOffsets": "6069"
-                    }
-                },
                 {
                     "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\93c8e25eaa4326f2a212ce97a30ae785\\appcompat-1.1.0\\res\\values-zh-rHK\\values-zh-rHK.xml",
                     "from": {
@@ -72,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\a6e09c84f3b1636e1c96516de939da6f\\jetified-play-services-base-16.0.1\\res\\values-zh-rHK\\values.xml",
+                    "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\a56d6ad918f4f52ea293a2ab7237dbdf\\jetified-play-services-base-16.0.1\\res\\values-zh-rHK\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -86,6 +69,23 @@
                         "startOffsets": "4885,4988,5148,5265,5369,5535,5653,5785,6074,6243,6346,6506,6623,6789,6927,7012,7099",
                         "endColumns": "102,159,116,103,165,117,131,121,168,102,159,116,165,137,84,86,100",
                         "endOffsets": "4983,5143,5260,5364,5530,5648,5780,5902,6238,6341,6501,6618,6784,6922,7007,7094,7195"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\b669feb813a489bac92c1375e37c60f2\\jetified-play-services-basement-16.0.1\\res\\values-zh-rHK\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "166",
+                        "endOffsets": "417"
+                    },
+                    "to": {
+                        "startLines": "60",
+                        "startColumns": "4",
+                        "startOffsets": "5907",
+                        "endColumns": "166",
+                        "endOffsets": "6069"
                     }
                 }
             ]

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Resource\\Project\\ReactNative\\Todoist\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-th\\values-th.xml",
+            "outputFile": "D:\\Resource\\Project\\ReactNative\\Todoist\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-th\\values-th.xml",
             "map": [
                 {
                     "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\58b3f1d82ed43c61f911f4cf74f29cd8\\core-1.1.0\\res\\values-th\\values-th.xml",
@@ -38,24 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\a6e09c84f3b1636e1c96516de939da6f\\jetified-play-services-base-16.0.1\\res\\values-th\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "245,349,528,649,754,949,1071,1216,1349,1552,1655,1833,1953,2152,2329,2419,2513",
-                        "endColumns": "103,178,120,104,194,121,144,132,202,102,177,119,198,176,89,93,108",
-                        "endOffsets": "348,527,648,753,948,1070,1215,1348,1551,1654,1832,1952,2151,2328,2418,2512,2621"
-                    },
-                    "to": {
-                        "startLines": "52,53,54,55,56,57,58,59,61,62,63,64,65,66,67,68,69",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "5269,5377,5556,5681,5790,5985,6111,6260,6585,6788,6895,7073,7197,7396,7577,7671,7769",
-                        "endColumns": "107,178,124,108,194,125,148,136,202,106,177,123,198,180,93,97,112",
-                        "endOffsets": "5372,5551,5676,5785,5980,6106,6255,6392,6783,6890,7068,7192,7391,7572,7666,7764,7877"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\3a19df6e4832cfbd99325441825a0168\\jetified-play-services-basement-16.0.1\\res\\values-th\\values.xml",
+                    "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\b669feb813a489bac92c1375e37c60f2\\jetified-play-services-basement-16.0.1\\res\\values-th\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -86,6 +69,23 @@
                         "startOffsets": "2734,2885,3014,3167,3284,3370,3456,3533,3622,3716,3833,3945,4039,4133,4241,4365,4444,4525,4714,4810,4916,5035,5145",
                         "endColumns": "150,128,152,116,85,85,76,88,93,116,111,93,93,107,123,78,80,188,95,105,118,109,123",
                         "endOffsets": "2880,3009,3162,3279,3365,3451,3528,3617,3711,3828,3940,4034,4128,4236,4360,4439,4520,4709,4805,4911,5030,5140,5264"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\a56d6ad918f4f52ea293a2ab7237dbdf\\jetified-play-services-base-16.0.1\\res\\values-th\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,349,528,649,754,949,1071,1216,1349,1552,1655,1833,1953,2152,2329,2419,2513",
+                        "endColumns": "103,178,120,104,194,121,144,132,202,102,177,119,198,176,89,93,108",
+                        "endOffsets": "348,527,648,753,948,1070,1215,1348,1551,1654,1832,1952,2151,2328,2418,2512,2621"
+                    },
+                    "to": {
+                        "startLines": "52,53,54,55,56,57,58,59,61,62,63,64,65,66,67,68,69",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "5269,5377,5556,5681,5790,5985,6111,6260,6585,6788,6895,7073,7197,7396,7577,7671,7769",
+                        "endColumns": "107,178,124,108,194,125,148,136,202,106,177,123,198,180,93,97,112",
+                        "endOffsets": "5372,5551,5676,5785,5980,6106,6255,6392,6783,6890,7068,7192,7391,7572,7666,7764,7877"
                     }
                 }
             ]

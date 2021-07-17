@@ -7,35 +7,26 @@
  */
 
 import React from 'react';
-import {StyleSheet, View, AsyncStorage} from 'react-native';
+import {StyleSheet} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 import Home from './screens/Home';
 import Login from './screens/Login';
 
 const App = () => {
-  const _retrieveData = async () => {
-    try {
-      const value = await AsyncStorage.getItem('account_id');
-      return value;
-    } catch (error) {
-      console.log(error);
-      return null;
-    }
-  };
-
-  const value = _retrieveData();
-  if (value != null) {
-    return (
-      <View style={styles.container}>
-        <Login />
-      </View>
-    );
-  } else {
-    return (
-      <View style={styles.container}>
-        <Home />
-      </View>
-    );
-  }
+  const Stack = createStackNavigator();
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+        initialRouteName="Login">
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 };
 
 const styles = StyleSheet.create({

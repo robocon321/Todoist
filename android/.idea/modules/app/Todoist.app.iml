@@ -131,11 +131,14 @@
     <orderEntry type="library" name="Gradle: com.facebook.fresco:imagepipeline-okhttp3:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.webkit:android-jsc:r245459@aar" level="project" />
     <orderEntry type="library" name="Gradle: artifacts:react-native-reanimated:unspecified" level="project" />
-    <orderEntry type="module" module-name="Todoist.react-native-community_google-signin" />
     <orderEntry type="module" module-name="Todoist.react-native-community_masked-view" />
+    <orderEntry type="module" module-name="Todoist.react-native-google-signin_google-signin" />
+    <orderEntry type="module" module-name="Todoist.react-native-fbsdk" />
     <orderEntry type="module" module-name="Todoist.react-native-gesture-handler" />
     <orderEntry type="module" module-name="Todoist.react-native-safe-area-context" />
     <orderEntry type="module" module-name="Todoist.react-native-screens" />
     <orderEntry type="module" module-name="Todoist.react-native-vector-icons" />
+    <orderEntry type="module" module-name="Todoist.realm" />
+    <orderEntry type="module" module-name="Todoist.rn-fetch-blob" />
   </component>
 </module>

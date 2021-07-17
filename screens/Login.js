@@ -6,6 +6,7 @@ import {
   Text,
   Platform,
   PermissionsAndroid,
+  AsyncStorage,
 } from 'react-native';
 import {Button} from 'react-native-elements';
 import {
@@ -14,6 +15,8 @@ import {
 } from '@react-native-google-signin/google-signin';
 import RNFetchBlob from 'rn-fetch-blob';
 import {LoginManager, AccessToken} from 'react-native-fbsdk';
+import {EJSON} from 'bson';
+import * as accountApi from '../api/accountApi';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
 import * as IMAGE from '../constants/images';
@@ -99,13 +102,29 @@ export default class Login extends React.Component {
     return /[.]/.exec(url) ? /[^.]+$/.exec(url) : undefined;
   };
 
+  loadData = id => {
+    // Todo
+  };
+
+  saveInfo = info => {
+    console.log('Hello world');
+    AsyncStorage.multiSet([
+      ['id', info.id],
+      ['name', info.name],
+      ['type', info.type],
+      ['avatar', info.avatar],
+    ]);
+    this.props.navigation.navigate('Home');
+  };
+
   signInByFb = () => {
     LoginManager.logInWithPermissions(['public_profile']).then(
-      function (result) {
+      result => {
         if (result.isCancelled) {
           console.log('Login cancelled');
         } else {
           AccessToken.getCurrentAccessToken().then(data => {
+            console.log(this.props);
             const {accessToken} = data;
             fetch(
               'https://graph.facebook.com/v2.5/me?fields=id,name,picture&access_token=' +
@@ -113,7 +132,27 @@ export default class Login extends React.Component {
             )
               .then(response => response.json())
               .then(json => {
-                console.log(json);
+                let info = {
+                  id: `${json.id}`,
+                  type: '2',
+                  name: json.name,
+                  avatar: json.picture.data.url,
+                };
+                const getCallBack = result => {
+                  const account = EJSON.parse(EJSON.stringify(result));
+                  if (account == null) return;
+                  if (account.length == 0) {
+                    const insertCallBack = data => {
+                      if (data) {
+                        this.saveInfo(info);
+                      }
+                    };
+                    accountApi.insert(insertCallBack, info);
+                  } else {
+                    this.saveInfo(info);
+                  }
+                };
+                accountApi.get(getCallBack, {id: info.id});
               })
               .catch(() => {
                 console.log('Fetch data error');
@@ -127,7 +166,19 @@ export default class Login extends React.Component {
     );
   };
 
+  _retrieveData = async () => {
+    const result = await AsyncStorage.getItem('id');
+    return result;
+  };
+
   render() {
+    this._retrieveData()
+      .then(result => {
+        if (result) this.props.navigation.navigate('Home');
+      })
+      .catch(err => {
+        console.log(err);
+      });
     return (
       <View style={styles.container}>
         <Image style={styles.logo} source={IMAGE.todoist} />
@@ -156,7 +207,7 @@ export default class Login extends React.Component {
           <Button
             onPress={() =>
               this.checkPermission(
-                'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+                'https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2714198885538731&height=50&width=50&ext=1628842923&hash=AeSsqerLlZ_ZiymxJeY',
               )
             }
             icon={<Image source={ICON.apple} style={styles.iconButton} />}

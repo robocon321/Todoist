@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Resource\\Project\\ReactNative\\Todoist\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ro\\values-ro.xml",
+            "outputFile": "D:\\Resource\\Project\\ReactNative\\Todoist\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ro\\values-ro.xml",
             "map": [
-                {
-                    "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\3a19df6e4832cfbd99325441825a0168\\jetified-play-services-basement-16.0.1\\res\\values-ro\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "203",
-                        "endOffsets": "450"
-                    },
-                    "to": {
-                        "startLines": "60",
-                        "startColumns": "4",
-                        "startOffsets": "6609",
-                        "endColumns": "203",
-                        "endOffsets": "6808"
-                    }
-                },
                 {
                     "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\58b3f1d82ed43c61f911f4cf74f29cd8\\core-1.1.0\\res\\values-ro\\values-ro.xml",
                     "from": {
@@ -55,20 +38,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\a6e09c84f3b1636e1c96516de939da6f\\jetified-play-services-base-16.0.1\\res\\values-ro\\values.xml",
+                    "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\b669feb813a489bac92c1375e37c60f2\\jetified-play-services-basement-16.0.1\\res\\values-ro\\values.xml",
                     "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "245,350,542,669,776,986,1116,1265,1399,1620,1728,1918,2048,2253,2445,2542,2635",
-                        "endColumns": "104,191,126,106,209,129,148,133,220,107,189,129,204,191,96,92,106",
-                        "endOffsets": "349,541,668,775,985,1115,1264,1398,1619,1727,1917,2047,2252,2444,2541,2634,2741"
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "203",
+                        "endOffsets": "450"
                     },
                     "to": {
-                        "startLines": "52,53,54,55,56,57,58,59,61,62,63,64,65,66,67,68,69",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "5431,5540,5732,5863,5974,6184,6318,6471,6813,7034,7146,7336,7470,7675,7871,7972,8069",
-                        "endColumns": "108,191,130,110,209,133,152,137,220,111,189,133,204,195,100,96,110",
-                        "endOffsets": "5535,5727,5858,5969,6179,6313,6466,6604,7029,7141,7331,7465,7670,7866,7967,8064,8175"
+                        "startLines": "60",
+                        "startColumns": "4",
+                        "startOffsets": "6609",
+                        "endColumns": "203",
+                        "endOffsets": "6808"
                     }
                 },
                 {
@@ -86,6 +69,23 @@
                         "startOffsets": "2851,3006,3141,3291,3404,3489,3579,3657,3748,3840,3952,4061,4156,4251,4356,4482,4565,4652,4850,4945,5062,5174,5283",
                         "endColumns": "154,134,149,112,84,89,77,90,91,111,108,94,94,104,125,82,86,197,94,116,111,108,147",
                         "endOffsets": "3001,3136,3286,3399,3484,3574,3652,3743,3835,3947,4056,4151,4246,4351,4477,4560,4647,4845,4940,5057,5169,5278,5426"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\roboc\\.gradle\\caches\\transforms-2\\files-2.1\\a56d6ad918f4f52ea293a2ab7237dbdf\\jetified-play-services-base-16.0.1\\res\\values-ro\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,350,542,669,776,986,1116,1265,1399,1620,1728,1918,2048,2253,2445,2542,2635",
+                        "endColumns": "104,191,126,106,209,129,148,133,220,107,189,129,204,191,96,92,106",
+                        "endOffsets": "349,541,668,775,985,1115,1264,1398,1619,1727,1917,2047,2252,2444,2541,2634,2741"
+                    },
+                    "to": {
+                        "startLines": "52,53,54,55,56,57,58,59,61,62,63,64,65,66,67,68,69",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "5431,5540,5732,5863,5974,6184,6318,6471,6813,7034,7146,7336,7470,7675,7871,7972,8069",
+                        "endColumns": "108,191,130,110,209,133,152,137,220,111,189,133,204,195,100,96,110",
+                        "endOffsets": "5535,5727,5858,5969,6179,6313,6466,6604,7029,7141,7331,7465,7670,7866,7967,8064,8175"
                     }
                 }
             ]

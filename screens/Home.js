@@ -16,7 +16,6 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <NavigationContainer>
         <Drawer.Navigator
           drawerStyle={{width: '85%'}}
           initialRouteName="Today"
@@ -24,7 +23,6 @@ export default function Home() {
           <Drawer.Screen name="Today" component={Today} />
           <Drawer.Screen name="Inbox" component={Inbox} />
         </Drawer.Navigator>
-      </NavigationContainer>
       <TaskBottomPopUp_Add ref={addTaskPopup} />
       <FAB
         color={'white'}

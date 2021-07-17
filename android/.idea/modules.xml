@@ -4,14 +4,17 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Todoist.iml" filepath="$PROJECT_DIR$/.idea/modules/Todoist.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Todoist.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Todoist.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-431728380/Todoist.react-native-community_google-signin.iml" filepath="$PROJECT_DIR$/.idea/modules/-431728380/Todoist.react-native-community_google-signin.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1015040907/Todoist.react-native-community_masked-view.iml" filepath="$PROJECT_DIR$/.idea/modules/-1015040907/Todoist.react-native-community_masked-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-136435207/Todoist.react-native-fbsdk.iml" filepath="$PROJECT_DIR$/.idea/modules/-136435207/Todoist.react-native-fbsdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1508050430/Todoist.react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/-1508050430/Todoist.react-native-gesture-handler.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/react-native-google-signin/Todoist.react-native-google-signin.iml" filepath="$PROJECT_DIR$/.idea/modules/react-native-google-signin/Todoist.react-native-google-signin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1935133810/Todoist.react-native-google-signin_google-signin.iml" filepath="$PROJECT_DIR$/.idea/modules/1935133810/Todoist.react-native-google-signin_google-signin.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-959452454/Todoist.react-native-reanimated.iml" filepath="$PROJECT_DIR$/.idea/modules/-959452454/Todoist.react-native-reanimated.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1181115925/Todoist.react-native-safe-area-context.iml" filepath="$PROJECT_DIR$/.idea/modules/-1181115925/Todoist.react-native-safe-area-context.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1146793021/Todoist.react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/-1146793021/Todoist.react-native-screens.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-218551020/Todoist.react-native-vector-icons.iml" filepath="$PROJECT_DIR$/.idea/modules/-218551020/Todoist.react-native-vector-icons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/205805640/Todoist.realm.iml" filepath="$PROJECT_DIR$/.idea/modules/205805640/Todoist.realm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/123303230/Todoist.rn-fetch-blob.iml" filepath="$PROJECT_DIR$/.idea/modules/123303230/Todoist.rn-fetch-blob.iml" />
     </modules>
   </component>
 </project>
