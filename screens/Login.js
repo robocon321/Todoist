@@ -107,7 +107,6 @@ export default class Login extends React.Component {
   };
 
   saveInfo = info => {
-    console.log('Hello world');
     AsyncStorage.multiSet([
       ['id', info.id],
       ['name', info.name],
@@ -124,7 +123,6 @@ export default class Login extends React.Component {
           console.log('Login cancelled');
         } else {
           AccessToken.getCurrentAccessToken().then(data => {
-            console.log(this.props);
             const {accessToken} = data;
             fetch(
               'https://graph.facebook.com/v2.5/me?fields=id,name,picture&access_token=' +

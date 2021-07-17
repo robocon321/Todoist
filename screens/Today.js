@@ -20,7 +20,6 @@ export default class Today extends React.Component {
   };
 
   render = () => {
-    console.log('1');
     return (
       <View style={styles.container}>
         <StatusBar />

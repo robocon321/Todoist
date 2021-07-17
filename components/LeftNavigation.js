@@ -6,6 +6,7 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
+  AsyncStorage,
 } from 'react-native';
 import * as IMAGE from '../constants/images';
 import * as ICON from '../constants/icons';
@@ -16,18 +17,41 @@ import MenuGroup from './MenuGroup';
 export default class LeftNavigaiton extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      info: {
+        id: '',
+        name: '',
+        avatar: '',
+      },
+    };
+    this._retrieveData();
   }
 
+  _retrieveData = async () => {
+    const id = await AsyncStorage.getItem('id');
+    const name = await AsyncStorage.getItem('name');
+    const avatar = await AsyncStorage.getItem('avatar');
+    this.setState({
+      ...this.state,
+      info: {
+        id,
+        name,
+        avatar,
+      },
+    });
+  };
+
   render() {
+    const {info} = this.state;
     const {navigation} = this.props;
     return (
       <ScrollView>
         <View style={styles.container}>
           <TouchableOpacity activeOpacity={0.9}>
             <View style={styles.wrap}>
-              <Image style={styles.avatar} source={IMAGE.avatar} />
+              <Image style={styles.avatar} source={{uri: info.avatar}} />
               <View style={styles.info}>
-                <Text style={styles.name}>Nguyễn Thanh Nhật</Text>
+                <Text style={styles.name}>{info.name}</Text>
                 <Text style={styles.completed}>
                   Hoàn thành: <Text>3/5</Text>
                 </Text>

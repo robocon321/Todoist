@@ -16,13 +16,13 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-        <Drawer.Navigator
-          drawerStyle={{width: '85%'}}
-          initialRouteName="Today"
-          drawerContent={props => <LeftNavigation {...props} />}>
-          <Drawer.Screen name="Today" component={Today} />
-          <Drawer.Screen name="Inbox" component={Inbox} />
-        </Drawer.Navigator>
+      <Drawer.Navigator
+        drawerStyle={{width: '85%'}}
+        initialRouteName="Today"
+        drawerContent={props => <LeftNavigation {...props} />}>
+        <Drawer.Screen name="Today" component={Today} />
+        <Drawer.Screen name="Inbox" component={Inbox} />
+      </Drawer.Navigator>
       <TaskBottomPopUp_Add ref={addTaskPopup} />
       <FAB
         color={'white'}
