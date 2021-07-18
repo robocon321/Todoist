@@ -1,7 +1,6 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {NavigationContainer} from '@react-navigation/native';
 import {Provider, FAB} from 'react-native-paper';
 import LeftNavigation from '../components/LeftNavigation';
 import TaskBottomPopUp_Add from '../components/TaskBottomPopUp_Add';
@@ -10,28 +9,36 @@ import Today from '../screens/Today';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
 
-export default function Home() {
-  const Drawer = createDrawerNavigator();
-  const addTaskPopup = useRef(null);
+export default class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.ref = React.createRef(null);
+  }
 
-  return (
-    <View style={styles.container}>
-      <Drawer.Navigator
-        drawerStyle={{width: '85%'}}
-        initialRouteName="Today"
-        drawerContent={props => <LeftNavigation {...props} />}>
-        <Drawer.Screen name="Today" component={Today} />
-        <Drawer.Screen name="Inbox" component={Inbox} />
-      </Drawer.Navigator>
-      <TaskBottomPopUp_Add ref={addTaskPopup} />
-      <FAB
-        color={'white'}
-        style={styles.fab}
-        icon={ICON.add}
-        onPress={() => addTaskPopup.current.onShowPopup()}
-      />
-    </View>
-  );
+  render(){
+    const Drawer = createDrawerNavigator();
+    const addTaskPopup = this.ref;
+    return (
+      <Provider>
+        <View style={styles.container}>
+          <Drawer.Navigator
+            drawerStyle={{width: '85%'}}
+            initialRouteName="Today"
+            drawerContent={props => <LeftNavigation {...props} />}>
+            <Drawer.Screen name="Today" component={Today} />
+            <Drawer.Screen name="Inbox" component={Inbox} />
+          </Drawer.Navigator>
+          <TaskBottomPopUp_Add ref={addTaskPopup} />
+          <FAB
+            color={'white'}
+            style={styles.fab}
+            icon={ICON.add}
+            onPress={() => addTaskPopup.current.onShowPopup()}
+          />
+        </View>
+      </Provider>
+    );
+  }
 }
 
 const styles = StyleSheet.create({

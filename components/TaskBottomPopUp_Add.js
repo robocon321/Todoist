@@ -33,7 +33,7 @@ const Project = key => {
 const Date = key => {
   return (
     <Text style={styles.tag} key={key}>
-      Date
+      {/* Text */}
     </Text>
   );
 };
