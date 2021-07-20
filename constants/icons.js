@@ -23,3 +23,6 @@ export const alarm = require('../assets/icons/alarm.png');
 export const branch = require('../assets/icons/branch.png');
 export const send = require('../assets/icons/send.png');
 export const envelope = require('../assets/icons/envelope.png');
+export const back = require('../assets/icons/back.png');
+export const agree = require('../assets/icons/agree.png');
+export const star = require('../assets/icons/star.png');

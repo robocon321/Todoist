@@ -1,32 +1,44 @@
-export const LEVEL_1 = {
-  id: 1,
-  name: '#ff0000',
-};
-export const LEVEL_2 = {
-  id: 2,
-  name: '#ffa530',
-};
-export const LEVEL_3 = {
-  id: 3,
-  name: '#f8ff30',
-};
-export const LEVEL_4 = {
-  id: 4,
-  name: '#64ff30',
-};
-export const LEVEL_5 = {
-  id: 5,
-  name: '#30fcff',
-};
-export const LEVEL_6 = {
-  id: 6,
-  name: '#304cff',
-};
-export const LEVEL_7 = {
-  id: 7,
-  name: '#e330ff',
-};
-export const LEVEL_8 = {
-  id: 8,
-  name: '#ff3098',
-};
+const colorType = [
+  {
+    id: 1,
+    name: 'red',
+    code: '#ff0000',
+  },
+  {
+    id: 2,
+    name: 'orange',
+    code: '#ffa530',
+  },
+  {
+    id: 3,
+    name: 'yellow',
+    code: '#f8ff30',
+  },
+  {
+    id: 4,
+    name: 'green',
+    code: '#64ff30',
+  },
+  {
+    id: 5,
+    name: 'turquose',
+    code: '#30fcff',
+  },
+  {
+    id: 6,
+    name: 'blue',
+    code: '#304cff',
+  },
+  {
+    id: 7,
+    name: 'purple',
+    code: '#e330ff',
+  },
+  {
+    id: 8,
+    name: 'pink',
+    code: '#ff3098',
+  },
+];
+
+export default colorType;
