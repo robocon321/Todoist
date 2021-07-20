@@ -6,6 +6,7 @@ import {
   Image,
   Animated,
   TouchableOpacity,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
@@ -36,7 +37,7 @@ export default class MenuGroup extends React.Component {
   };
 
   render() {
-    const {content, children} = this.props;
+    const {content, children, onAdd} = this.props;
     const dropdown = this.state.isDropdown.interpolate({
       inputRange: [0, 1],
       outputRange: ['180deg', '0deg'],
@@ -62,7 +63,9 @@ export default class MenuGroup extends React.Component {
                 ]}
               />
             </TouchableOpacity>
-            <Image source={ICON.add} style={styles.image} />
+            <TouchableWithoutFeedback onPress={() => onAdd()}>
+              <Image source={ICON.add} style={styles.image} />
+            </TouchableWithoutFeedback>
           </View>
         </View>
         <Animated.View style={styles.dropdown(height)}>

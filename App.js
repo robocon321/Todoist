@@ -21,21 +21,19 @@ const store = createStore(reducer);
 const App = () => {
   const Stack = createStackNavigator();
   return (
-    // <Provider store={store}>
-    //   <NavigationContainer>
-    //     <Stack.Navigator
-    //       screenOptions={{
-    //         headerShown: false,
-    //       }}
-    //       initialRouteName="Login">
-    //       <Stack.Screen name="Home" component={Home} />
-    //       <Stack.Screen name="Login" component={Login} />
-    //     </Stack.Navigator>
-    //   </NavigationContainer>
-    // </Provider>
-    <View style={styles.container}>
-      <AddLabel />
-    </View>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}
+          initialRouteName="Login">
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="AddLabel" component={AddLabel} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 };
 

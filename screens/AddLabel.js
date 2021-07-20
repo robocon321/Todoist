@@ -8,27 +8,25 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import {TextInput} from 'react-native-paper';
+import {connect} from 'react-redux';
 import colorType from '../constants/colorType';
+import * as ACTION from '../constants/actionType';
 import AddLabelTopbar from '../components/AddLabelTopbar';
 import AddLabelBottomPopUp from '../components/AddLabelBottomPopUp';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
 
-export default class AddLabel extends React.Component {
+class AddLabel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       label: {
-        text: '',
+        title: '',
         colorType: 1,
         favorite: false,
       },
     };
     this.refPopUp = createRef();
-  }
-
-  onSaveLabel = () => {
-    
   }
 
   onChangeStatusFavorite = () => {
@@ -51,30 +49,38 @@ export default class AddLabel extends React.Component {
     });
   };
 
-  onChangeText = text => {
+  onChangeText = title => {
     this.setState({
       ...this.state,
       label: {
         ...this.state.label,
-        text: text,
+        title: title,
       },
     });
-    console.log(text, this.state);
   };
 
   onShowPopup = () => {
     this.refPopUp.current.onShowPopup();
   };
 
+  onExit = () => {
+    this.props.navigation.goBack();
+  };
+
+  onSaveLabel = () => {
+    this.props.onSaveLabel(this.state.label);
+  };
+
   render() {
     const {label} = this.state;
+
     return (
       <View style={styles.container}>
-        <AddLabelTopbar />
+        <AddLabelTopbar onSaveLabel={this.onSaveLabel} onExit={this.onExit} />
         <TextInput
-          onChangeText={text => this.onChangeText(text)}
+          onChangeText={title => this.onChangeText(title)}
           label="Title"
-          value={label.text}
+          value={label.title}
           mode="outlined"
           selectionColor={COLOR.red_light}
           style={styles.input}
@@ -137,7 +143,23 @@ const styles = StyleSheet.create({
   switch: {
     marginLeft: 20,
   },
-  input:{
+  input: {
     marginHorizontal: 10,
   },
 });
+
+const mapDispatcherToProps = dispatch => {
+  return {
+    onSaveLabel: label => {
+      return dispatch({
+        type: ACTION.ADD_LABEL,
+        data: {
+          id: new Date().getTime().toString(),
+          ...label,
+        },
+      });
+    },
+  };
+};
+
+export default connect(null, mapDispatcherToProps)(AddLabel);

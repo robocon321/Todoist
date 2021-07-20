@@ -3,6 +3,7 @@ import * as db from '../database/labelDB';
 
 var init = [];
 const labelReducer = (state = init, action) => {
+  console.log(state, action);
   const queryAll = () => {
     db.queryAll()
       .then(result => {
@@ -52,7 +53,7 @@ const labelReducer = (state = init, action) => {
     default:
       break;
   }
-  return state;
+  return [...state];
 };
 
 export default labelReducer;

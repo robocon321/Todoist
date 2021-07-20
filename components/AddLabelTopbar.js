@@ -15,16 +15,19 @@ export default class Topbar extends React.Component {
   }
 
   render() {
+    const {onSaveLabel, onExit} = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.left}>
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={() => onExit()}>
             <Image style={[styles.image, styles.item]} source={ICON.back} />
           </TouchableWithoutFeedback>
           <Text style={[styles.text, styles.item]}>Add label</Text>
         </View>
         <View style={styles.right}>
-          <Image style={[styles.image, styles.item]} source={ICON.agree} />
+          <TouchableWithoutFeedback onPress={() => onSaveLabel()}>
+            <Image style={[styles.image, styles.item]} source={ICON.agree} />
+          </TouchableWithoutFeedback>
         </View>
       </View>
     );

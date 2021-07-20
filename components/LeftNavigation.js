@@ -41,6 +41,18 @@ export default class LeftNavigaiton extends React.Component {
     });
   };
 
+  onAddNewProject = () => {
+    // Todo
+  };
+
+  onAddNewLabel = () => {
+    this.props.navigation.navigate('AddLabel');
+  };
+
+  onAddNewFilter = () => {
+    // Todo
+  };
+
   render() {
     const {info} = this.state;
     const {navigation} = this.props;
@@ -96,7 +108,7 @@ export default class LeftNavigaiton extends React.Component {
               color={COLOR.gray_dark}
             />
           </MenuGroup>
-          <MenuGroup content="Labels">
+          <MenuGroup content="Labels" onAdd={this.onAddNewLabel}>
             <MenuItem
               icon={ICON.label}
               leftContent="a"

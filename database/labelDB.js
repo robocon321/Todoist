@@ -2,14 +2,14 @@ import Realm from 'realm';
 
 const SCHEMA_NAME = 'Label';
 
-export const Schema = {
+const Schema = {
   name: SCHEMA_NAME,
   primaryKey: 'id',
   properties: {
-    id: 'string',
-    title: 'string',
-    colorType: 'int',
-    favorite: 'boolean',
+    id: {type: 'string'},
+    title: {type: 'string'},
+    colorType: {type: 'int'},
+    favorite: {type: 'bool', default: false},
   },
 };
 
@@ -19,8 +19,8 @@ const databaseOptions = {
   schemeVersion: 0,
 };
 
-export const insert = data =>
-  new Promise((resolve, reject) => {
+export const insert = data => {
+  return new Promise((resolve, reject) => {
     Realm.open(databaseOptions)
       .then(realm => {
         realm.write(() => {
@@ -29,10 +29,11 @@ export const insert = data =>
         });
       })
       .catch(err => {
-        console.log('Error', err);
+        console.log('Insert error', err);
         reject(false);
       });
   });
+};
 
 export const update = data =>
   new Promise((resolve, reject) => {
@@ -47,7 +48,7 @@ export const update = data =>
         });
       })
       .catch(err => {
-        console.log('Error', err);
+        console.log('Update error', err);
         reject(false);
       });
   });
@@ -63,7 +64,7 @@ export const remove = id =>
         });
       })
       .catch(err => {
-        console.log('Error', err);
+        console.log('Remove Error', err);
         reject(false);
       });
   });
@@ -75,5 +76,8 @@ export const queryAll = () =>
         let objs = realm.objects();
         resolve(objs);
       })
-      .catch(err => reject(err));
+      .catch(err => {
+        console.log('Query error', err);
+        reject(false);
+      });
   });

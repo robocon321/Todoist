@@ -15,7 +15,7 @@ export default class Home extends React.Component {
     this.ref = React.createRef(null);
   }
 
-  render(){
+  render() {
     const Drawer = createDrawerNavigator();
     const addTaskPopup = this.ref;
     return (
