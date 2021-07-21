@@ -45,11 +45,7 @@ export default class MenuGroup extends React.Component {
 
     const height = this.state.isDropdown.interpolate({
       inputRange: [0, 1],
-      outputRange: [
-        0,
-        OTHER.HEIGHT_MENU *
-          (children.length == undefined ? 1 : children.length),
-      ],
+      outputRange: [0, OTHER.HEIGHT_MENU * React.Children.count(children)],
     });
     return (
       <View>

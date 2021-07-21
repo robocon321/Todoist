@@ -63,7 +63,6 @@ class LeftNavigaiton extends React.Component {
   render() {
     const {info} = this.state;
     const {navigation, labels} = this.props;
-    console.log(labels);
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -123,8 +122,7 @@ class LeftNavigaiton extends React.Component {
                 leftContent={item.title}
                 color={COLOR.gray_dark}
               />
-            ))}
-            <MenuItem
+            ))}<MenuItem
               icon={ICON.setting}
               leftContent="Manage labels"
               color={COLOR.gray_dark}
@@ -234,8 +232,6 @@ const styles = StyleSheet.create({
   },
 });
 
-import * as db from '../database/labelDB';
-
 const mapStateToProps = state => {
   return {
     labels: state.labels,
@@ -244,7 +240,7 @@ const mapStateToProps = state => {
 
 const mapDispatcherToProps = dispatch => {
   return {
-    loadLabel: () => labelAction.queryAll(dispatch),
+    loadLabel: labelAction.queryAll(dispatch),
   };
 };
 

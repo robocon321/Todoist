@@ -1,7 +1,6 @@
 import * as types from '../constants/actionType';
 import * as db from '../database/labelDB';
 
-
 export const insert = data => {
   return {
     type: types.ADD_LABEL,
@@ -24,22 +23,21 @@ export const remove = id => {
 };
 
 export const queryAll = dispatch => {
-  return {
-    type: types.QUERY_LABEL,
-    data: async () => {
-      await db
-        .queryAll()
-        .then(result => {
-          return dispatch({
-            data: result,
-          });
-        })
-        .catch(err => {
-          console.log(err);
-          return dispatch({
-            data: [],
-          });
+  return async () => {
+    await db
+      .queryAll()
+      .then(result => {
+        return dispatch({
+          type: types.QUERY_LABEL,
+          data: result,
         });
-    },
+      })
+      .catch(err => {
+        console.log(err);
+        return dispatch({
+          type: types.QUERY_LABEL,
+          data: [],
+        });
+      });
   };
 };
