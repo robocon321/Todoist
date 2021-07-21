@@ -1,28 +1,16 @@
 import * as types from '../constants/actionType';
 import * as db from '../database/labelDB';
 
-var init = [];
+let init = [];
+
 const labelReducer = (state = init, action) => {
-  console.log(state, action);
-  const queryAll = () => {
-    db.queryAll()
-      .then(result => {
-        state = result;
-        return [...state];
-      })
-      .catch(err => {
-        console.log('Error', err);
-        return [...state];
-      });
-  };
+  let isSuccess = false;
 
   switch (action.type) {
     case types.ADD_LABEL:
       db.insert(action.data)
         .then(result => {
-          if (result) {
-            return queryAll();
-          }
+          isSuccess = result;
         })
         .catch(err => {
           console.log('Error', err);
@@ -32,7 +20,7 @@ const labelReducer = (state = init, action) => {
       db.update(action.data)
         .then(result => {
           if (result) {
-            return queryAll();
+            isSuccess = result;
           }
         })
         .catch(err => {
@@ -43,16 +31,20 @@ const labelReducer = (state = init, action) => {
       db.remove(action.id)
         .then(result => {
           if (result) {
-            return queryAll();
+            isSuccess = result;
           }
         })
         .catch(err => {
           console.log('Error', err);
         });
       break;
+    case types.QUERY_LABEL:
+      state = action.data;
+      break;
     default:
       break;
   }
+
   return [...state];
 };
 

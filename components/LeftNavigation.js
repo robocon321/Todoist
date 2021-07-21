@@ -8,13 +8,16 @@ import {
   TouchableOpacity,
   AsyncStorage,
 } from 'react-native';
+import {connect} from 'react-redux';
+import * as labelAction from '../actions/labelAction';
 import * as IMAGE from '../constants/images';
 import * as ICON from '../constants/icons';
 import * as COLOR from '../constants/colors';
+import * as ACTION from '../constants/actionType';
 import MenuItem from './MenuItem';
 import MenuGroup from './MenuGroup';
 
-export default class LeftNavigaiton extends React.Component {
+class LeftNavigaiton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,9 +56,14 @@ export default class LeftNavigaiton extends React.Component {
     // Todo
   };
 
+  componentDidMount() {
+    this.props.loadLabel();
+  }
+
   render() {
     const {info} = this.state;
-    const {navigation} = this.props;
+    const {navigation, labels} = this.props;
+    console.log(labels);
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -109,22 +117,16 @@ export default class LeftNavigaiton extends React.Component {
             />
           </MenuGroup>
           <MenuGroup content="Labels" onAdd={this.onAddNewLabel}>
-            <MenuItem
-              icon={ICON.label}
-              leftContent="a"
-              rightContent="2"
-              color={COLOR.gray_dark}
-            />
-            <MenuItem
-              icon={ICON.label}
-              leftContent="b"
-              rightContent="1"
-              color={COLOR.gray_dark}
-            />
+            {labels.map((item, index) => (
+              <MenuItem
+                icon={ICON.label}
+                leftContent={item.title}
+                color={COLOR.gray_dark}
+              />
+            ))}
             <MenuItem
               icon={ICON.setting}
               leftContent="Manage labels"
-              rightContent=""
               color={COLOR.gray_dark}
             />
           </MenuGroup>
@@ -231,3 +233,19 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.gray_light,
   },
 });
+
+import * as db from '../database/labelDB';
+
+const mapStateToProps = state => {
+  return {
+    labels: state.labels,
+  };
+};
+
+const mapDispatcherToProps = dispatch => {
+  return {
+    loadLabel: () => labelAction.queryAll(dispatch),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatcherToProps)(LeftNavigaiton);

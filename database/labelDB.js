@@ -73,7 +73,7 @@ export const queryAll = () =>
   new Promise((resolve, reject) => {
     Realm.open(databaseOptions)
       .then(realm => {
-        let objs = realm.objects();
+        let objs = realm.objects(SCHEMA_NAME);
         resolve(objs);
       })
       .catch(err => {
