@@ -9,7 +9,7 @@ import {
 import * as ICON from '../constants/icons';
 import * as COLOR from '../constants/colors';
 
-export default class Topbar extends React.Component {
+export default class AddLabelTopbar extends React.Component {
   constructor(props) {
     super(props);
   }

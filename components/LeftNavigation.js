@@ -14,6 +14,7 @@ import * as IMAGE from '../constants/images';
 import * as ICON from '../constants/icons';
 import * as COLOR from '../constants/colors';
 import * as ACTION from '../constants/actionType';
+import colorType from '../constants/colorType';
 import MenuItem from './MenuItem';
 import MenuGroup from './MenuGroup';
 
@@ -120,9 +121,10 @@ class LeftNavigaiton extends React.Component {
               <MenuItem
                 icon={ICON.label}
                 leftContent={item.title}
-                color={COLOR.gray_dark}
+                color={colorType.find(i => i.id == item.colorType).code}
               />
-            ))}<MenuItem
+            ))}
+            <MenuItem
               icon={ICON.setting}
               leftContent="Manage labels"
               color={COLOR.gray_dark}

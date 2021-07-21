@@ -8,7 +8,7 @@ const Schema = {
   properties: {
     id: 'string',
     title: 'string',
-    parent: 'string',
+    parentId: 'string',
     viewType: 'int',
     colorType: 'int',
     favorite: 'boolean',
@@ -27,11 +27,12 @@ export const insert = data =>
       .then(realm => {
         realm.write(() => {
           realm.create(SCHEMA_NAME, data);
-          resolve(data);
+          resolve(true);
         });
       })
       .catch(err => {
-        reject(err);
+        console.log('Insert error', err);
+        reject(false);
       });
   });
 
@@ -46,10 +47,13 @@ export const update = project =>
           obj.viewType = project.viewType;
           obj.colorType = project.colorType;
           obj.favorite = project.favorite;
-          resolve();
+          resolve(true);
         });
       })
-      .catch(err => reject(err));
+      .catch(err => {
+        console.log('Update error', err);
+        reject(false);
+      });
   });
 
 export const remove = id =>
@@ -59,10 +63,13 @@ export const remove = id =>
         realm.write(() => {
           let obj = realm.objectForPrimaryKey(SCHEMA_NAME, id);
           obj.delete();
-          resolve();
+          resolve(true);
         });
       })
-      .catch(err => reject(err));
+      .catch(err => {
+        console.log('Remove error', err);
+        reject(false);
+      });
   });
 
 export const queryAll = () =>

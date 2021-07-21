@@ -10,7 +10,7 @@ const labelReducer = (state = init, action) => {
     case types.ADD_LABEL:
       db.insert(action.data)
         .then(result => {
-          isSuccess = result;
+          console.log(result);
         })
         .catch(err => {
           console.log('Error', err);
@@ -20,7 +20,7 @@ const labelReducer = (state = init, action) => {
       db.update(action.data)
         .then(result => {
           if (result) {
-            isSuccess = result;
+            console.log(result);
           }
         })
         .catch(err => {
@@ -31,7 +31,7 @@ const labelReducer = (state = init, action) => {
       db.remove(action.id)
         .then(result => {
           if (result) {
-            isSuccess = result;
+            console.log(result);
           }
         })
         .catch(err => {
