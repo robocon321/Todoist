@@ -10,7 +10,7 @@ const labelReducer = (state = init, action) => {
     case types.ADD_LABEL:
       db.insert(action.data)
         .then(result => {
-          console.log(result);
+          if (result) alert('Save success!');
         })
         .catch(err => {
           console.log('Error', err);

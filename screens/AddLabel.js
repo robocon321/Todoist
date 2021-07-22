@@ -70,6 +70,7 @@ class AddLabel extends React.Component {
 
   onSaveLabel = () => {
     this.props.onSaveLabel(this.state.label);
+    this.onExit();
   };
 
   render() {
@@ -94,7 +95,7 @@ class AddLabel extends React.Component {
           <View style={styles.row}>
             <Image source={ICON.label} style={styles.icon} />
             <View>
-              <Text style={styles.title}>Color</Text>
+              <Text style={[styles.title, {fontWeight: 'bold'}]}>Color</Text>
               <Text style={styles.content}>
                 {colorType.find(item => item.id == label.colorType).name}
               </Text>

@@ -13,6 +13,7 @@ import colorType from '../constants/colorType';
 import * as projectAction from '../actions/projectAction';
 import AddProjectTopbar from '../components/AddProjectTopbar';
 import ColorChoose from '../components/ColorChoose';
+import ProjectParentChoose from '../components/ProjectParentChoose';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
 
@@ -29,10 +30,15 @@ class AddProject extends React.Component {
       },
     };
     this.colorRef = createRef();
+    this.parentRef = createRef();
   }
 
-  onShowPopup = () => {
+  onShowPopupColorChoose = () => {
     this.colorRef.current.onShowPopup();
+  };
+
+  onShowPopupParentChoose = () => {
+    this.parentRef.current.onShowPopup();
   };
 
   onExit = () => {
@@ -82,6 +88,7 @@ class AddProject extends React.Component {
         parentId: id,
       },
     });
+    this.parentRef.current.onClosePopup();
   };
 
   onChangeStatusFavorite = () => {
@@ -99,8 +106,13 @@ class AddProject extends React.Component {
     this.onExit();
   };
 
+  componentDidMount() {
+    this.props.onLoadProject();
+  }
+
   render() {
     const {project} = this.state;
+    const {projects} = this.props;
 
     return (
       <View style={styles.container}>
@@ -120,7 +132,7 @@ class AddProject extends React.Component {
           }}
           autoFocus
         />
-        <TouchableOpacity onPress={() => this.onShowPopup()}>
+        <TouchableOpacity onPress={() => this.onShowPopupColorChoose()}>
           <View style={styles.row}>
             <Image source={ICON.list} style={styles.icon} />
             <View>
@@ -140,12 +152,16 @@ class AddProject extends React.Component {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => this.onShowPopupParentChoose()}>
           <View style={styles.row}>
             <Image source={ICON.parent} style={styles.icon} />
             <View>
               <Text style={styles.title}>Parent</Text>
-              <Text style={styles.content}>No parent</Text>
+              <Text style={styles.content}>
+                {project.parentId == null
+                  ? 'No parent'
+                  : projects.find(item => item.id === project.parentId).title}
+              </Text>
             </View>
           </View>
         </TouchableOpacity>
@@ -201,6 +217,11 @@ class AddProject extends React.Component {
           <Text style={[styles.title]}>Board</Text>
         </View>
         <ColorChoose ref={this.colorRef} onChangeColor={this.onChangeColor} />
+        <ProjectParentChoose
+          ref={this.parentRef}
+          onChangeParent={this.onChangeParent}
+          projects={projects}
+        />
       </View>
     );
   }
@@ -249,6 +270,12 @@ const styles = StyleSheet.create({
   },
 });
 
+const mapStateToProps = state => {
+  return {
+    projects: state.projects,
+  };
+};
+
 const mapDispatcherToProps = dispatch => {
   return {
     onSaveProject: project => {
@@ -256,7 +283,8 @@ const mapDispatcherToProps = dispatch => {
         projectAction.insert({id: new Date().getTime().toString(), ...project}),
       );
     },
+    onLoadProject: projectAction.queryAll(dispatch),
   };
 };
 
-export default connect(null, mapDispatcherToProps)(AddProject);
+export default connect(mapStateToProps, mapDispatcherToProps)(AddProject);

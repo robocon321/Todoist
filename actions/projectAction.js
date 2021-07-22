@@ -33,7 +33,7 @@ export const queryAll = dispatch => {
         });
       })
       .catch(err => {
-        console.log(err);
+        console.log('Query error', err);
         return dispatch({
           type: types.QUERY_PROJECT,
           data: [],
