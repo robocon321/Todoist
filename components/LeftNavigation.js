@@ -10,10 +10,9 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 import * as labelAction from '../actions/labelAction';
-import * as IMAGE from '../constants/images';
+import * as projectAction from '../actions/projectAction';
 import * as ICON from '../constants/icons';
 import * as COLOR from '../constants/colors';
-import * as ACTION from '../constants/actionType';
 import colorType from '../constants/colorType';
 import MenuItem from './MenuItem';
 import MenuGroup from './MenuGroup';
@@ -59,11 +58,12 @@ class LeftNavigaiton extends React.Component {
 
   componentDidMount() {
     this.props.loadLabel();
+    this.props.loadProject();
   }
 
   render() {
     const {info} = this.state;
-    const {navigation, labels} = this.props;
+    const {navigation, labels, projects} = this.props;
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -103,12 +103,13 @@ class LeftNavigaiton extends React.Component {
             />
           </TouchableOpacity>
           <MenuGroup content="Projects" onAdd={this.onAddNewProject}>
-            <MenuItem
-              icon={ICON.dot}
-              leftContent="Welcome"
-              rightContent="9"
-              color={COLOR.gray_dark}
-            />
+            {projects.map((item, index) => (
+              <MenuItem
+                icon={ICON.dot}
+                leftContent={item.title}
+                color={colorType.find(i => i.id == item.colorType).code}
+              />
+            ))}
             <MenuItem
               icon={ICON.setting}
               leftContent="Manage projects"
@@ -237,12 +238,14 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
   return {
     labels: state.labels,
+    projects: state.projects,
   };
 };
 
 const mapDispatcherToProps = dispatch => {
   return {
     loadLabel: labelAction.queryAll(dispatch),
+    loadProject: projectAction.queryAll(dispatch),
   };
 };
 
