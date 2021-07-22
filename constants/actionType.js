@@ -9,3 +9,15 @@ export const ADD_LABEL = 5;
 export const UPDATE_LABEL = 6;
 export const DELETE_LABEL = 7;
 export const QUERY_LABEL = 8;
+
+// task
+export const ADD_TASK = 9;
+export const UPDATE_TASK = 10;
+export const DELETE_TASK = 11;
+export const QUERY_TASK = 12;
+
+// labelTask
+export const ADD_LABEL_TASK = 13;
+export const UPDATE_LABEL_TASK = 14;
+export const DELETE_LABEL_TASK = 15;
+export const QUERY_LABEL_TASK = 16;
