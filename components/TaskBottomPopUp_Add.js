@@ -33,7 +33,7 @@ const Project = key => {
 const Date = key => {
   return (
     <Text style={styles.tag} key={key}>
-      {/* Text */}
+      Text
     </Text>
   );
 };
@@ -56,8 +56,6 @@ export default class TaskBottomPopUp_Add extends React.Component {
           ),
         },
       ],
-      label: ['a', 'b', 'c'],
-      project: ['p1', 'p2', 'p3'],
     };
   }
 

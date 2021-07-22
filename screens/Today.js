@@ -1,11 +1,12 @@
 import React from 'react';
 import {StyleSheet, View, StatusBar} from 'react-native';
+import {connect} from 'react-redux';
 import TodayTopbar from '../components/TodayTopbar';
 import DayTask from '../components/DayTasks';
 import TaskBottomPopUp_Edit from '../components/TaskBottomPopUp_Edit';
 import * as COLOR from '../constants/colors';
 
-export default class Today extends React.Component {
+class Today extends React.Component {
   constructor(props) {
     super(props);
     this.popup = React.createRef();
@@ -38,3 +39,18 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
 });
+
+const mapStateToProps = state => {
+  return {
+    labels: state.labels,
+    projects: state.projects,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    // Todo
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Today);
