@@ -103,12 +103,9 @@ class AddProject extends React.Component {
 
   onSaveProject = () => {
     this.props.onSaveProject(this.state.project);
+    this.props.loadProject();
     this.onExit();
   };
-
-  componentDidMount() {
-    this.props.onLoadProject();
-  }
 
   render() {
     const {project} = this.state;
@@ -283,7 +280,7 @@ const mapDispatcherToProps = dispatch => {
         projectAction.insert({id: new Date().getTime().toString(), ...project}),
       );
     },
-    onLoadProject: projectAction.queryAll(dispatch),
+    loadProject: projectAction.queryAll(dispatch),
   };
 };
 

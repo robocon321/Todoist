@@ -56,11 +56,6 @@ class LeftNavigaiton extends React.Component {
     // Todo
   };
 
-  componentDidMount() {
-    this.props.loadLabel();
-    this.props.loadProject();
-  }
-
   render() {
     const {info} = this.state;
     const {navigation, labels, projects} = this.props;
@@ -242,11 +237,10 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatcherToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
   return {
-    loadLabel: labelAction.queryAll(dispatch),
-    loadProject: projectAction.queryAll(dispatch),
+    // Todo
   };
 };
 
-export default connect(mapStateToProps, mapDispatcherToProps)(LeftNavigaiton);
+export default connect(mapStateToProps, mapDispatchToProps)(LeftNavigaiton);

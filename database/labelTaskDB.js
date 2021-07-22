@@ -1,22 +1,7 @@
 import Realm from 'realm';
+import databaseOptions from './config';
 
 const SCHEMA_NAME = 'LabelTask';
-
-const Schema = {
-  name: SCHEMA_NAME,
-  primaryKey: 'id',
-  properties: {
-    id: {type: 'string'},
-    taskId: {type: 'string'},
-    labelId: {type: 'string'},
-  },
-};
-
-const databaseOptions = {
-  path: 'database.realm',
-  schema: [Schema],
-  schemeVersion: 0,
-};
 
 export const insert = data => {
   return new Promise((resolve, reject) => {

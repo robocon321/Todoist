@@ -1,25 +1,7 @@
 import Realm from 'realm';
+import databaseOptions from './config';
 
 const SCHEMA_NAME = 'Project';
-
-const Schema = {
-  name: SCHEMA_NAME,
-  primaryKey: 'id',
-  properties: {
-    id: 'string',
-    title: 'string',
-    parentId: 'string?',
-    viewType: 'int',
-    colorType: 'int',
-    favorite: 'bool',
-  },
-};
-
-const databaseOptions = {
-  path: 'database.realm',
-  schema: [Schema],
-  schemeVersion: 0,
-};
 
 export const insert = data =>
   new Promise((resolve, reject) => {

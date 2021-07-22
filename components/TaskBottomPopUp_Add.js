@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {
   StyleSheet,
   View,
@@ -38,7 +39,7 @@ const Date = key => {
   );
 };
 
-export default class TaskBottomPopUp_Add extends React.Component {
+class TaskBottomPopUp_Add extends React.Component {
   constructor(props) {
     super(props);
     this.levelBottom = [-300, -200, 0];
@@ -244,3 +245,20 @@ const styles = StyleSheet.create({
   },
   tag: {backgroundColor: COLOR.pink_light, padding: 5},
 });
+
+const mapStateToProps = state => {
+  return {
+    labels: state.labels,
+    projects: state.projects,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    // To do
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps, null, {
+  forwardRef: true,
+})(TaskBottomPopUp_Add);

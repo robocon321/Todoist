@@ -122,7 +122,7 @@ export default class ColorChoose extends React.Component {
             onResponderGrant={this.onPress}
             onResponderRelease={this.onRelease}
             onResponderMove={this.onMove}>
-            <Text style={styles.title}>Color</Text>
+            <Text style={[styles.title, {fontWeight: 'bold'}]}>Color</Text>
             <FlatList
               data={colorType}
               renderItem={({item}) => (

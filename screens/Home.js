@@ -8,11 +8,19 @@ import Inbox from '../screens/Inbox';
 import Today from '../screens/Today';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
+import * as labelAction from '../actions/labelAction';
+import * as projectAction from '../actions/projectAction';
+import {connect} from 'react-redux';
 
-export default class Home extends React.Component {
+class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.ref = React.createRef(null);
+    this.ref = React.createRef();
+  }
+
+  componentDidMount() {
+    this.props.loadProject();
+    this.props.loadLabel();
   }
 
   render() {
@@ -54,3 +62,18 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.red_light,
   },
 });
+
+const mapStateToProps = state => {
+  return {
+    // Todo
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadLabel: labelAction.queryAll(dispatch),
+    loadProject: projectAction.queryAll(dispatch),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

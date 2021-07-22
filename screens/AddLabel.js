@@ -10,7 +10,7 @@ import {
 import {TextInput} from 'react-native-paper';
 import {connect} from 'react-redux';
 import colorType from '../constants/colorType';
-import * as ACTION from '../constants/actionType';
+import * as labelAction from '../actions/labelAction';
 import AddLabelTopbar from '../components/AddLabelTopbar';
 import ColorChoose from '../components/ColorChoose';
 import * as COLOR from '../constants/colors';
@@ -70,6 +70,7 @@ class AddLabel extends React.Component {
 
   onSaveLabel = () => {
     this.props.onSaveLabel(this.state.label);
+    this.props.loadLabel();
     this.onExit();
   };
 
@@ -95,7 +96,7 @@ class AddLabel extends React.Component {
           <View style={styles.row}>
             <Image source={ICON.label} style={styles.icon} />
             <View>
-              <Text style={[styles.title, {fontWeight: 'bold'}]}>Color</Text>
+              <Text style={styles.title}>Color</Text>
               <Text style={styles.content}>
                 {colorType.find(item => item.id == label.colorType).name}
               </Text>
@@ -150,14 +151,11 @@ const styles = StyleSheet.create({
 const mapDispatcherToProps = dispatch => {
   return {
     onSaveLabel: label => {
-      return dispatch({
-        type: ACTION.ADD_LABEL,
-        data: {
-          id: new Date().getTime().toString(),
-          ...label,
-        },
-      });
+      return dispatch(
+        labelAction.insert({id: new Date().getTime().toString(), ...label}),
+      );
     },
+    loadLabel: labelAction.queryAll(dispatch),
   };
 };
 
