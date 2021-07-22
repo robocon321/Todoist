@@ -8,10 +8,10 @@ const Schema = {
   properties: {
     id: 'string',
     title: 'string',
-    parentId: 'string',
+    parentId: 'string?',
     viewType: 'int',
     colorType: 'int',
-    favorite: 'boolean',
+    favorite: 'bool',
   },
 };
 

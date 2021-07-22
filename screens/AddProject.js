@@ -1,18 +1,18 @@
-import React from 'react';
+import React, {createRef} from 'react';
 import {
   View,
   StyleSheet,
   Image,
   Text,
   Switch,
-  TouchableWithoutFeedback,
+  TouchableOpacity,
 } from 'react-native';
 import {TextInput, RadioButton} from 'react-native-paper';
 import {connect} from 'react-redux';
 import colorType from '../constants/colorType';
-import * as ACTION from '../constants/actionType';
+import * as projectAction from '../actions/projectAction';
 import AddProjectTopbar from '../components/AddProjectTopbar';
-import AddLabelBottomPopUp from '../components/AddLabelBottomPopUp';
+import ColorChoose from '../components/ColorChoose';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
 
@@ -28,7 +28,12 @@ class AddProject extends React.Component {
         favorite: false,
       },
     };
+    this.colorRef = createRef();
   }
+
+  onShowPopup = () => {
+    this.colorRef.current.onShowPopup();
+  };
 
   onExit = () => {
     this.props.navigation.goBack();
@@ -44,12 +49,67 @@ class AddProject extends React.Component {
     });
   };
 
+  onChangeColor = id => {
+    this.setState({
+      ...this.state,
+      project: {
+        ...this.state.project,
+        colorType: id,
+      },
+    });
+    this.colorRef.current.onClosePopup();
+  };
+
+  onChangeTitle = text => {
+    this.setState({
+      ...this.state,
+      project: {
+        ...this.state.project,
+        title: text,
+      },
+    });
+  };
+
+  onChangeCollaborators = account => {
+    // To do
+  };
+
+  onChangeParent = id => {
+    this.setState({
+      ...this.state,
+      project: {
+        ...this.state.project,
+        parentId: id,
+      },
+    });
+  };
+
+  onChangeStatusFavorite = () => {
+    this.setState({
+      ...this.state,
+      project: {
+        ...this.state.project,
+        favorite: !this.state.project.favorite,
+      },
+    });
+  };
+
+  onSaveProject = () => {
+    this.props.onSaveProject(this.state.project);
+    this.onExit();
+  };
+
   render() {
     const {project} = this.state;
+
     return (
       <View style={styles.container}>
-        <AddProjectTopbar onExit={this.onExit} />
+        <AddProjectTopbar
+          onExit={this.onExit}
+          onSaveProject={this.onSaveProject}
+        />
         <TextInput
+          onChangeText={text => this.onChangeTitle(text)}
           label="Name"
           value={project.title}
           mode="outlined"
@@ -60,7 +120,7 @@ class AddProject extends React.Component {
           }}
           autoFocus
         />
-        <TouchableWithoutFeedback>
+        <TouchableOpacity onPress={() => this.onShowPopup()}>
           <View style={styles.row}>
             <Image source={ICON.list} style={styles.icon} />
             <View>
@@ -70,8 +130,8 @@ class AddProject extends React.Component {
               </Text>
             </View>
           </View>
-        </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback>
+        </TouchableOpacity>
+        <TouchableOpacity>
           <View style={styles.row}>
             <Image source={ICON.new_user} style={styles.icon} />
             <View>
@@ -79,8 +139,8 @@ class AddProject extends React.Component {
               <Text style={styles.content}>No collaborators</Text>
             </View>
           </View>
-        </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback>
+        </TouchableOpacity>
+        <TouchableOpacity>
           <View style={styles.row}>
             <Image source={ICON.parent} style={styles.icon} />
             <View>
@@ -88,12 +148,18 @@ class AddProject extends React.Component {
               <Text style={styles.content}>No parent</Text>
             </View>
           </View>
-        </TouchableWithoutFeedback>
-        <View style={styles.row}>
-          <Image source={ICON.star} style={styles.icon} />
-          <Text style={styles.title}>Favorite</Text>
-          <Switch style={styles.switch} value={project.favorite} />
-        </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.onChangeStatusFavorite()}>
+          <View style={styles.row}>
+            <Image source={ICON.star} style={styles.icon} />
+            <Text style={styles.title}>Favorite</Text>
+            <Switch
+              style={styles.switch}
+              value={project.favorite}
+              onValueChange={this.onChangeStatusFavorite}
+            />
+          </View>
+        </TouchableOpacity>
         <View style={styles.row}>
           <Image source={ICON.view} style={styles.icon} />
           <View>
@@ -101,7 +167,7 @@ class AddProject extends React.Component {
           </View>
         </View>
         <View style={styles.row}>
-          <TouchableWithoutFeedback onPress={() => this.onSelectViewType(1)}>
+          <TouchableOpacity onPress={() => this.onSelectViewType(1)}>
             <Image
               source={ICON.list_2}
               style={[
@@ -109,8 +175,8 @@ class AddProject extends React.Component {
                 project.viewType === 1 ? styles.border : {},
               ]}
             />
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback onPress={() => this.onSelectViewType(2)}>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.onSelectViewType(2)}>
             <Image
               source={ICON.grid}
               style={[
@@ -118,7 +184,7 @@ class AddProject extends React.Component {
                 project.viewType === 2 ? styles.border : {},
               ]}
             />
-          </TouchableWithoutFeedback>
+          </TouchableOpacity>
         </View>
         <View style={[styles.row, styles.radio]}>
           <RadioButton
@@ -134,6 +200,7 @@ class AddProject extends React.Component {
           />
           <Text style={[styles.title]}>Board</Text>
         </View>
+        <ColorChoose ref={this.colorRef} onChangeColor={this.onChangeColor} />
       </View>
     );
   }
@@ -184,7 +251,11 @@ const styles = StyleSheet.create({
 
 const mapDispatcherToProps = dispatch => {
   return {
-    // Todo
+    onSaveProject: project => {
+      return dispatch(
+        projectAction.insert({id: new Date().getTime().toString(), ...project}),
+      );
+    },
   };
 };
 

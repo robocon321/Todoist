@@ -5,14 +5,14 @@ import {
   Image,
   Text,
   Switch,
-  TouchableWithoutFeedback,
+  TouchableOpacity,
 } from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {connect} from 'react-redux';
 import colorType from '../constants/colorType';
 import * as ACTION from '../constants/actionType';
 import AddLabelTopbar from '../components/AddLabelTopbar';
-import AddLabelBottomPopUp from '../components/AddLabelBottomPopUp';
+import ColorChoose from '../components/ColorChoose';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
 
@@ -47,6 +47,7 @@ class AddLabel extends React.Component {
         colorType: id,
       },
     });
+    this.refPopUp.current.onClosePopup();
   };
 
   onChangeText = title => {
@@ -89,7 +90,7 @@ class AddLabel extends React.Component {
           }}
           autoFocus
         />
-        <TouchableWithoutFeedback onPress={() => this.onShowPopup()}>
+        <TouchableOpacity onPress={() => this.onShowPopup()}>
           <View style={styles.row}>
             <Image source={ICON.label} style={styles.icon} />
             <View>
@@ -99,7 +100,7 @@ class AddLabel extends React.Component {
               </Text>
             </View>
           </View>
-        </TouchableWithoutFeedback>
+        </TouchableOpacity>
         <View style={styles.row}>
           <Image source={ICON.star} style={styles.icon} />
           <Text style={styles.title}>Favorite</Text>
@@ -109,10 +110,7 @@ class AddLabel extends React.Component {
             onValueChange={this.onChangeStatusFavorite}
           />
         </View>
-        <AddLabelBottomPopUp
-          ref={this.refPopUp}
-          onChangeColor={this.onChangeColor}
-        />
+        <ColorChoose ref={this.refPopUp} onChangeColor={this.onChangeColor} />
       </View>
     );
   }

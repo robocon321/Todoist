@@ -46,7 +46,7 @@ class LeftNavigaiton extends React.Component {
   };
 
   onAddNewProject = () => {
-    // Todo
+    this.props.navigation.navigate('AddProject');
   };
 
   onAddNewLabel = () => {
@@ -102,7 +102,7 @@ class LeftNavigaiton extends React.Component {
               color={COLOR.purple_light}
             />
           </TouchableOpacity>
-          <MenuGroup content="Projects">
+          <MenuGroup content="Projects" onAdd={this.onAddNewProject}>
             <MenuItem
               icon={ICON.dot}
               leftContent="Welcome"
