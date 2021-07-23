@@ -100,6 +100,7 @@ class LeftNavigaiton extends React.Component {
           <MenuGroup content="Projects" onAdd={this.onAddNewProject}>
             {projects.map((item, index) => (
               <MenuItem
+                key={index}
                 icon={ICON.dot}
                 leftContent={item.title}
                 color={colorType.find(i => i.id == item.colorType).code}
@@ -115,6 +116,7 @@ class LeftNavigaiton extends React.Component {
           <MenuGroup content="Labels" onAdd={this.onAddNewLabel}>
             {labels.map((item, index) => (
               <MenuItem
+                key={index}
                 icon={ICON.label}
                 leftContent={item.title}
                 color={colorType.find(i => i.id == item.colorType).code}

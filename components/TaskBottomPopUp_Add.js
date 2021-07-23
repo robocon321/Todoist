@@ -4,107 +4,74 @@ import {
   StyleSheet,
   View,
   Text,
-  Dimensions,
   Image,
   TextInput,
   Modal,
   TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
 
-const {height} = Dimensions.get('window');
+// const Label = () => {
+//   return <Text style={styles.tag}>@Label</Text>;
+// };
 
-const Label = key => {
+// const Project = () => {
+//   return <Text style={styles.tag}>#Project</Text>;
+// };
+
+// const Date = () => {
+//   return <Text style={styles.tag}>Text</Text>;
+// };
+
+const MenuLabel = props => {
+  const {isAdd, onAddLabel, str} = this.props;
   return (
-    <Text style={styles.tag} key={key}>
-      @Label
-    </Text>
+    <TouchableWithoutFeedback>
+      <Text>{str}</Text>
+    </TouchableWithoutFeedback>
   );
 };
 
-const Project = key => {
+const MenuProject = props => {
+  const {isAdd, onAddProject, str} = this.props;
   return (
-    <Text style={styles.tag} key={key}>
-      #Project
-    </Text>
-  );
-};
-
-const Date = key => {
-  return (
-    <Text style={styles.tag} key={key}>
-      Text
-    </Text>
+    <TouchableWithoutFeedback>
+      <Text>{str}</Text>
+    </TouchableWithoutFeedback>
   );
 };
 
 class TaskBottomPopUp_Add extends React.Component {
   constructor(props) {
     super(props);
-    this.levelBottom = [-300, -200, 0];
     this.state = {
       bottom: 0,
       currentPopUpY: 0,
       visible: false,
-      inputAddTask: [
-        {
-          component: key => Date(key),
-        },
-        {
-          component: key => (
-            <TextInput key={key} autoFocus placeholder="@Label, #Project" />
-          ),
-        },
-      ],
+      task: {
+        title: '',
+        parentId: null,
+        priorityType: 4,
+        alarmId: null,
+        projectId: '',
+        time: new Date(),
+      },
+      label: [],
+      statusInput: 0,
+      selection: {
+        start: 0,
+        end: 0,
+      },
+      menuPopup: [],
     };
   }
-
-  onPress = e => {
-    const {locationY} = e.nativeEvent;
-    this.setState({
-      ...this.state,
-      currentPopUpY: locationY,
-    });
-  };
-
-  onMove = e => {
-    const {pageY} = e.nativeEvent;
-    const {currentPopUpY} = this.state;
-    this.setState({
-      ...this.state,
-      bottom: height - pageY - (this.heightComponent - currentPopUpY),
-    });
-  };
-
-  onRelease = e => {
-    const {bottom} = this.state;
-    if (bottom < this.levelBottom[0]) {
-      this.setState({
-        ...this.state,
-        bottom: -this.heightComponent,
-        visible: false,
-      });
-    } else if (
-      bottom > this.levelBottom[0] &&
-      bottom < this.levelBottom[1] + 50
-    ) {
-      this.setState({
-        ...this.state,
-        bottom: this.levelBottom[1],
-      });
-    } else {
-      this.setState({
-        ...this.state,
-        bottom: this.levelBottom[2],
-      });
-    }
-  };
 
   onShowPopup = () => {
     this.setState({
       ...this.state,
-      bottom: this.levelBottom[1],
+      bottom: -50,
       visible: true,
     });
   };
@@ -116,12 +83,88 @@ class TaskBottomPopUp_Add extends React.Component {
     });
   };
 
-  onLayout = e => {
-    const {layout} = e.nativeEvent;
-    this.heightComponent = layout.height;
+  onChangeText = text => {
+    let str = '';
+    const {selection} = this.state;
+    const {labels, projects} = this.props;
+    let menuPopup = [];
+
+    for (var i = selection.start; i >= 0; i--) {
+      if (i > 0) {
+        if (text[i] === '#' && text[i - 1] === ' ') {
+          str = text.substring(i + 1, selection.start + 1);
+          if (str.length === 0) {
+            menuPopup.push(...projects);
+          } else {
+            menuPopup.push(
+              ...projects.filter(item => item.title.indexOf(str) === 0),
+            );
+            if (menuPopup.length === 0) {
+              menuPopup.push({title: text, isProject: true});
+            }
+          }
+          break;
+        }
+        if (text[i] === '@' && text[i - 1] === ' ') {
+          str = text.substring(i + 1, selection.start + 1);
+          if (str.length === 0) {
+            menuPopup.push(...labels);
+          } else {
+            menuPopup.push(
+              ...labels.filter(item => item.title.indexOf(str) === 0),
+            );
+            if (menuPopup.length === 0) {
+              menuPopup.push({title: text, isProject: false});
+            }
+          }
+          break;
+        }
+      } else {
+        if (text[i] === '#') {
+          str = text.substring(i + 1, selection.start + 1);
+          if (str.length === 0) {
+            menuPopup.push(...projects);
+          } else {
+            menuPopup.push(
+              ...projects.filter(item => item.title.indexOf(str) === 0),
+            );
+            if (menuPopup.length === 0) {
+              menuPopup.push({title: text, isProject: true});
+            }
+          }
+          break;
+        }
+        if (text[i] === '@') {
+          str = text.substring(i + 1, selection.start + 1);
+          if (str.length === 0) {
+            menuPopup.push(...labels);
+          } else {
+            menuPopup.push(
+              ...labels.filter(item => item.title.indexOf(str) === 0),
+            );
+            if (menuPopup.length === 0) {
+              menuPopup.push({title: text, isProject: false});
+            }
+          }
+          break;
+        }
+      }
+    }
+
+    console.log(menuPopup);
+
+    this.setState({
+      ...this.state,
+      task: {
+        ...this.state.task,
+        title: text,
+      },
+      menuPopup,
+    });
   };
+
   render() {
-    const {bottom, visible, inputAddTask} = this.state;
+    const {bottom, visible, task} = this.state;
     return (
       <Modal animationType="fade" visible={visible} transparent={true}>
         <View
@@ -131,20 +174,21 @@ class TaskBottomPopUp_Add extends React.Component {
             justifyContent: 'flex-end',
           }}>
           <TouchableWithoutFeedback onPress={this.onClosePopup}>
-            <View style={{flex: 1, width: '100%'}}></View>
+            <View style={{flex: 1, width: '100%'}} />
           </TouchableWithoutFeedback>
-          <View
-            style={[styles.container, {bottom: bottom}]}
-            onLayout={this.onLayout}
-            onStartShouldSetResponder={() => true}
-            onMoveShouldSetResponder={() => true}
-            onResponderGrant={this.onPress}
-            onResponderRelease={this.onRelease}
-            onResponderMove={this.onMove}>
+          <View style={[styles.container, {bottom: bottom}]}>
+            <View>{/*To do */}</View>
             <View style={[styles.row, {alignItems: 'center'}]}>
-              {inputAddTask.map((item, index) => {
-                return item.component(index);
-              })}
+              <TextInput
+                value={task.title}
+                autoFocus
+                placeholder="@Label, #Project"
+                onSelectionChange={({nativeEvent: {selection}}) => {
+                  this.setState({...this.state, selection});
+                }}
+                onSubmitEditing={Keyboard.dismiss}
+                onChangeText={text => this.onChangeText(text)}
+              />
             </View>
             <View style={styles.row}>
               <View style={styles.wrap}>
@@ -208,13 +252,22 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   container: {
-    position: 'absolute',
+    position: 'relative',
     width: '100%',
-    height: 400,
+    height: 250,
     backgroundColor: COLOR.white,
     elevation: 4,
     borderRadius: 20,
     padding: 20,
+  },
+  menuPopup: {
+    position: 'absolute',
+    padding: 10,
+    backgroundColor: COLOR.white,
+    width: '70%',
+    elevation: 3,
+    bottom: '100%',
+    left: 30,
   },
   wrap: {
     flexDirection: 'row',
