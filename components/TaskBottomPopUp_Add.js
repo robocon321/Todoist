@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {connect} from 'react-redux';
 import {
@@ -9,69 +10,111 @@ import {
   Modal,
   TouchableWithoutFeedback,
   Keyboard,
+  Animated
 } from 'react-native';
+import * as labelAction from '../actions/labelAction';
+import * as projectAction from '../actions/projectAction';
+import colorType from '../constants/colorType';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
 
-// const Label = () => {
-//   return <Text style={styles.tag}>@Label</Text>;
-// };
+const Label = props => {
+  const {item} = props;
+  return <Text style={styles.tag}>@{item.title}</Text>;
+};
 
-// const Project = () => {
-//   return <Text style={styles.tag}>#Project</Text>;
-// };
+const Project = props => {
+  const {item} = props;
+  return <Text style={styles.tag}>#{item.title}</Text>;
+};
 
 // const Date = () => {
 //   return <Text style={styles.tag}>Text</Text>;
 // };
 
 const MenuLabel = props => {
-  const {isAdd, onAddLabel, str} = this.props;
+  const {item, onChooseLabel} = props;
+  const code = colorType.filter(i => item.colorType === i.id).code;
   return (
-    <TouchableWithoutFeedback>
-      <Text>{str}</Text>
-    </TouchableWithoutFeedback>
+    // <TouchableWithoutFeedback onPress={() => onChooseLabel(item.id)}>
+    <View style={[styles.row, {padding: 10}]}>
+      <Image source={ICON.label} style={[styles.icon, {tintColor: code}]} />
+      <Text style={styles.text}>{item.title}</Text>
+    </View>
+    /* </TouchableWithoutFeedback> */
   );
 };
 
 const MenuProject = props => {
-  const {isAdd, onAddProject, str} = this.props;
+  const {item, onChooseProject} = props;
+  const code = colorType.filter(i => item.colorType === i.id).code;
   return (
-    <TouchableWithoutFeedback>
-      <Text>{str}</Text>
+    // <TouchableWithoutFeedback onPress={() => onChooseProject(item.id)}>
+    <View style={[styles.row, {padding: 10}]}>
+      <Image source={ICON.dot} style={[styles.icon, {tintColor: code}]} />
+      <Text style={styles.text}>{item.title}</Text>
+    </View>
+    // </TouchableWithoutFeedback>
+  );
+};
+
+const MenuAddLabel = props => {
+  const {item, onSaveLabel} = props;
+  const code = colorType.filter(i => item.colorType === i.id).code;
+  return (
+    <TouchableWithoutFeedback onPress={() => onSaveLabel(item.title)}>
+      <View style={[styles.row, {padding: 10}]}>
+        <Text>Add new </Text>
+        <Image source={ICON.label} style={[styles.icon, {tintColor: code}]} />
+        <Text style={styles.text}>{item.title}</Text>
+      </View>
     </TouchableWithoutFeedback>
   );
+};
+
+const MenuAddProject = props => {
+  const {item, onSaveProject} = props;
+  const code = colorType.filter(i => item.colorType === i.id).code;
+  return (
+    <TouchableWithoutFeedback onPress={() => onSaveProject(item.title)}>
+      <View style={[styles.row, {padding: 10}]}>
+        <Text>Add new </Text>
+        <Image source={ICON.dot} style={[styles.icon, {tintColor: code}]} />
+        <Text style={styles.text}>{item.title}</Text>
+      </View>
+    </TouchableWithoutFeedback>
+  );
+};
+
+const init = {
+  currentPopUpY: 0,
+  visible: false,
+  task: {
+    title: '',
+    parentId: null,
+    priorityType: 4,
+    alarmId: null,
+    projectId: '',
+    time: new Date(),
+  },
+  labelIds: [],
+  statusInput: 0,
+  selection: {
+    start: 0,
+    end: 0,
+  },
+  menuPopup: [],
 };
 
 class TaskBottomPopUp_Add extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      bottom: 0,
-      currentPopUpY: 0,
-      visible: false,
-      task: {
-        title: '',
-        parentId: null,
-        priorityType: 4,
-        alarmId: null,
-        projectId: '',
-        time: new Date(),
-      },
-      label: [],
-      statusInput: 0,
-      selection: {
-        start: 0,
-        end: 0,
-      },
-      menuPopup: [],
-    };
+    this.state = init;
   }
 
   onShowPopup = () => {
     this.setState({
       ...this.state,
-      bottom: -50,
       visible: true,
     });
   };
@@ -85,7 +128,7 @@ class TaskBottomPopUp_Add extends React.Component {
 
   onChangeText = text => {
     let str = '';
-    const {selection} = this.state;
+    const {selection, labelIds} = this.state;
     const {labels, projects} = this.props;
     let menuPopup = [];
 
@@ -94,13 +137,19 @@ class TaskBottomPopUp_Add extends React.Component {
         if (text[i] === '#' && text[i - 1] === ' ') {
           str = text.substring(i + 1, selection.start + 1);
           if (str.length === 0) {
-            menuPopup.push(...projects);
+            menuPopup.push(
+              ...projects.filter(item => item.id !== this.state.task.projectId),
+            );
           } else {
             menuPopup.push(
-              ...projects.filter(item => item.title.indexOf(str) === 0),
+              ...projects.filter(
+                item =>
+                  item.title.indexOf(str) === 0 &&
+                  item.id !== this.state.task.projectId,
+              ),
             );
             if (menuPopup.length === 0) {
-              menuPopup.push({title: text, isProject: true});
+              menuPopup.push({title: str, isLabel: false});
             }
           }
           break;
@@ -108,13 +157,19 @@ class TaskBottomPopUp_Add extends React.Component {
         if (text[i] === '@' && text[i - 1] === ' ') {
           str = text.substring(i + 1, selection.start + 1);
           if (str.length === 0) {
-            menuPopup.push(...labels);
+            menuPopup.push(
+              ...labels.filter(item => !labelIds.find(k => k === item.id)),
+            );
           } else {
             menuPopup.push(
-              ...labels.filter(item => item.title.indexOf(str) === 0),
+              ...labels.filter(
+                item =>
+                  item.title.indexOf(str) === 0 &&
+                  !labelIds.find(k => k === item.id),
+              ),
             );
             if (menuPopup.length === 0) {
-              menuPopup.push({title: text, isProject: false});
+              menuPopup.push({title: str, isLabel: true});
             }
           }
           break;
@@ -123,13 +178,19 @@ class TaskBottomPopUp_Add extends React.Component {
         if (text[i] === '#') {
           str = text.substring(i + 1, selection.start + 1);
           if (str.length === 0) {
-            menuPopup.push(...projects);
+            menuPopup.push(
+              ...projects.filter(item => item.id !== this.state.task.projectId),
+            );
           } else {
             menuPopup.push(
-              ...projects.filter(item => item.title.indexOf(str) === 0),
+              ...projects.filter(
+                item =>
+                  item.title.indexOf(str) === 0 &&
+                  item.id !== this.state.task.projectId,
+              ),
             );
             if (menuPopup.length === 0) {
-              menuPopup.push({title: text, isProject: true});
+              menuPopup.push({title: str, isLabel: false});
             }
           }
           break;
@@ -137,21 +198,25 @@ class TaskBottomPopUp_Add extends React.Component {
         if (text[i] === '@') {
           str = text.substring(i + 1, selection.start + 1);
           if (str.length === 0) {
-            menuPopup.push(...labels);
+            menuPopup.push(
+              ...labels.filter(item => !labelIds.find(k => k === item.id)),
+            );
           } else {
             menuPopup.push(
-              ...labels.filter(item => item.title.indexOf(str) === 0),
+              ...labels.filter(
+                item =>
+                  item.title.indexOf(str) === 0 &&
+                  !labelIds.find(k => k === item.id),
+              ),
             );
             if (menuPopup.length === 0) {
-              menuPopup.push({title: text, isProject: false});
+              menuPopup.push({title: str, isLabel: true});
             }
           }
           break;
         }
       }
     }
-
-    console.log(menuPopup);
 
     this.setState({
       ...this.state,
@@ -163,23 +228,124 @@ class TaskBottomPopUp_Add extends React.Component {
     });
   };
 
+  onChooseProject = id => {
+    this.setState({
+      ...this.state,
+      task: {
+        ...this.state.task,
+        projectId: id,
+      },
+      menuPopup: [],
+    });
+  };
+
+  onChooseLabel = id => {
+    this.setState({
+      ...this.state,
+      labelIds: [...this.state.labelIds, id],
+      menuPopup: [],
+    });
+  };
+
+  onAddLabel = title => {
+    let id = new Date().getTime().toString();
+    this.props.onSaveLabel({
+      id,
+      title,
+      colorType: 1,
+      favorite: false,
+    });
+    this.props.onLoadLabel();
+    this.onChooseLabel(id);
+  };
+
+  onAddProject = title => {
+    let id = new Date().getTime().toString();
+    this.props.onSaveProject({
+      id,
+      title,
+      parentId: null,
+      viewType: 1,
+      colorType: 1,
+      favorite: false,
+    });
+    this.props.onLoadProject();
+    this.onChooseProject(id);
+  };
+
   render() {
-    const {bottom, visible, task} = this.state;
+    const {visible, task, menuPopup, labelIds} = this.state;
+    const {labels, projects} = this.props;
     return (
       <Modal animationType="fade" visible={visible} transparent={true}>
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: '#000000AA',
-            justifyContent: 'flex-end',
-          }}>
+        <View style={styles.root}>
           <TouchableWithoutFeedback onPress={this.onClosePopup}>
-            <View style={{flex: 1, width: '100%'}} />
+            <View
+              style={{
+                flex: 1,
+                width: '100%',
+                backgroundColor: 'yellow',
+              }}
+            />
           </TouchableWithoutFeedback>
-          <View style={[styles.container, {bottom: bottom}]}>
-            <View>{/*To do */}</View>
+          <Animated.View style={[styles.container]}>
+            <TouchableWithoutFeedback
+              onPress={() => {
+                console.log(3);
+              }}>
+              <View style={[styles.menuPopup]}>
+                {menuPopup.map((item, index) => {
+                  if (item.isLabel === undefined) {
+                    if (item.viewType === undefined) {
+                      return (
+                        <MenuLabel
+                          item={item}
+                          key={index}
+                          onChooseLabel={this.onChooseLabel}
+                        />
+                      );
+                    } else {
+                      return (
+                        <MenuProject
+                          item={item}
+                          key={index}
+                          onChooseProject={this.onChooseProject}
+                        />
+                      );
+                    }
+                  } else {
+                    if (item.isLabel) {
+                      return (
+                        <MenuAddLabel
+                          item={item}
+                          key={index}
+                          onSaveLabel={this.onSaveLabel}
+                        />
+                      );
+                    } else {
+                      return (
+                        <MenuAddProject
+                          item={item}
+                          key={index}
+                          onSaveProject={this.onSaveProject}
+                        />
+                      );
+                    }
+                  }
+                })}
+              </View>
+            </TouchableWithoutFeedback>
             <View style={[styles.row, {alignItems: 'center'}]}>
+              {task.projectId.length > 0 && (
+                <Project
+                  item={projects.find(item => item.id === task.projectId)}
+                />
+              )}
+              {labelIds.map((item, index) => (
+                <Label item={labels.find(i => i.id === item)} key={index} />
+              ))}
               <TextInput
+                style={styles.textInput}
                 value={task.title}
                 autoFocus
                 placeholder="@Label, #Project"
@@ -211,7 +377,11 @@ class TaskBottomPopUp_Add extends React.Component {
             <View
               style={[
                 styles.row,
-                {justifyContent: 'space-between', alignItems: 'center'},
+                {
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginTop: 10,
+                },
               ]}>
               <View style={styles.row}>
                 <Image
@@ -238,7 +408,7 @@ class TaskBottomPopUp_Add extends React.Component {
                 />
               </View>
             </View>
-          </View>
+          </Animated.View>
         </View>
       </Modal>
     );
@@ -246,27 +416,30 @@ class TaskBottomPopUp_Add extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    backgroundColor: '#000000AA',
+    justifyContent: 'flex-end',
+  },
   row: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginTop: 10,
   },
   container: {
     position: 'relative',
     width: '100%',
-    height: 250,
     backgroundColor: COLOR.white,
     elevation: 4,
-    borderRadius: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     padding: 20,
   },
   menuPopup: {
     position: 'absolute',
-    padding: 10,
-    backgroundColor: COLOR.white,
+    backgroundColor: COLOR.green_light,
     width: '70%',
     elevation: 3,
-    bottom: '100%',
+    bottom: '110%',
     left: 30,
   },
   wrap: {
@@ -277,6 +450,9 @@ const styles = StyleSheet.create({
     borderColor: COLOR.gray_light,
     marginRight: 20,
     justifyContent: 'center',
+  },
+  textInput: {
+    width: '100%',
   },
   icon: {
     width: 20,
@@ -308,7 +484,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // To do
+    onSaveLabel: label => {
+      return dispatch(labelAction.insert(label));
+    },
+    onSaveProject: project => {
+      return dispatch(projectAction.insert(project));
+    },
+    onLoadLabel: labelAction.queryAll(dispatch),
+    onLoadProject: projectAction.queryAll(dispatch),
   };
 };
 

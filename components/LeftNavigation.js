@@ -9,8 +9,6 @@ import {
   AsyncStorage,
 } from 'react-native';
 import {connect} from 'react-redux';
-import * as labelAction from '../actions/labelAction';
-import * as projectAction from '../actions/projectAction';
 import * as ICON from '../constants/icons';
 import * as COLOR from '../constants/colors';
 import colorType from '../constants/colorType';
