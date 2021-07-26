@@ -8,7 +8,7 @@ const projectReducer = (state = init, action) => {
     case types.ADD_PROJECT:
       db.insert(action.data)
         .then(result => {
-          if (result) alert('Save success!');
+          if (result) console.log('Save success!');
         })
         .catch(err => console.log(err));
       break;

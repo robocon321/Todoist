@@ -8,7 +8,7 @@ const labelTaskReducer = (state = init, action) => {
     case types.ADD_LABEL_TASK:
       db.insert(action.data)
         .then(result => {
-          if (result) alert('Save success!');
+          if (result) console.log('Save success!');
         })
         .catch(err => {
           console.log('Error', err);
@@ -18,7 +18,7 @@ const labelTaskReducer = (state = init, action) => {
       db.update(action.data)
         .then(result => {
           if (result) {
-            alert('Update success!');
+            console.log('Update success!');
           }
         })
         .catch(err => {
@@ -29,7 +29,7 @@ const labelTaskReducer = (state = init, action) => {
       db.remove(action.id)
         .then(result => {
           if (result) {
-            alert('Delete success!');
+            console.log('Delete success!');
           }
         })
         .catch(err => {

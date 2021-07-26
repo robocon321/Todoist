@@ -4,13 +4,11 @@ import * as db from '../database/labelDB';
 let init = [];
 
 const labelReducer = (state = init, action) => {
-  let isSuccess = false;
-
   switch (action.type) {
     case types.ADD_LABEL:
       db.insert(action.data)
         .then(result => {
-          if (result) alert('Save success!');
+          if (result) console.log('Save success!');
         })
         .catch(err => {
           console.log('Error', err);

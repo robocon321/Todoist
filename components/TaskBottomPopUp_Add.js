@@ -9,8 +9,6 @@ import {
   TextInput,
   Modal,
   TouchableWithoutFeedback,
-  Keyboard,
-  Animated
 } from 'react-native';
 import * as labelAction from '../actions/labelAction';
 import * as projectAction from '../actions/projectAction';
@@ -20,12 +18,12 @@ import * as ICON from '../constants/icons';
 
 const Label = props => {
   const {item} = props;
-  return <Text style={styles.tag}>@{item.title}</Text>;
+  return <Text style={[styles.tag, {marginRight: 5}]}>@{item.title}</Text>;
 };
 
 const Project = props => {
   const {item} = props;
-  return <Text style={styles.tag}>#{item.title}</Text>;
+  return <Text style={[styles.tag, {marginRight: 5}]}>#{item.title}</Text>;
 };
 
 // const Date = () => {
@@ -36,35 +34,8 @@ const MenuLabel = props => {
   const {item, onChooseLabel} = props;
   const code = colorType.filter(i => item.colorType === i.id).code;
   return (
-    // <TouchableWithoutFeedback onPress={() => onChooseLabel(item.id)}>
-    <View style={[styles.row, {padding: 10}]}>
-      <Image source={ICON.label} style={[styles.icon, {tintColor: code}]} />
-      <Text style={styles.text}>{item.title}</Text>
-    </View>
-    /* </TouchableWithoutFeedback> */
-  );
-};
-
-const MenuProject = props => {
-  const {item, onChooseProject} = props;
-  const code = colorType.filter(i => item.colorType === i.id).code;
-  return (
-    // <TouchableWithoutFeedback onPress={() => onChooseProject(item.id)}>
-    <View style={[styles.row, {padding: 10}]}>
-      <Image source={ICON.dot} style={[styles.icon, {tintColor: code}]} />
-      <Text style={styles.text}>{item.title}</Text>
-    </View>
-    // </TouchableWithoutFeedback>
-  );
-};
-
-const MenuAddLabel = props => {
-  const {item, onSaveLabel} = props;
-  const code = colorType.filter(i => item.colorType === i.id).code;
-  return (
-    <TouchableWithoutFeedback onPress={() => onSaveLabel(item.title)}>
+    <TouchableWithoutFeedback onPress={() => onChooseLabel(item.id)}>
       <View style={[styles.row, {padding: 10}]}>
-        <Text>Add new </Text>
         <Image source={ICON.label} style={[styles.icon, {tintColor: code}]} />
         <Text style={styles.text}>{item.title}</Text>
       </View>
@@ -72,14 +43,45 @@ const MenuAddLabel = props => {
   );
 };
 
-const MenuAddProject = props => {
-  const {item, onSaveProject} = props;
+const MenuProject = props => {
+  const {item, onChooseProject} = props;
   const code = colorType.filter(i => item.colorType === i.id).code;
   return (
-    <TouchableWithoutFeedback onPress={() => onSaveProject(item.title)}>
+    <TouchableWithoutFeedback onPress={() => onChooseProject(item.id)}>
+      <View style={[styles.row, {padding: 10}]}>
+        <Image source={ICON.dot} style={[styles.icon, {tintColor: code}]} />
+        <Text style={styles.text}>{item.title}</Text>
+      </View>
+    </TouchableWithoutFeedback>
+  );
+};
+
+const MenuAddLabel = props => {
+  const {item, onAddLabel} = props;
+  return (
+    <TouchableWithoutFeedback onPress={() => onAddLabel(item.title)}>
       <View style={[styles.row, {padding: 10}]}>
         <Text>Add new </Text>
-        <Image source={ICON.dot} style={[styles.icon, {tintColor: code}]} />
+        <Image
+          source={ICON.label}
+          style={[styles.icon, {tintColor: COLOR.gray_dark}]}
+        />
+        <Text style={styles.text}>{item.title}</Text>
+      </View>
+    </TouchableWithoutFeedback>
+  );
+};
+
+const MenuAddProject = props => {
+  const {item, onAddProject} = props;
+  return (
+    <TouchableWithoutFeedback onPress={() => onAddProject(item.title)}>
+      <View style={[styles.row, {padding: 10}]}>
+        <Text>Add new </Text>
+        <Image
+          source={ICON.dot}
+          style={[styles.icon, {tintColor: COLOR.gray_dark}]}
+        />
         <Text style={styles.text}>{item.title}</Text>
       </View>
     </TouchableWithoutFeedback>
@@ -98,11 +100,6 @@ const init = {
     time: new Date(),
   },
   labelIds: [],
-  statusInput: 0,
-  selection: {
-    start: 0,
-    end: 0,
-  },
   menuPopup: [],
 };
 
@@ -110,6 +107,10 @@ class TaskBottomPopUp_Add extends React.Component {
   constructor(props) {
     super(props);
     this.state = init;
+    this.selection = {
+      start: 0,
+      end: 0,
+    };
   }
 
   onShowPopup = () => {
@@ -128,14 +129,15 @@ class TaskBottomPopUp_Add extends React.Component {
 
   onChangeText = text => {
     let str = '';
-    const {selection, labelIds} = this.state;
+    const {labelIds} = this.state;
+    const {selection} = this;
     const {labels, projects} = this.props;
     let menuPopup = [];
 
     for (var i = selection.start; i >= 0; i--) {
       if (i > 0) {
         if (text[i] === '#' && text[i - 1] === ' ') {
-          str = text.substring(i + 1, selection.start + 1);
+          str = text.substring(i + 1, selection.start + 1).trim();
           if (str.length === 0) {
             menuPopup.push(
               ...projects.filter(item => item.id !== this.state.task.projectId),
@@ -155,7 +157,7 @@ class TaskBottomPopUp_Add extends React.Component {
           break;
         }
         if (text[i] === '@' && text[i - 1] === ' ') {
-          str = text.substring(i + 1, selection.start + 1);
+          str = text.substring(i + 1, selection.start + 1).trim();
           if (str.length === 0) {
             menuPopup.push(
               ...labels.filter(item => !labelIds.find(k => k === item.id)),
@@ -176,7 +178,7 @@ class TaskBottomPopUp_Add extends React.Component {
         }
       } else {
         if (text[i] === '#') {
-          str = text.substring(i + 1, selection.start + 1);
+          str = text.substring(i + 1, selection.start + 1).trim();
           if (str.length === 0) {
             menuPopup.push(
               ...projects.filter(item => item.id !== this.state.task.projectId),
@@ -196,7 +198,7 @@ class TaskBottomPopUp_Add extends React.Component {
           break;
         }
         if (text[i] === '@') {
-          str = text.substring(i + 1, selection.start + 1);
+          str = text.substring(i + 1, selection.start + 1).trim();
           if (str.length === 0) {
             menuPopup.push(
               ...labels.filter(item => !labelIds.find(k => k === item.id)),
@@ -228,6 +230,31 @@ class TaskBottomPopUp_Add extends React.Component {
     });
   };
 
+  onKeyPress = nativeEvent => {
+    const {selection} = this;
+    let {task, labelIds} = this.state;
+
+    if (selection.start === 0 && nativeEvent.key === 'Backspace') {
+      if (labelIds.length > 0) {
+        labelIds.pop();
+        this.setState({
+          ...this.state,
+          labelIds,
+        });
+      } else if (task.projectId.length) {
+        this.setState({
+          ...this.state,
+          task: {
+            ...task,
+            projectId: '',
+          },
+        });
+      } else {
+        return;
+      }
+    }
+  };
+
   onChooseProject = id => {
     this.setState({
       ...this.state,
@@ -247,21 +274,21 @@ class TaskBottomPopUp_Add extends React.Component {
     });
   };
 
-  onAddLabel = title => {
+  onAddLabel = async title => {
     let id = new Date().getTime().toString();
-    this.props.onSaveLabel({
+    await this.props.onSaveLabel({
       id,
       title,
       colorType: 1,
       favorite: false,
     });
-    this.props.onLoadLabel();
+    await this.props.onLoadLabel();
     this.onChooseLabel(id);
   };
 
-  onAddProject = title => {
+  onAddProject = async title => {
     let id = new Date().getTime().toString();
-    this.props.onSaveProject({
+    await this.props.onSaveProject({
       id,
       title,
       parentId: null,
@@ -269,7 +296,7 @@ class TaskBottomPopUp_Add extends React.Component {
       colorType: 1,
       favorite: false,
     });
-    this.props.onLoadProject();
+    await this.props.onLoadProject();
     this.onChooseProject(id);
   };
 
@@ -284,57 +311,51 @@ class TaskBottomPopUp_Add extends React.Component {
               style={{
                 flex: 1,
                 width: '100%',
-                backgroundColor: 'yellow',
               }}
             />
           </TouchableWithoutFeedback>
-          <Animated.View style={[styles.container]}>
-            <TouchableWithoutFeedback
-              onPress={() => {
-                console.log(3);
-              }}>
-              <View style={[styles.menuPopup]}>
-                {menuPopup.map((item, index) => {
-                  if (item.isLabel === undefined) {
-                    if (item.viewType === undefined) {
-                      return (
-                        <MenuLabel
-                          item={item}
-                          key={index}
-                          onChooseLabel={this.onChooseLabel}
-                        />
-                      );
-                    } else {
-                      return (
-                        <MenuProject
-                          item={item}
-                          key={index}
-                          onChooseProject={this.onChooseProject}
-                        />
-                      );
-                    }
+          <View style={[styles.container]}>
+            <View style={[styles.menuPopup]}>
+              {menuPopup.map((item, index) => {
+                if (item.isLabel === undefined) {
+                  if (item.viewType === undefined) {
+                    return (
+                      <MenuLabel
+                        item={item}
+                        key={index}
+                        onChooseLabel={this.onChooseLabel}
+                      />
+                    );
                   } else {
-                    if (item.isLabel) {
-                      return (
-                        <MenuAddLabel
-                          item={item}
-                          key={index}
-                          onSaveLabel={this.onSaveLabel}
-                        />
-                      );
-                    } else {
-                      return (
-                        <MenuAddProject
-                          item={item}
-                          key={index}
-                          onSaveProject={this.onSaveProject}
-                        />
-                      );
-                    }
+                    return (
+                      <MenuProject
+                        item={item}
+                        key={index}
+                        onChooseProject={this.onChooseProject}
+                      />
+                    );
                   }
-                })}
-              </View>
-            </TouchableWithoutFeedback>
+                } else {
+                  if (item.isLabel) {
+                    return (
+                      <MenuAddLabel
+                        item={item}
+                        key={index}
+                        onAddLabel={this.onAddLabel}
+                      />
+                    );
+                  } else {
+                    return (
+                      <MenuAddProject
+                        item={item}
+                        key={index}
+                        onAddProject={this.onAddProject}
+                      />
+                    );
+                  }
+                }
+              })}
+            </View>
             <View style={[styles.row, {alignItems: 'center'}]}>
               {task.projectId.length > 0 && (
                 <Project
@@ -349,10 +370,10 @@ class TaskBottomPopUp_Add extends React.Component {
                 value={task.title}
                 autoFocus
                 placeholder="@Label, #Project"
+                onKeyPress={({nativeEvent}) => this.onKeyPress(nativeEvent)}
                 onSelectionChange={({nativeEvent: {selection}}) => {
-                  this.setState({...this.state, selection});
+                  this.selection = selection;
                 }}
-                onSubmitEditing={Keyboard.dismiss}
                 onChangeText={text => this.onChangeText(text)}
               />
             </View>
@@ -408,7 +429,7 @@ class TaskBottomPopUp_Add extends React.Component {
                 />
               </View>
             </View>
-          </Animated.View>
+          </View>
         </View>
       </Modal>
     );
@@ -436,9 +457,9 @@ const styles = StyleSheet.create({
   },
   menuPopup: {
     position: 'absolute',
-    backgroundColor: COLOR.green_light,
     width: '70%',
     elevation: 3,
+    backgroundColor: COLOR.white,
     bottom: '110%',
     left: 30,
   },
@@ -452,7 +473,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   textInput: {
-    width: '100%',
+    minWidth: '30%',
+    maxWidth: '100%',
   },
   icon: {
     width: 20,
