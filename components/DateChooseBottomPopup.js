@@ -22,6 +22,7 @@ export default class DateChooseBottomPopup extends React.Component {
       bottom: 0,
       currentPopUpY: 0,
       visible: false,
+      choose: '',
     };
   }
 
@@ -78,7 +79,6 @@ export default class DateChooseBottomPopup extends React.Component {
   };
 
   onClosePopup = () => {
-    console.log(1);
     this.setState({
       ...this.state,
       visible: false,
@@ -90,8 +90,31 @@ export default class DateChooseBottomPopup extends React.Component {
     this.heightComponent = layout.height;
   };
 
+  onDayPress = day => {
+    this.setState({
+      ...this.state,
+      choose: day.dateString,
+    });
+  };
+
+  onVisibleMonthsChange = months => {
+    // Todo
+  };
+
   render() {
-    const {bottom, visible} = this.state;
+    const {bottom, visible, choose} = this.state;
+    const chooseStyle = {};
+    chooseStyle[choose] = {
+      customStyles: {
+        container: {
+          backgroundColor: COLOR.red_light,
+        },
+        text: {
+          color: COLOR.white,
+        },
+      },
+    };
+    console.log(chooseStyle);
     return (
       <Modal animationType="fade" visible={visible} transparent={true}>
         <View
@@ -110,19 +133,28 @@ export default class DateChooseBottomPopup extends React.Component {
                 onResponderRelease={this.onRelease}
                 onResponderMove={this.onMove}>
                 <CalendarList
-                  onVisibleMonthsChange={months => {
-                    console.log('now these months are visible', months);
-                  }}
-                  current={Date.now()}
+                  onVisibleMonthsChange={this.onVisibleMonthsChange}
+                  onDayPress={this.onDayPress}
                   minDate={Date.now()}
                   pastScrollRange={50}
                   futureScrollRange={50}
                   scrollEnabled={true}
                   showScrollIndicator={true}
+                  markingType={'custom'}
+                  markedDates={chooseStyle}
                 />
               </View>
             </View>
           </TouchableWithoutFeedback>
+          <View style={[styles.row, styles.bottomAction]}>
+            <TouchableWithoutFeedback>
+              <Text style={styles.option}>OK</Text>
+            </TouchableWithoutFeedback>
+            <Text style={styles.info}>Thu 29 Jul, 0 tasks due</Text>
+            <TouchableWithoutFeedback>
+              <Text style={styles.option}>Cancel</Text>
+            </TouchableWithoutFeedback>
+          </View>
         </View>
       </Modal>
     );
@@ -144,21 +176,22 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
   },
-  image: {
-    width: 30,
-    height: 30,
-  },
-  title: {
+  option: {
     marginLeft: 20,
     fontSize: 20,
+    color: COLOR.red_light,
+    alignContent: 'center',
   },
-  content: {
-    marginLeft: 20,
-    fontSize: 20,
+  info: {
+    fontSize: 18,
     color: COLOR.gray_dark,
   },
-  borderBottom: {
-    borderBottomWidth: 1,
-    borderColor: COLOR.gray_light,
+  bottomAction: {
+    backgroundColor: COLOR.white,
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    paddingVertical: 20,
+    elevation: 4,
   },
 });

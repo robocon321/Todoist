@@ -37,4 +37,4 @@ export const sun = require('../assets/icons/sun.png');
 export const week = require('../assets/icons/week.png');
 export const chair = require('../assets/icons/chair.png');
 export const no = require('../assets/icons/no.png');
-export const next_week = require('../assets/icons/chair.png');
+export const next_week = require('../assets/icons/next_week.png');

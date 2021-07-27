@@ -97,7 +97,7 @@ export default class TimeChooseBottomPopup extends React.Component {
         <View
           style={{
             flex: 1,
-            backgroundColor: 'transparent',
+            backgroundColor: '#000000AA',
             justifyContent: 'flex-end',
           }}>
           <TouchableWithoutFeedback onPress={this.onClosePopup}>
