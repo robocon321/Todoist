@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {createRef} from 'react';
 import {connect} from 'react-redux';
 import {
   StyleSheet,
@@ -10,11 +10,13 @@ import {
   Modal,
   TouchableWithoutFeedback,
 } from 'react-native';
+import {TouchableRipple} from 'react-native-paper';
 import * as labelAction from '../actions/labelAction';
 import * as projectAction from '../actions/projectAction';
 import colorType from '../constants/colorType';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
+import TimeChooseBottomPopup from './TimeChooseBottomPopup';
 
 const Label = props => {
   const {item} = props;
@@ -111,6 +113,7 @@ class TaskBottomPopUp_Add extends React.Component {
       start: 0,
       end: 0,
     };
+    this.dateChooseRef = createRef();
   }
 
   onShowPopup = () => {
@@ -378,22 +381,44 @@ class TaskBottomPopUp_Add extends React.Component {
               />
             </View>
             <View style={styles.row}>
-              <View style={styles.wrap}>
-                <Image
-                  source={ICON.calendar}
-                  style={[styles.icon, {tintColor: COLOR.green_dark}]}
-                />
-                <Text style={[styles.text, {color: COLOR.green_dark}]}>
-                  Today
-                </Text>
-              </View>
-              <View style={styles.wrap}>
-                <Image
-                  source={ICON.inbox}
-                  style={[styles.icon, {tintColor: COLOR.blue_dark}]}
-                />
-                <Text style={styles.text}>Inbox</Text>
-              </View>
+              <TouchableRipple
+                onPress={() => {
+                  this.dateChooseRef.current.onShowPopup();
+                }}>
+                <View style={styles.wrap}>
+                  <Image
+                    source={ICON.calendar}
+                    style={[styles.icon, {tintColor: COLOR.green_dark}]}
+                  />
+                  <Text style={[styles.text, {color: COLOR.green_dark}]}>
+                    Today
+                  </Text>
+                </View>
+              </TouchableRipple>
+              <TouchableRipple
+                onPress={() => {
+                  menuPopup.push(
+                    ...this.props.projects.filter(
+                      item => item.id !== this.state.task.projectId,
+                    ),
+                  );
+                  const {state} = this;
+                  this.setState({
+                    ...state,
+                    task: {
+                      ...state.task,
+                      title: state.task.title,
+                    },
+                  });
+                }}>
+                <View style={[styles.wrap, {marginLeft: 10}]}>
+                  <Image
+                    source={ICON.inbox}
+                    style={[styles.icon, {tintColor: COLOR.blue_dark}]}
+                  />
+                  <Text style={styles.text}>Inbox</Text>
+                </View>
+              </TouchableRipple>
             </View>
             <View
               style={[
@@ -430,6 +455,7 @@ class TaskBottomPopUp_Add extends React.Component {
               </View>
             </View>
           </View>
+          <TimeChooseBottomPopup ref={this.dateChooseRef} />
         </View>
       </Modal>
     );
@@ -451,8 +477,8 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: COLOR.white,
     elevation: 4,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
     padding: 20,
   },
   menuPopup: {
@@ -469,7 +495,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     borderColor: COLOR.gray_light,
-    marginRight: 20,
     justifyContent: 'center',
   },
   textInput: {

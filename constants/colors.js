@@ -12,3 +12,5 @@ export const purple_light = '#8a00b8';
 export const purple_dark = '#5a0078';
 export const pink_light = '#ffe8ef';
 export const pink_dark = '#ff739d';
+export const orange_dark = '#e38100';
+export const orange_light = '#ffaf47';
