@@ -9,11 +9,14 @@ import {
   Modal,
   TouchableWithoutFeedback,
 } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
 import DateChooseBottomPopup from './DateChooseBottomPopup';
 
 const {height} = Dimensions.get('window');
+const dayOfWeekName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
 export default class TimeChooseBottomPopup extends React.Component {
   constructor(props) {
     super(props);
@@ -22,6 +25,8 @@ export default class TimeChooseBottomPopup extends React.Component {
       bottom: 0,
       currentPopUpY: 0,
       visible: false,
+      time: new Date(),
+      isShowPicker: false,
     };
     this.ref = createRef();
   }
@@ -85,13 +90,58 @@ export default class TimeChooseBottomPopup extends React.Component {
     });
   };
 
+  nextDate = n => {
+    let {time} = this.state;
+    let current = new Date();
+
+    current.setDate(current.getDate() + n);
+    current.setHours(time.getHours());
+    current.setMinutes(time.getMinutes());
+
+    this.setState({
+      ...this.state,
+      time: current,
+    });
+  };
+
+  onChangeDate = date => {
+    let {time} = this.state;
+    const hour = time.getHours();
+    const minute = time.getMinutes();
+
+    time = new Date(date);
+    time.setHours(hour);
+    time.setMinutes(minute);
+
+    this.setState({
+      ...this.state,
+      time,
+    });
+  };
+
+  onChangeTime = ({type}, selectedDate) => {
+    if (type === 'set')
+      this.setState({...this.state, time: selectedDate, isShowPicker: false});
+    else this.setState({...this.state, isShowPicker: false});
+  };
+
   onLayout = e => {
     const {layout} = e.nativeEvent;
     this.heightComponent = layout.height;
   };
 
+  onReschedule = () => {
+    this.props.onChangeTime(this.state.time);
+    this.onClosePopup();
+  }
+
   render() {
-    const {bottom, visible} = this.state;
+    const {bottom, visible, isShowPicker, time} = this.state;
+    let timeStr =
+      time.toDateString() + ` ${time.getHours()}:${time.getMinutes()}`;
+    let date = new Date();
+    date.setHours(0, 0, 0, 0);
+
     return (
       <Modal animationType="fade" visible={visible} transparent={true}>
         <View
@@ -100,6 +150,16 @@ export default class TimeChooseBottomPopup extends React.Component {
             backgroundColor: '#000000AA',
             justifyContent: 'flex-end',
           }}>
+          {isShowPicker && (
+            <DateTimePicker
+              testID="dateTimePicker"
+              value={time}
+              mode="time"
+              is24Hour={true}
+              display="default"
+              onChange={this.onChangeTime}
+            />
+          )}
           <TouchableWithoutFeedback onPress={this.onClosePopup}>
             <View style={{flex: 1, width: '100%'}}>
               <View
@@ -114,76 +174,87 @@ export default class TimeChooseBottomPopup extends React.Component {
                 onResponderRelease={this.onRelease}
                 onResponderMove={this.onMove}>
                 <View>
+                  <View style={[styles.row, styles.borderBottom]}>
+                    <View style={styles.row}>
+                      <Text style={styles.title}>{timeStr}</Text>
+                    </View>
+                  </View>
+                  <TouchableWithoutFeedback onPress={() => this.nextDate(1)}>
+                    <View style={styles.row}>
+                      <View style={styles.row}>
+                        <Image
+                          style={[styles.image, {tintColor: COLOR.orange_dark}]}
+                          source={ICON.sun}
+                        />
+                        <Text style={[styles.title, {fontWeight: 'bold'}]}>
+                          Tomorrow
+                        </Text>
+                      </View>
+                      <Text style={styles.content}>
+                        {dayOfWeekName[(date.getDay() + 1) % 7]}
+                      </Text>
+                    </View>
+                  </TouchableWithoutFeedback>
+                  <TouchableWithoutFeedback onPress={() => this.nextDate(2)}>
+                    <View style={styles.row}>
+                      <View style={styles.row}>
+                        <Image
+                          style={[styles.image, {tintColor: COLOR.purple_dark}]}
+                          source={ICON.week}
+                        />
+                        <Text style={[styles.title, {fontWeight: 'bold'}]}>
+                          Later this week
+                        </Text>
+                      </View>
+                      <Text style={styles.content}>
+                        {dayOfWeekName[(date.getDay() + 2) % 7]}
+                      </Text>
+                    </View>
+                  </TouchableWithoutFeedback>
+                  <TouchableWithoutFeedback
+                    onPress={() => this.nextDate(6 - new Date().getDay())}>
+                    <View style={styles.row}>
+                      <View style={styles.row}>
+                        <Image
+                          style={[styles.image, {tintColor: COLOR.blue_dark}]}
+                          source={ICON.chair}
+                        />
+                        <Text style={[styles.title, {fontWeight: 'bold'}]}>
+                          This weekend
+                        </Text>
+                      </View>
+                      <Text style={styles.content}>Sat</Text>
+                    </View>
+                  </TouchableWithoutFeedback>
+                  <TouchableWithoutFeedback onPress={() => this.nextDate(7)}>
+                    <View style={[styles.row, styles.borderBottom]}>
+                      <View style={styles.row}>
+                        <Image
+                          style={[styles.image, {tintColor: COLOR.purple_dark}]}
+                          source={ICON.next_week}
+                        />
+                        <Text style={[styles.title, {fontWeight: 'bold'}]}>
+                          Next week
+                        </Text>
+                      </View>
+                      <Text style={styles.content}>
+                        {dayOfWeekName[time.getDay()]}
+                      </Text>
+                    </View>
+                  </TouchableWithoutFeedback>
                   <TouchableWithoutFeedback
                     onPress={() => {
                       this.ref.current.onShowPopup();
                     }}>
-                    <View style={[styles.row, styles.borderBottom]}>
+                    <View style={styles.row}>
                       <View style={styles.row}>
                         <Image style={styles.image} source={ICON.pen} />
-                        <Text style={styles.title}>26 Jul</Text>
+                        <Text style={[styles.title, {fontWeight: 'bold'}]}>
+                          Choose
+                        </Text>
                       </View>
                     </View>
                   </TouchableWithoutFeedback>
-                  <View style={styles.row}>
-                    <View style={styles.row}>
-                      <Image
-                        style={[styles.image, {tintColor: COLOR.orange_dark}]}
-                        source={ICON.sun}
-                      />
-                      <Text style={[styles.title, {fontWeight: 'bold'}]}>
-                        Tomorrow
-                      </Text>
-                    </View>
-                    <Text style={styles.content}>Tue</Text>
-                  </View>
-                  <View style={styles.row}>
-                    <View style={styles.row}>
-                      <Image
-                        style={[styles.image, {tintColor: COLOR.purple_dark}]}
-                        source={ICON.week}
-                      />
-                      <Text style={[styles.title, {fontWeight: 'bold'}]}>
-                        Later this week
-                      </Text>
-                    </View>
-                    <Text style={styles.content}>Web</Text>
-                  </View>
-                  <View style={styles.row}>
-                    <View style={styles.row}>
-                      <Image
-                        style={[styles.image, {tintColor: COLOR.blue_dark}]}
-                        source={ICON.chair}
-                      />
-                      <Text style={[styles.title, {fontWeight: 'bold'}]}>
-                        This weekend
-                      </Text>
-                    </View>
-                    <Text style={styles.content}>Sat</Text>
-                  </View>
-                  <View style={styles.row}>
-                    <View style={styles.row}>
-                      <Image
-                        style={[styles.image, {tintColor: COLOR.purple_dark}]}
-                        source={ICON.next_week}
-                      />
-                      <Text style={[styles.title, {fontWeight: 'bold'}]}>
-                        Next weekend
-                      </Text>
-                    </View>
-                    <Text style={styles.content}>Mon (2 Aug)</Text>
-                  </View>
-                  <View style={styles.row}>
-                    <View style={styles.row}>
-                      <Image
-                        style={[styles.image, {tintColor: COLOR.gray_dark}]}
-                        source={ICON.no}
-                      />
-                      <Text style={[styles.title, {fontWeight: 'bold'}]}>
-                        No date
-                      </Text>
-                    </View>
-                  </View>
                 </View>
               </View>
             </View>
@@ -199,24 +270,32 @@ export default class TimeChooseBottomPopup extends React.Component {
               width: '100%',
             },
           ]}>
-          <View style={styles.row}>
-            <Image
-              style={[styles.image, {tintColor: COLOR.red_light}]}
-              source={ICON.add}
-            />
-            <Text style={[styles.title, {color: COLOR.red_light}]}>
-              TIME ZONE
+          <TouchableWithoutFeedback
+            onPress={() => this.setState({...this.state, isShowPicker: true})}>
+            <View style={styles.row}>
+              <Image
+                style={[styles.image, {tintColor: COLOR.red_light}]}
+                source={ICON.add}
+              />
+              <Text style={[styles.title, {color: COLOR.red_light}]}>
+                TIME ZONE
+              </Text>
+            </View>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={() => this.onReschedule()}>
+            <Text
+              style={[
+                styles.content,
+                {color: COLOR.red_light, paddingHorizontal: 20},
+              ]}>
+              RESCHEDULE
             </Text>
-          </View>
-          <Text
-            style={[
-              styles.content,
-              {color: COLOR.red_light, paddingHorizontal: 20},
-            ]}>
-            RESCHEDULE
-          </Text>
+          </TouchableWithoutFeedback>
         </View>
-        <DateChooseBottomPopup ref={this.ref} />
+        <DateChooseBottomPopup
+          ref={this.ref}
+          onChangeDate={this.onChangeDate}
+        />
       </Modal>
     );
   }

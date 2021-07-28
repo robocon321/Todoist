@@ -11,18 +11,23 @@ import {
 } from 'react-native';
 import {CalendarList} from 'react-native-calendars';
 import * as COLOR from '../constants/colors';
-import * as ICON from '../constants/icons';
 
 const {height} = Dimensions.get('window');
 export default class DateChooseBottomPopup extends React.Component {
   constructor(props) {
     super(props);
     this.levelBottom = [-height, -200, 0];
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
     this.state = {
       bottom: 0,
       currentPopUpY: 0,
       visible: false,
-      choose: '',
+      choose: `${year}-${month < 10 ? `0${month}` : month}-${
+        day < 10 ? `0${day}` : day
+      }`,
     };
   }
 
@@ -103,6 +108,7 @@ export default class DateChooseBottomPopup extends React.Component {
 
   render() {
     const {bottom, visible, choose} = this.state;
+    const {onChangeDate} = this.props;
     const chooseStyle = {};
     chooseStyle[choose] = {
       customStyles: {
@@ -114,7 +120,6 @@ export default class DateChooseBottomPopup extends React.Component {
         },
       },
     };
-    console.log(chooseStyle);
     return (
       <Modal animationType="fade" visible={visible} transparent={true}>
         <View
@@ -147,11 +152,17 @@ export default class DateChooseBottomPopup extends React.Component {
             </View>
           </TouchableWithoutFeedback>
           <View style={[styles.row, styles.bottomAction]}>
-            <TouchableWithoutFeedback>
+            <TouchableWithoutFeedback
+              onPress={() => {
+                onChangeDate(choose);
+                this.onClosePopup();
+              }}>
               <Text style={styles.option}>OK</Text>
             </TouchableWithoutFeedback>
-            <Text style={styles.info}>Thu 29 Jul, 0 tasks due</Text>
-            <TouchableWithoutFeedback>
+            <Text style={styles.info}>
+              {new Date(choose).toDateString()} , 0 tasks due
+            </Text>
+            <TouchableWithoutFeedback onPress={() => this.onClosePopup()}>
               <Text style={styles.option}>Cancel</Text>
             </TouchableWithoutFeedback>
           </View>
@@ -175,6 +186,7 @@ const styles = StyleSheet.create({
     elevation: 4,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+    padding: 10,
   },
   option: {
     marginLeft: 20,
@@ -183,7 +195,7 @@ const styles = StyleSheet.create({
     alignContent: 'center',
   },
   info: {
-    fontSize: 18,
+    fontSize: 15,
     color: COLOR.gray_dark,
   },
   bottomAction: {
@@ -192,6 +204,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: '100%',
     paddingVertical: 20,
-    elevation: 4,
+    elevation: 14,
   },
 });

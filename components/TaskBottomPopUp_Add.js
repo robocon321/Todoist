@@ -303,9 +303,42 @@ class TaskBottomPopUp_Add extends React.Component {
     this.onChooseProject(id);
   };
 
+  onChangeTime = time => {
+    console.log(time);
+    this.setState({
+      ...this.state,
+      task: {
+        ...this.state.task,
+        time,
+      },
+    });
+  };
+
   render() {
     const {visible, task, menuPopup, labelIds} = this.state;
     const {labels, projects} = this.props;
+    const {time} = task;
+    let current = new Date();
+    let timeStr = `${time.toDateString()}`;
+
+    if (
+      current.getFullYear() === time.getFullYear() &&
+      current.getMonth() === time.getMonth() &&
+      current.getDate() === time.getDate()
+    ) {
+      timeStr = 'Today';
+    }
+
+    current.setDate(current.getDate() + 1);
+
+    if (
+      current.getFullYear() === time.getFullYear() &&
+      current.getMonth() === time.getMonth() &&
+      current.getDate() === time.getDate()
+    ) {
+      timeStr = 'Tomorrow';
+    }
+
     return (
       <Modal animationType="fade" visible={visible} transparent={true}>
         <View style={styles.root}>
@@ -391,7 +424,7 @@ class TaskBottomPopUp_Add extends React.Component {
                     style={[styles.icon, {tintColor: COLOR.green_dark}]}
                   />
                   <Text style={[styles.text, {color: COLOR.green_dark}]}>
-                    Today
+                    {timeStr}
                   </Text>
                 </View>
               </TouchableRipple>
@@ -455,7 +488,10 @@ class TaskBottomPopUp_Add extends React.Component {
               </View>
             </View>
           </View>
-          <TimeChooseBottomPopup ref={this.dateChooseRef} />
+          <TimeChooseBottomPopup
+            ref={this.dateChooseRef}
+            onChangeTime={this.onChangeTime}
+          />
         </View>
       </Modal>
     );
