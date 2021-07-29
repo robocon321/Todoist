@@ -16,8 +16,8 @@ import * as projectAction from '../actions/projectAction';
 import colorType from '../constants/colorType';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
+import {priorities} from '../constants/others';
 import TimeChooseBottomPopup from './TimeChooseBottomPopup';
-import {ADD_LABEL, ADD_PROJECT} from '../constants/actionType';
 
 const TYPE_LABEL = 0;
 const TYPE_PROJECT = 1;
@@ -31,6 +31,27 @@ const Label = props => {
 const Project = props => {
   const {item} = props;
   return <Text style={[styles.tag, {marginRight: 5}]}>#{item.title}</Text>;
+};
+
+const MenuPriority = props => {
+  const {onChangePriority} = props;
+  return (
+    <View>
+      {priorities.map(item => (
+        <TouchableWithoutFeedback
+          key={item.id}
+          onPress={() => onChangePriority(item.id)}>
+          <View style={[styles.row, {padding: 10}]}>
+            <Image
+              source={ICON.label}
+              style={[styles.icon, {tintColor: item.color}]}
+            />
+            <Text style={styles.text}>Priority {item.id}</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      ))}
+    </View>
+  );
 };
 
 const MenuLabel = props => {
@@ -261,8 +282,6 @@ class TaskBottomPopUp_Add extends React.Component {
       }
     }
 
-    console.log(JSON.stringify(menuPopup));
-
     this.setState({
       ...this.state,
       task: {
@@ -305,7 +324,7 @@ class TaskBottomPopUp_Add extends React.Component {
         ...this.state.task,
         projectId: id,
       },
-      menuPopup: [],
+      menuPopup: {},
     });
   };
 
@@ -313,7 +332,28 @@ class TaskBottomPopUp_Add extends React.Component {
     this.setState({
       ...this.state,
       labelIds: [...this.state.labelIds, id],
-      menuPopup: [],
+      menuPopup: {},
+    });
+  };
+
+  onChangeTime = time => {
+    this.setState({
+      ...this.state,
+      task: {
+        ...this.state.task,
+        time,
+      },
+    });
+  };
+
+  onChangePriority = id => {
+    this.setState({
+      ...this.state,
+      task: {
+        ...this.state.task,
+        priorityType: id,
+      },
+      menuPopup: {},
     });
   };
 
@@ -343,20 +383,10 @@ class TaskBottomPopUp_Add extends React.Component {
     this.onChooseProject(id);
   };
 
-  onChangeTime = time => {
-    this.setState({
-      ...this.state,
-      task: {
-        ...this.state.task,
-        time,
-      },
-    });
-  };
-
   render() {
     const {visible, task, menuPopup, labelIds} = this.state;
     const {labels, projects} = this.props;
-    const {time, projectId} = task;
+    const {time, projectId, priorityType} = task;
     let current = new Date();
     let timeStr = `${time.toDateString()}`;
 
@@ -419,7 +449,7 @@ class TaskBottomPopUp_Add extends React.Component {
                     onChooseLabel={this.onChooseLabel}
                   />
                 ))
-              ) : (
+              ) : menuPopup.type === TYPE_PROJECT ? (
                 menuPopup.data.map((item, index) => (
                   <MenuProject
                     item={item}
@@ -427,6 +457,8 @@ class TaskBottomPopUp_Add extends React.Component {
                     onChooseProject={this.onChooseProject}
                   />
                 ))
+              ) : (
+                <MenuPriority onChangePriority={this.onChangePriority} />
               )}
             </View>
             <View style={[styles.row, {alignItems: 'center'}]}>
@@ -519,10 +551,29 @@ class TaskBottomPopUp_Add extends React.Component {
                     source={ICON.label}
                   />
                 </TouchableRipple>
-                <Image
-                  style={[styles.iconOption, {marginRight: 30}]}
-                  source={ICON.flag}
-                />
+                <TouchableRipple
+                  onPress={() => {
+                    this.setState({
+                      ...this.state,
+                      menuPopup: {
+                        type: TYPE_PRIORITY,
+                        isAdd: false,
+                      },
+                    });
+                  }}>
+                  <Image
+                    style={[
+                      styles.iconOption,
+                      {
+                        marginRight: 30,
+                        tintColor: priorities.filter(
+                          item => item.id === priorityType,
+                        ).color,
+                      },
+                    ]}
+                    source={ICON.flag}
+                  />
+                </TouchableRipple>
                 <Image
                   style={[styles.iconOption, {marginRight: 30}]}
                   source={ICON.alarm}
@@ -600,7 +651,6 @@ const styles = StyleSheet.create({
   iconOption: {
     width: 30,
     height: 30,
-    tintColor: COLOR.gray_dark,
   },
   right: {
     backgroundColor: COLOR.red_light,
