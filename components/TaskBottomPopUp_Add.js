@@ -33,10 +33,6 @@ const Project = props => {
   return <Text style={[styles.tag, {marginRight: 5}]}>#{item.title}</Text>;
 };
 
-// const Date = () => {
-//   return <Text style={styles.tag}>Text</Text>;
-// };
-
 const MenuLabel = props => {
   const {item, onChooseLabel} = props;
   const code = colorType.filter(i => item.colorType === i.id).code;
@@ -65,6 +61,7 @@ const MenuProject = props => {
 
 const MenuAddLabel = props => {
   const {item, onAddLabel} = props;
+  console.log(item);
   return (
     <TouchableWithoutFeedback onPress={() => onAddLabel(item.title)}>
       <View style={[styles.row, {padding: 10}]}>
@@ -399,35 +396,35 @@ class TaskBottomPopUp_Add extends React.Component {
               ) : menuPopup.isAdd ? (
                 menuPopup.type === TYPE_LABEL ? (
                   menuPopup.data.map((item, index) => (
-                    <MenuLabel
+                    <MenuAddLabel
                       item={item}
                       key={index}
-                      onChooseLabel={this.onChooseLabel}
+                      onAddLabel={this.onAddLabel}
                     />
                   ))
                 ) : (
                   menuPopup.data.map((item, index) => (
-                    <MenuProject
+                    <MenuAddProject
                       item={item}
                       key={index}
-                      onChooseProject={this.onChooseProject}
+                      onAddProject={this.onAddProject}
                     />
                   ))
                 )
               ) : menuPopup.type === TYPE_LABEL ? (
                 menuPopup.data.map((item, index) => (
-                  <MenuAddLabel
+                  <MenuLabel
                     item={item}
                     key={index}
-                    onSaveLabel={this.onAddLabel}
+                    onChooseLabel={this.onChooseLabel}
                   />
                 ))
               ) : (
                 menuPopup.data.map((item, index) => (
-                  <MenuAddProject
+                  <MenuProject
                     item={item}
                     key={index}
-                    onSaveProject={this.onAddProject}
+                    onChooseProject={this.onChooseProject}
                   />
                 ))
               )}
@@ -470,17 +467,14 @@ class TaskBottomPopUp_Add extends React.Component {
               </TouchableRipple>
               <TouchableRipple
                 onPress={() => {
-                  menuPopup.push(
-                    ...projects.filter(
-                      item => item.id !== this.state.task.projectId,
-                    ),
-                  );
-                  const {state} = this;
                   this.setState({
-                    ...state,
-                    task: {
-                      ...state.task,
-                      title: state.task.title,
+                    ...this.state,
+                    menuPopup: {
+                      type: TYPE_PROJECT,
+                      isAdd: false,
+                      data: projects.filter(
+                        item => item.id !== this.state.task.projectId,
+                      ),
                     },
                   });
                 }}>
@@ -509,17 +503,14 @@ class TaskBottomPopUp_Add extends React.Component {
               <View style={styles.row}>
                 <TouchableRipple
                   onPress={() => {
-                    menuPopup.push(
-                      ...labels.filter(
-                        item => !labelIds.find(k => k === item.id),
-                      ),
-                    );
-                    const {state} = this;
                     this.setState({
-                      ...state,
-                      task: {
-                        ...state.task,
-                        title: state.task.title,
+                      ...this.state,
+                      menuPopup: {
+                        type: TYPE_LABEL,
+                        isAdd: false,
+                        data: labels.filter(
+                          item => !labelIds.find(k => k === item.id),
+                        ),
                       },
                     });
                   }}>
