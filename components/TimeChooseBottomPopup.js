@@ -133,7 +133,7 @@ export default class TimeChooseBottomPopup extends React.Component {
   onReschedule = () => {
     this.props.onChangeTime(this.state.time);
     this.onClosePopup();
-  }
+  };
 
   render() {
     const {bottom, visible, isShowPicker, time} = this.state;

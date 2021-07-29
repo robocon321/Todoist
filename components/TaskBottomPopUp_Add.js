@@ -17,6 +17,11 @@ import colorType from '../constants/colorType';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
 import TimeChooseBottomPopup from './TimeChooseBottomPopup';
+import {ADD_LABEL, ADD_PROJECT} from '../constants/actionType';
+
+const TYPE_LABEL = 0;
+const TYPE_PROJECT = 1;
+const TYPE_PRIORITY = 2;
 
 const Label = props => {
   const {item} = props;
@@ -102,7 +107,7 @@ const init = {
     time: new Date(),
   },
   labelIds: [],
-  menuPopup: [],
+  menuPopup: {},
 };
 
 class TaskBottomPopUp_Add extends React.Component {
@@ -135,26 +140,36 @@ class TaskBottomPopUp_Add extends React.Component {
     const {labelIds} = this.state;
     const {selection} = this;
     const {labels, projects} = this.props;
-    let menuPopup = [];
+    let menuPopup = {};
 
     for (var i = selection.start; i >= 0; i--) {
       if (i > 0) {
         if (text[i] === '#' && text[i - 1] === ' ') {
           str = text.substring(i + 1, selection.start + 1).trim();
           if (str.length === 0) {
-            menuPopup.push(
-              ...projects.filter(item => item.id !== this.state.task.projectId),
-            );
+            menuPopup = {
+              type: TYPE_PROJECT,
+              isAdd: false,
+              data: projects.filter(
+                item => item.id !== this.state.task.projectId,
+              ),
+            };
           } else {
-            menuPopup.push(
-              ...projects.filter(
+            menuPopup = {
+              type: TYPE_PROJECT,
+              isAdd: false,
+              data: projects.filter(
                 item =>
                   item.title.indexOf(str) === 0 &&
                   item.id !== this.state.task.projectId,
               ),
-            );
-            if (menuPopup.length === 0) {
-              menuPopup.push({title: str, isLabel: false});
+            };
+            if (menuPopup.data.length === 0) {
+              menuPopup = {
+                type: TYPE_PROJECT,
+                isAdd: true,
+                data: [{title: str}],
+              };
             }
           }
           break;
@@ -162,19 +177,27 @@ class TaskBottomPopUp_Add extends React.Component {
         if (text[i] === '@' && text[i - 1] === ' ') {
           str = text.substring(i + 1, selection.start + 1).trim();
           if (str.length === 0) {
-            menuPopup.push(
-              ...labels.filter(item => !labelIds.find(k => k === item.id)),
-            );
+            menuPopup = {
+              type: TYPE_LABEL,
+              isAdd: false,
+              data: labels.filter(item => !labelIds.find(k => k === item.id)),
+            };
           } else {
-            menuPopup.push(
-              ...labels.filter(
+            menuPopup = {
+              type: TYPE_LABEL,
+              isAdd: false,
+              data: labels.filter(
                 item =>
                   item.title.indexOf(str) === 0 &&
                   !labelIds.find(k => k === item.id),
               ),
-            );
-            if (menuPopup.length === 0) {
-              menuPopup.push({title: str, isLabel: true});
+            };
+            if (menuPopup.data.length === 0) {
+              menuPopup = {
+                type: TYPE_LABEL,
+                isAdd: true,
+                data: [{title: str}],
+              };
             }
           }
           break;
@@ -183,19 +206,29 @@ class TaskBottomPopUp_Add extends React.Component {
         if (text[i] === '#') {
           str = text.substring(i + 1, selection.start + 1).trim();
           if (str.length === 0) {
-            menuPopup.push(
-              ...projects.filter(item => item.id !== this.state.task.projectId),
-            );
+            menuPopup = {
+              type: TYPE_PROJECT,
+              isAdd: false,
+              data: projects.filter(
+                item => item.id !== this.state.task.projectId,
+              ),
+            };
           } else {
-            menuPopup.push(
-              ...projects.filter(
+            menuPopup = {
+              type: TYPE_PROJECT,
+              isAdd: false,
+              data: projects.filter(
                 item =>
                   item.title.indexOf(str) === 0 &&
                   item.id !== this.state.task.projectId,
               ),
-            );
-            if (menuPopup.length === 0) {
-              menuPopup.push({title: str, isLabel: false});
+            };
+            if (menuPopup.data.length === 0) {
+              menuPopup = {
+                type: TYPE_PROJECT,
+                isAdd: true,
+                data: [{title: str}],
+              };
             }
           }
           break;
@@ -203,25 +236,35 @@ class TaskBottomPopUp_Add extends React.Component {
         if (text[i] === '@') {
           str = text.substring(i + 1, selection.start + 1).trim();
           if (str.length === 0) {
-            menuPopup.push(
-              ...labels.filter(item => !labelIds.find(k => k === item.id)),
-            );
+            menuPopup = {
+              type: TYPE_LABEL,
+              isAdd: false,
+              data: labels.filter(item => !labelIds.find(k => k === item.id)),
+            };
           } else {
-            menuPopup.push(
-              ...labels.filter(
+            menuPopup = {
+              type: TYPE_LABEL,
+              isAdd: false,
+              data: labels.filter(
                 item =>
                   item.title.indexOf(str) === 0 &&
                   !labelIds.find(k => k === item.id),
               ),
-            );
-            if (menuPopup.length === 0) {
-              menuPopup.push({title: str, isLabel: true});
+            };
+            if (menuPopup.data.length === 0) {
+              menuPopup = {
+                type: TYPE_LABEL,
+                isAdd: true,
+                data: [{title: str}],
+              };
             }
           }
           break;
         }
       }
     }
+
+    console.log(JSON.stringify(menuPopup));
 
     this.setState({
       ...this.state,
@@ -304,7 +347,6 @@ class TaskBottomPopUp_Add extends React.Component {
   };
 
   onChangeTime = time => {
-    console.log(time);
     this.setState({
       ...this.state,
       task: {
@@ -317,7 +359,7 @@ class TaskBottomPopUp_Add extends React.Component {
   render() {
     const {visible, task, menuPopup, labelIds} = this.state;
     const {labels, projects} = this.props;
-    const {time} = task;
+    const {time, projectId} = task;
     let current = new Date();
     let timeStr = `${time.toDateString()}`;
 
@@ -352,45 +394,43 @@ class TaskBottomPopUp_Add extends React.Component {
           </TouchableWithoutFeedback>
           <View style={[styles.container]}>
             <View style={[styles.menuPopup]}>
-              {menuPopup.map((item, index) => {
-                if (item.isLabel === undefined) {
-                  if (item.viewType === undefined) {
-                    return (
-                      <MenuLabel
-                        item={item}
-                        key={index}
-                        onChooseLabel={this.onChooseLabel}
-                      />
-                    );
-                  } else {
-                    return (
-                      <MenuProject
-                        item={item}
-                        key={index}
-                        onChooseProject={this.onChooseProject}
-                      />
-                    );
-                  }
-                } else {
-                  if (item.isLabel) {
-                    return (
-                      <MenuAddLabel
-                        item={item}
-                        key={index}
-                        onAddLabel={this.onAddLabel}
-                      />
-                    );
-                  } else {
-                    return (
-                      <MenuAddProject
-                        item={item}
-                        key={index}
-                        onAddProject={this.onAddProject}
-                      />
-                    );
-                  }
-                }
-              })}
+              {menuPopup.isAdd === undefined ? (
+                <View />
+              ) : menuPopup.isAdd ? (
+                menuPopup.type === TYPE_LABEL ? (
+                  menuPopup.data.map((item, index) => (
+                    <MenuLabel
+                      item={item}
+                      key={index}
+                      onChooseLabel={this.onChooseLabel}
+                    />
+                  ))
+                ) : (
+                  menuPopup.data.map((item, index) => (
+                    <MenuProject
+                      item={item}
+                      key={index}
+                      onChooseProject={this.onChooseProject}
+                    />
+                  ))
+                )
+              ) : menuPopup.type === TYPE_LABEL ? (
+                menuPopup.data.map((item, index) => (
+                  <MenuAddLabel
+                    item={item}
+                    key={index}
+                    onSaveLabel={this.onAddLabel}
+                  />
+                ))
+              ) : (
+                menuPopup.data.map((item, index) => (
+                  <MenuAddProject
+                    item={item}
+                    key={index}
+                    onSaveProject={this.onAddProject}
+                  />
+                ))
+              )}
             </View>
             <View style={[styles.row, {alignItems: 'center'}]}>
               {task.projectId.length > 0 && (
@@ -431,7 +471,7 @@ class TaskBottomPopUp_Add extends React.Component {
               <TouchableRipple
                 onPress={() => {
                   menuPopup.push(
-                    ...this.props.projects.filter(
+                    ...projects.filter(
                       item => item.id !== this.state.task.projectId,
                     ),
                   );
@@ -449,7 +489,11 @@ class TaskBottomPopUp_Add extends React.Component {
                     source={ICON.inbox}
                     style={[styles.icon, {tintColor: COLOR.blue_dark}]}
                   />
-                  <Text style={styles.text}>Inbox</Text>
+                  <Text style={styles.text}>
+                    {projectId.length > 0
+                      ? projects.find(item => item.id === projectId).title
+                      : 'Inbox'}
+                  </Text>
                 </View>
               </TouchableRipple>
             </View>
@@ -463,10 +507,27 @@ class TaskBottomPopUp_Add extends React.Component {
                 },
               ]}>
               <View style={styles.row}>
-                <Image
-                  style={[styles.iconOption, {marginRight: 30}]}
-                  source={ICON.label}
-                />
+                <TouchableRipple
+                  onPress={() => {
+                    menuPopup.push(
+                      ...labels.filter(
+                        item => !labelIds.find(k => k === item.id),
+                      ),
+                    );
+                    const {state} = this;
+                    this.setState({
+                      ...state,
+                      task: {
+                        ...state.task,
+                        title: state.task.title,
+                      },
+                    });
+                  }}>
+                  <Image
+                    style={[styles.iconOption, {marginRight: 30}]}
+                    source={ICON.label}
+                  />
+                </TouchableRipple>
                 <Image
                   style={[styles.iconOption, {marginRight: 30}]}
                   source={ICON.flag}
