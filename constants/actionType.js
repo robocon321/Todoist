@@ -21,3 +21,9 @@ export const ADD_LABEL_TASK = 13;
 export const UPDATE_LABEL_TASK = 14;
 export const DELETE_LABEL_TASK = 15;
 export const QUERY_LABEL_TASK = 16;
+
+// commentTask
+export const ADD_COMMENT_TASK = 17;
+export const UPDATE_COMMENT_TASK = 18;
+export const DELETE_COMMENT_TASK = 19;
+export const QUERY_COMMENT_TASK = 20;
