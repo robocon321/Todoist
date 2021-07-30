@@ -120,9 +120,11 @@ export default class TimeChooseBottomPopup extends React.Component {
   };
 
   onChangeTime = ({type}, selectedDate) => {
-    if (type === 'set')
+    if (type === 'set') {
       this.setState({...this.state, time: selectedDate, isShowPicker: false});
-    else this.setState({...this.state, isShowPicker: false});
+    } else {
+      this.setState({...this.state, isShowPicker: false});
+    }
   };
 
   onLayout = e => {

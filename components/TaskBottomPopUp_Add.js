@@ -10,6 +10,7 @@ import {
   Modal,
   TouchableWithoutFeedback,
 } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import {TouchableRipple} from 'react-native-paper';
 import * as labelAction from '../actions/labelAction';
 import * as projectAction from '../actions/projectAction';
@@ -120,12 +121,13 @@ const init = {
     title: '',
     parentId: null,
     priorityType: 4,
-    alarmId: null,
+    alarm: null,
     projectId: '',
     time: new Date(),
   },
   labelIds: [],
   menuPopup: {},
+  isShowPicker: false,
 };
 
 class TaskBottomPopUp_Add extends React.Component {
@@ -357,6 +359,48 @@ class TaskBottomPopUp_Add extends React.Component {
     });
   };
 
+  onChangeTime = ({type}, selectedDate) => {
+    const {alarm} = this.state.task;
+    if (alarm) {
+      this.setState({
+        ...this.state,
+        task: {...this.state.task, alarm: null},
+        isShowPicker: false,
+      });
+    } else {
+      if (type === 'set') {
+        this.setState({
+          ...this.state,
+          task: {
+            ...this.state.task,
+            alarm: selectedDate,
+          },
+          isShowPicker: false,
+        });
+      } else {
+        this.setState({...this.state, isShowPicker: false});
+      }
+    }
+  };
+
+  onShowTimePicker = () => {
+    const {alarm} = this.state.task;
+    if (alarm) {
+      this.setState({
+        ...this.state,
+        task: {
+          ...this.state.task,
+          alarm: null,
+        },
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        isShowPicker: true,
+      });
+    }
+  };
+
   onAddLabel = async title => {
     let id = new Date().getTime().toString();
     await this.props.onSaveLabel({
@@ -384,9 +428,9 @@ class TaskBottomPopUp_Add extends React.Component {
   };
 
   render() {
-    const {visible, task, menuPopup, labelIds} = this.state;
+    const {visible, task, menuPopup, labelIds, isShowPicker} = this.state;
     const {labels, projects} = this.props;
-    const {time, projectId, priorityType} = task;
+    const {time, alarm, projectId, priorityType} = task;
     let current = new Date();
     let timeStr = `${time.toDateString()}`;
 
@@ -411,6 +455,17 @@ class TaskBottomPopUp_Add extends React.Component {
     return (
       <Modal animationType="fade" visible={visible} transparent={true}>
         <View style={styles.root}>
+          {isShowPicker && (
+            <DateTimePicker
+              testID="timePicker"
+              value={new Date()}
+              mode="time"
+              is24Hour={true}
+              display="default"
+              onChange={this.onChangeTime}
+            />
+          )}
+
           <TouchableWithoutFeedback onPress={this.onClosePopup}>
             <View
               style={{
@@ -574,10 +629,18 @@ class TaskBottomPopUp_Add extends React.Component {
                     source={ICON.flag}
                   />
                 </TouchableRipple>
-                <Image
-                  style={[styles.iconOption, {marginRight: 30}]}
-                  source={ICON.alarm}
-                />
+                <TouchableRipple onPress={this.onShowTimePicker}>
+                  <Image
+                    style={[
+                      styles.iconOption,
+                      {
+                        marginRight: 30,
+                        tintColor: alarm ? COLOR.green_light : COLOR.black,
+                      },
+                    ]}
+                    source={ICON.alarm}
+                  />
+                </TouchableRipple>
                 <Image
                   style={[styles.iconOption, {marginRight: 30}]}
                   source={ICON.comment}
