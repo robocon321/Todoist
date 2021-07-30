@@ -17,6 +17,7 @@ import Home from './screens/Home';
 import Login from './screens/Login';
 import AddLabel from './screens/AddLabel';
 import AddProject from './screens/AddProject';
+import Comment from './screens/Comment';
 
 const store = createStore(reducer);
 const App = () => {
@@ -28,11 +29,12 @@ const App = () => {
           screenOptions={{
             headerShown: false,
           }}
-          initialRouteName="Login">
+          initialRouteName="Comment">
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="AddLabel" component={AddLabel} />
           <Stack.Screen name="AddProject" component={AddProject} />
+          <Stack.Screen name="Comment" component={Comment} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
