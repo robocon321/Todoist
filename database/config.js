@@ -47,9 +47,30 @@ const SchemaLabel = {
   },
 };
 
+const SchemaCommentProject = {
+  name: 'CommentTask',
+  primaryKey: 'id',
+  properties: {
+    id: {type: 'string'},
+    taskId: {type: 'string'},
+    type: {type: 'int'},
+    content: {type: 'string?'},
+    commentAccountId: {type: 'string'},
+    fileType: {type: 'int'},
+    fileLink: {type: 'string'},
+    time: {type: 'date'},
+  },
+};
+
 const databaseOptions = {
   path: 'database.realm',
-  schema: [SchemaLabel, SchemaProject, SchemaTask, SchemaLabelTask],
+  schema: [
+    SchemaLabel,
+    SchemaProject,
+    SchemaTask,
+    SchemaLabelTask,
+    SchemaCommentProject,
+  ],
   schemeVersion: 0,
 };
 

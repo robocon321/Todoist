@@ -12,6 +12,34 @@ import CommentTopbar from '../components/CommentTopbar';
 import * as ICON from '../constants/icons';
 import * as COLOR from '../constants/colors';
 
+const ItemComment = props => {
+  return (
+    <View style={[styles.comment, styles.row]}>
+      <View style={styles.row}>
+        <View style={styles.wrap_img}>
+          <Image style={styles.img} source={ICON.dot} />
+        </View>
+        <View style={{marginLeft: 10}}>
+          <View style={styles.row}>
+            <View style={styles.row}>
+              <Text style={styles.name}>Nguyễn Thanh Nhật</Text>
+              <Text style={styles.time}>5 Jul, 18:30</Text>
+            </View>
+          </View>
+          <Text style={styles.title}>Hello world</Text>
+          <View style={[styles.row, styles.wrap_reaction]}>
+            <View style={[styles.row, styles.item_reaction]}>
+              <Image style={styles.img_reaction} source={ICON.dot} />
+              <Text style={styles.text_reaction}>1</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <Image style={styles.icon} source={ICON.option} />
+    </View>
+  );
+};
+
 export default class Comment extends React.Component {
   constructor(props) {
     super(props);
@@ -21,144 +49,7 @@ export default class Comment extends React.Component {
       <View style={styles.container}>
         <CommentTopbar />
         <ScrollView>
-          <View style={[styles.comment, styles.row]}>
-            <View style={styles.row}>
-              <View style={styles.wrap_img}>
-                <Image style={styles.img} source={ICON.dot} />
-              </View>
-              <View style={{marginLeft: 10}}>
-                <View style={styles.row}>
-                  <View style={styles.row}>
-                    <Text style={styles.name}>Nguyễn Thanh Nhật</Text>
-                    <Text style={styles.time}>5 Jul, 18:30</Text>
-                  </View>
-                </View>
-                <Text style={styles.title}>Hello world</Text>
-                <View style={[styles.row, styles.wrap_reaction]}>
-                  <View style={[styles.row, styles.item_reaction]}>
-                    <Image style={styles.img_reaction} source={ICON.dot} />
-                    <Text style={styles.text_reaction}>1</Text>
-                  </View>
-                </View>
-              </View>
-            </View>
-            <Image style={styles.icon} source={ICON.option} />
-          </View>
-          <View style={[styles.comment, styles.row]}>
-            <View style={styles.row}>
-              <View style={styles.wrap_img}>
-                <Image style={styles.img} source={ICON.dot} />
-              </View>
-              <View style={{marginLeft: 10}}>
-                <View style={styles.row}>
-                  <View style={styles.row}>
-                    <Text style={styles.name}>Nguyễn Thanh Nhật</Text>
-                    <Text style={styles.time}>5 Jul, 18:30</Text>
-                  </View>
-                </View>
-                <Text style={styles.title}>Hello world</Text>
-                <View style={[styles.row, styles.wrap_reaction]}>
-                  <View style={[styles.row, styles.item_reaction]}>
-                    <Image style={styles.img_reaction} source={ICON.dot} />
-                    <Text style={styles.text_reaction}>1</Text>
-                  </View>
-                </View>
-              </View>
-            </View>
-            <Image style={styles.icon} source={ICON.option} />
-          </View>
-          <View style={[styles.comment, styles.row]}>
-            <View style={styles.row}>
-              <View style={styles.wrap_img}>
-                <Image style={styles.img} source={ICON.dot} />
-              </View>
-              <View style={{marginLeft: 10}}>
-                <View style={styles.row}>
-                  <View style={styles.row}>
-                    <Text style={styles.name}>Nguyễn Thanh Nhật</Text>
-                    <Text style={styles.time}>5 Jul, 18:30</Text>
-                  </View>
-                </View>
-                <Text style={styles.title}>Hello world</Text>
-                <View style={[styles.row, styles.wrap_reaction]}>
-                  <View style={[styles.row, styles.item_reaction]}>
-                    <Image style={styles.img_reaction} source={ICON.dot} />
-                    <Text style={styles.text_reaction}>1</Text>
-                  </View>
-                </View>
-              </View>
-            </View>
-            <Image style={styles.icon} source={ICON.option} />
-          </View>
-          <View style={[styles.comment, styles.row]}>
-            <View style={styles.row}>
-              <View style={styles.wrap_img}>
-                <Image style={styles.img} source={ICON.dot} />
-              </View>
-              <View style={{marginLeft: 10}}>
-                <View style={styles.row}>
-                  <View style={styles.row}>
-                    <Text style={styles.name}>Nguyễn Thanh Nhật</Text>
-                    <Text style={styles.time}>5 Jul, 18:30</Text>
-                  </View>
-                </View>
-                <Text style={styles.title}>Hello world</Text>
-                <View style={[styles.row, styles.wrap_reaction]}>
-                  <View style={[styles.row, styles.item_reaction]}>
-                    <Image style={styles.img_reaction} source={ICON.dot} />
-                    <Text style={styles.text_reaction}>1</Text>
-                  </View>
-                </View>
-              </View>
-            </View>
-            <Image style={styles.icon} source={ICON.option} />
-          </View>
-          <View style={[styles.comment, styles.row]}>
-            <View style={styles.row}>
-              <View style={styles.wrap_img}>
-                <Image style={styles.img} source={ICON.dot} />
-              </View>
-              <View style={{marginLeft: 10}}>
-                <View style={styles.row}>
-                  <View style={styles.row}>
-                    <Text style={styles.name}>Nguyễn Thanh Nhật</Text>
-                    <Text style={styles.time}>5 Jul, 18:30</Text>
-                  </View>
-                </View>
-                <Text style={styles.title}>Hello world</Text>
-                <View style={[styles.row, styles.wrap_reaction]}>
-                  <View style={[styles.row, styles.item_reaction]}>
-                    <Image style={styles.img_reaction} source={ICON.dot} />
-                    <Text style={styles.text_reaction}>1</Text>
-                  </View>
-                </View>
-              </View>
-            </View>
-            <Image style={styles.icon} source={ICON.option} />
-          </View>
-          <View style={[styles.comment, styles.row]}>
-            <View style={styles.row}>
-              <View style={styles.wrap_img}>
-                <Image style={styles.img} source={ICON.dot} />
-              </View>
-              <View style={{marginLeft: 10}}>
-                <View style={styles.row}>
-                  <View style={styles.row}>
-                    <Text style={styles.name}>Nguyễn Thanh Nhật</Text>
-                    <Text style={styles.time}>5 Jul, 18:30</Text>
-                  </View>
-                </View>
-                <Text style={styles.title}>Hello world</Text>
-                <View style={[styles.row, styles.wrap_reaction]}>
-                  <View style={[styles.row, styles.item_reaction]}>
-                    <Image style={styles.img_reaction} source={ICON.dot} />
-                    <Text style={styles.text_reaction}>1</Text>
-                  </View>
-                </View>
-              </View>
-            </View>
-            <Image style={styles.icon} source={ICON.option} />
-          </View>
+          <ItemComment />
         </ScrollView>
         <View style={[styles.row, styles.form]}>
           <TextInput style={styles.input} />
