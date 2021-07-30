@@ -121,7 +121,7 @@ const init = {
     title: '',
     parentId: null,
     priorityType: 4,
-    alarmId: null,
+    alarm: null,
     projectId: '',
     time: new Date(),
   },
@@ -360,14 +360,44 @@ class TaskBottomPopUp_Add extends React.Component {
   };
 
   onChangeTime = ({type}, selectedDate) => {
-    if (type === 'set') {
+    const {alarm} = this.state.task;
+    if (alarm) {
       this.setState({
         ...this.state,
-        task: {...this.state.task, time: selectedDate},
+        task: {...this.state.task, alarm: null},
         isShowPicker: false,
       });
     } else {
-      this.setState({...this.state, isShowPicker: false});
+      if (type === 'set') {
+        this.setState({
+          ...this.state,
+          task: {
+            ...this.state.task,
+            alarm: selectedDate,
+          },
+          isShowPicker: false,
+        });
+      } else {
+        this.setState({...this.state, isShowPicker: false});
+      }
+    }
+  };
+
+  onShowTimePicker = () => {
+    const {alarm} = this.state.task;
+    if (alarm) {
+      this.setState({
+        ...this.state,
+        task: {
+          ...this.state.task,
+          alarm: null,
+        },
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        isShowPicker: true,
+      });
     }
   };
 
@@ -400,7 +430,7 @@ class TaskBottomPopUp_Add extends React.Component {
   render() {
     const {visible, task, menuPopup, labelIds, isShowPicker} = this.state;
     const {labels, projects} = this.props;
-    const {time, projectId, priorityType} = task;
+    const {time, alarm, projectId, priorityType} = task;
     let current = new Date();
     let timeStr = `${time.toDateString()}`;
 
@@ -599,12 +629,16 @@ class TaskBottomPopUp_Add extends React.Component {
                     source={ICON.flag}
                   />
                 </TouchableRipple>
-                <TouchableRipple
-                  onPress={() =>
-                    this.setState({...this.state, isShowPicker: true})
-                  }>
+
+                <TouchableRipple onPress={this.onShowTimePicker}>
                   <Image
-                    style={[styles.iconOption, {marginRight: 30}]}
+                    style={[
+                      styles.iconOption,
+                      {
+                        marginRight: 30,
+                        tintColor: alarm ? COLOR.green_light : COLOR.black,
+                      },
+                    ]}
                     source={ICON.alarm}
                   />
                 </TouchableRipple>
