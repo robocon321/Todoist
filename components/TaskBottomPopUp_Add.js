@@ -629,6 +629,7 @@ class TaskBottomPopUp_Add extends React.Component {
                     source={ICON.flag}
                   />
                 </TouchableRipple>
+
                 <TouchableRipple onPress={this.onShowTimePicker}>
                   <Image
                     style={[
