@@ -10,6 +10,7 @@ import {
   Modal,
   TouchableWithoutFeedback,
 } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import {TouchableRipple} from 'react-native-paper';
 import * as labelAction from '../actions/labelAction';
 import * as projectAction from '../actions/projectAction';
@@ -126,6 +127,7 @@ const init = {
   },
   labelIds: [],
   menuPopup: {},
+  isShowPicker: false,
 };
 
 class TaskBottomPopUp_Add extends React.Component {
@@ -357,6 +359,18 @@ class TaskBottomPopUp_Add extends React.Component {
     });
   };
 
+  onChangeTime = ({type}, selectedDate) => {
+    if (type === 'set') {
+      this.setState({
+        ...this.state,
+        task: {...this.state.task, time: selectedDate},
+        isShowPicker: false,
+      });
+    } else {
+      this.setState({...this.state, isShowPicker: false});
+    }
+  };
+
   onAddLabel = async title => {
     let id = new Date().getTime().toString();
     await this.props.onSaveLabel({
@@ -384,7 +398,7 @@ class TaskBottomPopUp_Add extends React.Component {
   };
 
   render() {
-    const {visible, task, menuPopup, labelIds} = this.state;
+    const {visible, task, menuPopup, labelIds, isShowPicker} = this.state;
     const {labels, projects} = this.props;
     const {time, projectId, priorityType} = task;
     let current = new Date();
@@ -411,6 +425,17 @@ class TaskBottomPopUp_Add extends React.Component {
     return (
       <Modal animationType="fade" visible={visible} transparent={true}>
         <View style={styles.root}>
+          {isShowPicker && (
+            <DateTimePicker
+              testID="timePicker"
+              value={new Date()}
+              mode="time"
+              is24Hour={true}
+              display="default"
+              onChange={this.onChangeTime}
+            />
+          )}
+
           <TouchableWithoutFeedback onPress={this.onClosePopup}>
             <View
               style={{
@@ -574,10 +599,15 @@ class TaskBottomPopUp_Add extends React.Component {
                     source={ICON.flag}
                   />
                 </TouchableRipple>
-                <Image
-                  style={[styles.iconOption, {marginRight: 30}]}
-                  source={ICON.alarm}
-                />
+                <TouchableRipple
+                  onPress={() =>
+                    this.setState({...this.state, isShowPicker: true})
+                  }>
+                  <Image
+                    style={[styles.iconOption, {marginRight: 30}]}
+                    source={ICON.alarm}
+                  />
+                </TouchableRipple>
                 <Image
                   style={[styles.iconOption, {marginRight: 30}]}
                   source={ICON.comment}
