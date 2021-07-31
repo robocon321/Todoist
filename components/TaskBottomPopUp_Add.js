@@ -152,10 +152,7 @@ class TaskBottomPopUp_Add extends React.Component {
   };
 
   onClosePopup = () => {
-    this.setState({
-      ...this.state,
-      visible: false,
-    });
+    this.setState(init);
   };
 
   onChangeText = text => {

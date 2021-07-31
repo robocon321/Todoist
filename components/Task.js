@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {
   StyleSheet,
   View,
@@ -9,31 +10,45 @@ import {
 import * as ICON from '../constants/icons';
 import * as COLOR from '../constants/colors';
 
-export default class Task extends React.Component {
+class Task extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
-    const {onShowPopup} = this.props;
+    const {onShowPopup, data, allLabels, allProjects, allLabelTasks, isToday} =
+      this.props;
+    const projectName =
+      data.projectId.length === 0
+        ? 'Inbox'
+        : allProjects.find(item => item.id === data.projectId).title;
+    const labelTasks = allLabelTasks.filter(item => item.taskId === data.id);
+    const labels = allLabels.filter(item => {
+      return labelTasks.find(i => item.id === i.labelId);
+    });
     return (
       <TouchableWithoutFeedback onPress={() => onShowPopup()}>
         <View style={styles.container}>
           <View style={styles.left}>
             <Image style={styles.check} source={ICON.o} />
             <View style={styles.col2}>
-              <Text style={styles.title}>Read book</Text>
-              <View style={styles.yesterday}>
-                <Image style={styles.iconYesterday} source={ICON.yesterday} />
-                <Text style={styles.textYesterday}>Yesterday</Text>
-              </View>
+              <Text style={styles.title}>{data.title}</Text>
+              {!isToday && (
+                <View style={styles.yesterday}>
+                  <Image style={styles.iconYesterday} source={ICON.yesterday} />
+                  <Text style={styles.textYesterday}>
+                    {data.time.toDateString()}
+                  </Text>
+                </View>
+              )}
               <View style={styles.label}>
-                <Text style={styles.labelItem}>a</Text>
-                <Text style={styles.labelItem}>b</Text>
+                {labels.map(item => (
+                  <Text style={styles.labelItem}>{item.title}</Text>
+                ))}
               </View>
             </View>
           </View>
           <View style={styles.col3}>
-            <Text style={styles.textInbox}>Inbox</Text>
+            <Text style={styles.textInbox}>{projectName}</Text>
             <Image style={styles.iconInbox} source={ICON.inbox} />
           </View>
         </View>
@@ -107,3 +122,20 @@ const styles = StyleSheet.create({
     tintColor: COLOR.gray_dark,
   },
 });
+
+const mapStateToProps = state => {
+  return {
+    allTasks: state.tasks,
+    allProjects: state.projects,
+    allLabelTasks: state.labelTasks,
+    allLabels: state.labels,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    // To do
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Task);

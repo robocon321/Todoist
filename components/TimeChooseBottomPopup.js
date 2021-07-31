@@ -17,17 +17,19 @@ import DateChooseBottomPopup from './DateChooseBottomPopup';
 const {height} = Dimensions.get('window');
 const dayOfWeekName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
+const init = {
+  bottom: 0,
+  currentPopUpY: 0,
+  visible: false,
+  time: new Date(),
+  isShowPicker: false,
+};
+
 export default class TimeChooseBottomPopup extends React.Component {
   constructor(props) {
     super(props);
     this.levelBottom = [-height, -200, 0];
-    this.state = {
-      bottom: 0,
-      currentPopUpY: 0,
-      visible: false,
-      time: new Date(),
-      isShowPicker: false,
-    };
+    this.state = init;
     this.ref = createRef();
   }
 
@@ -84,10 +86,7 @@ export default class TimeChooseBottomPopup extends React.Component {
   };
 
   onClosePopup = () => {
-    this.setState({
-      ...this.state,
-      visible: false,
-    });
+    this.setState(init);
   };
 
   nextDate = n => {

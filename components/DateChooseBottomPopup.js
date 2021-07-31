@@ -5,7 +5,6 @@ import {
   View,
   Text,
   Dimensions,
-  Image,
   Modal,
   TouchableWithoutFeedback,
 } from 'react-native';
@@ -13,22 +12,26 @@ import {CalendarList} from 'react-native-calendars';
 import * as COLOR from '../constants/colors';
 
 const {height} = Dimensions.get('window');
+
+const date = new Date();
+const year = date.getFullYear();
+const month = date.getMonth() + 1;
+const day = date.getDate();
+
+const init = {
+  bottom: 0,
+  currentPopUpY: 0,
+  visible: false,
+  choose: `${year}-${month < 10 ? `0${month}` : month}-${
+    day < 10 ? `0${day}` : day
+  }`,
+};
+
 export default class DateChooseBottomPopup extends React.Component {
   constructor(props) {
     super(props);
     this.levelBottom = [-height, -200, 0];
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    this.state = {
-      bottom: 0,
-      currentPopUpY: 0,
-      visible: false,
-      choose: `${year}-${month < 10 ? `0${month}` : month}-${
-        day < 10 ? `0${day}` : day
-      }`,
-    };
+    this.state = init;
   }
 
   onPress = e => {
@@ -84,10 +87,7 @@ export default class DateChooseBottomPopup extends React.Component {
   };
 
   onClosePopup = () => {
-    this.setState({
-      ...this.state,
-      visible: false,
-    });
+    this.setState(init);
   };
 
   onLayout = e => {

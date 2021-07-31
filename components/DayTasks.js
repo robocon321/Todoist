@@ -1,6 +1,13 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import {connect} from 'react-redux';
-import {StyleSheet, View, Text} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableWithoutFeedback,
+  ScrollView,
+} from 'react-native';
 import * as COLOR from '../constants/colors';
 import Task from '../components/Task';
 
@@ -11,15 +18,52 @@ class DayTask extends React.Component {
 
   render() {
     const {onShowPopup, tasks} = this.props;
-    console.log(1, tasks);
+    const currentDate = new Date();
+    let todayTasks = tasks.filter(item => {
+      return (
+        currentDate.getDate() === item.time.getDate() &&
+        currentDate.getMonth() === item.time.getMonth() &&
+        currentDate.getFullYear() === item.time.getFullYear()
+      );
+    });
+
+    let overdueTasks = tasks.filter(item => {
+      return (
+        (currentDate.getFullYear() === item.time.getFullYear() &&
+          currentDate.getMonth() === item.time.getMonth() &&
+          currentDate.getDate() > item.time.getDate()) ||
+        (currentDate.getFullYear() === item.time.getFullYear() &&
+          currentDate.getMonth() > item.time.getMonth()) ||
+        currentDate.getFullYear() > item.time.getFullYear()
+      );
+    });
+
     return (
-      <View style={styles.container}>
-        <View style={styles.day}>
-          <Text style={styles.textLeft}>Overdue</Text>
-          <Text style={styles.textRight}>Reschedule</Text>
+      <ScrollView>
+        <View style={styles.container}>
+          <View style={styles.day}>
+            <Text style={styles.textLeft}>Overdue</Text>
+            <TouchableWithoutFeedback>
+              <Text style={styles.textRight}>Reschedule</Text>
+            </TouchableWithoutFeedback>
+          </View>
+          {overdueTasks.map(item => (
+            <Task onShowPopup={onShowPopup} data={item} isToday={false} />
+          ))}
+          <View style={styles.day}>
+            <Text style={styles.textLeft}>
+              Today{' '}
+              <Text style={{fontWeight: '100', fontSize: 15}}>
+                {currentDate.toDateString()}
+              </Text>
+            </Text>
+          </View>
+          {todayTasks.map(item => (
+            <Task onShowPopup={onShowPopup} data={item} isToday={true} />
+          ))}
         </View>
-        <Task onShowPopup={onShowPopup} />
-      </View>
+
+      </ScrollView>
     );
   }
 }
@@ -32,8 +76,8 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    borderColor: COLOR.gray_light,
-    borderWidth: 1,
+    borderBottomColor: COLOR.gray_light,
+    borderBottomWidth: 1,
   },
   textLeft: {
     fontSize: 20,
@@ -53,7 +97,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // getTaskOverdue:
+    // Todo
   };
 };
 

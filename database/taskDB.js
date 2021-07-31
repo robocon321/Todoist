@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 import Realm from 'realm';
 import databaseOptions from './config';
 
