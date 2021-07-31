@@ -10,6 +10,7 @@ import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
 import * as labelAction from '../actions/labelAction';
 import * as projectAction from '../actions/projectAction';
+import * as taskAction from '../actions/taskAction';
 import {connect} from 'react-redux';
 
 class Home extends React.Component {
@@ -21,6 +22,7 @@ class Home extends React.Component {
   componentDidMount() {
     this.props.loadProject();
     this.props.loadLabel();
+    this.props.loadTask();
   }
 
   render() {
@@ -36,7 +38,10 @@ class Home extends React.Component {
             <Drawer.Screen name="Today" component={Today} />
             <Drawer.Screen name="Inbox" component={Inbox} />
           </Drawer.Navigator>
-          <TaskBottomPopUp_Add ref={addTaskPopup} />
+          <TaskBottomPopUp_Add
+            ref={addTaskPopup}
+            navigation={this.props.navigation}
+          />
           <FAB
             color={'white'}
             style={styles.fab}
@@ -73,6 +78,7 @@ const mapDispatchToProps = dispatch => {
   return {
     loadLabel: labelAction.queryAll(dispatch),
     loadProject: projectAction.queryAll(dispatch),
+    loadTask: taskAction.queryAll(dispatch),
   };
 };
 

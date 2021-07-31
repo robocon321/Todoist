@@ -22,3 +22,9 @@ export const priorities = [
     color: '#595959',
   },
 ];
+
+export const STATUS_TASK = {
+  DELETE: 0,
+  NOT_COMPLETE: 1,
+  COMPLETE: 2,
+};

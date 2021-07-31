@@ -14,9 +14,12 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import {TouchableRipple} from 'react-native-paper';
 import * as labelAction from '../actions/labelAction';
 import * as projectAction from '../actions/projectAction';
+import * as taskAction from '../actions/taskAction';
+import * as labelTaskAction from '../actions/labelTaskAction';
 import colorType from '../constants/colorType';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
+import * as OTHER from '../constants/others';
 import {priorities} from '../constants/others';
 import TimeChooseBottomPopup from './TimeChooseBottomPopup';
 
@@ -83,7 +86,6 @@ const MenuProject = props => {
 
 const MenuAddLabel = props => {
   const {item, onAddLabel} = props;
-  console.log(item);
   return (
     <TouchableWithoutFeedback onPress={() => onAddLabel(item.title)}>
       <View style={[styles.row, {padding: 10}]}>
@@ -124,6 +126,7 @@ const init = {
     alarm: null,
     projectId: '',
     time: new Date(),
+    status: OTHER.STATUS_TASK.NOT_COMPLETE,
   },
   labelIds: [],
   menuPopup: {},
@@ -359,7 +362,7 @@ class TaskBottomPopUp_Add extends React.Component {
     });
   };
 
-  onChangeTime = ({type}, selectedDate) => {
+  onChangeAlarm = ({type}, selectedDate) => {
     const {alarm} = this.state.task;
     if (alarm) {
       this.setState({
@@ -401,6 +404,10 @@ class TaskBottomPopUp_Add extends React.Component {
     }
   };
 
+  onComment = () => {
+    this.props.navigation.navigate('Comment');
+  };
+
   onAddLabel = async title => {
     let id = new Date().getTime().toString();
     await this.props.onSaveLabel({
@@ -425,6 +432,20 @@ class TaskBottomPopUp_Add extends React.Component {
     });
     await this.props.onLoadProject();
     this.onChooseProject(id);
+  };
+
+  onAddNewTask = async () => {
+    const {task, labelIds} = this.state;
+    const {onSaveLabelTask, onSaveTask, onLoadTask, onLoadLabelTask} =
+      this.props;
+    task.id = `${Date.now()}`;
+    await labelIds.forEach(item =>
+      onSaveLabelTask({id: `${Date.now()}`, taskId: task.id, labelId: item}),
+    );
+    await onSaveTask(task);
+    await onLoadTask();
+    await onLoadLabelTask();
+    this.onClosePopup();
   };
 
   render() {
@@ -462,7 +483,7 @@ class TaskBottomPopUp_Add extends React.Component {
               mode="time"
               is24Hour={true}
               display="default"
-              onChange={this.onChangeTime}
+              onChange={this.onChangeAlarm}
             />
           )}
 
@@ -629,8 +650,7 @@ class TaskBottomPopUp_Add extends React.Component {
                     source={ICON.flag}
                   />
                 </TouchableRipple>
-
-                <TouchableRipple onPress={this.onShowTimePicker}>
+                <TouchableRipple onPress={() => this.onShowTimePicker()}>
                   <Image
                     style={[
                       styles.iconOption,
@@ -642,16 +662,20 @@ class TaskBottomPopUp_Add extends React.Component {
                     source={ICON.alarm}
                   />
                 </TouchableRipple>
-                <Image
-                  style={[styles.iconOption, {marginRight: 30}]}
-                  source={ICON.comment}
-                />
+                <TouchableRipple onPress={() => this.onComment()}>
+                  <Image
+                    style={[styles.iconOption, {marginRight: 30}]}
+                    source={ICON.comment}
+                  />
+                </TouchableRipple>
               </View>
               <View style={[styles.row, styles.right]}>
-                <Image
-                  style={[styles.iconOption, {tintColor: COLOR.white}]}
-                  source={ICON.send}
-                />
+                <TouchableRipple onPress={() => this.onAddNewTask()}>
+                  <Image
+                    style={[styles.iconOption, {tintColor: COLOR.white}]}
+                    source={ICON.send}
+                  />
+                </TouchableRipple>
               </View>
             </View>
           </View>
@@ -739,8 +763,16 @@ const mapDispatchToProps = dispatch => {
     onSaveProject: project => {
       return dispatch(projectAction.insert(project));
     },
+    onSaveTask: task => {
+      return dispatch(taskAction.insert(task));
+    },
+    onSaveLabelTask: labelTask => {
+      return dispatch(labelTaskAction.insert(labelTask));
+    },
+    onLoadLabelTask: labelTaskAction.queryAll(dispatch),
     onLoadLabel: labelAction.queryAll(dispatch),
     onLoadProject: projectAction.queryAll(dispatch),
+    onLoadTask: taskAction.queryAll(dispatch),
   };
 };
 

@@ -39,6 +39,10 @@ const taskReducer = (state = init, action) => {
     case types.QUERY_TASK:
       state = action.data;
       break;
+    case types.QUERY_TODAY_TASK:
+      return action.data;
+    case types.QUERY_OVERDUE_TASK:
+      return action.data;
     default:
       break;
   }

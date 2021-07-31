@@ -27,3 +27,7 @@ export const ADD_COMMENT_TASK = 17;
 export const UPDATE_COMMENT_TASK = 18;
 export const DELETE_COMMENT_TASK = 19;
 export const QUERY_COMMENT_TASK = 20;
+
+// other
+export const QUERY_OVERDUE_TASK = 21;
+export const QUERY_TODAY_TASK = 22;

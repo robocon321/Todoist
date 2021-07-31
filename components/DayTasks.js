@@ -1,15 +1,17 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {StyleSheet, View, Text} from 'react-native';
 import * as COLOR from '../constants/colors';
 import Task from '../components/Task';
 
-export default class DayTask extends React.Component {
+class DayTask extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    const {onShowPopup} = this.props;
+    const {onShowPopup, tasks} = this.props;
+    console.log(1, tasks);
     return (
       <View style={styles.container}>
         <View style={styles.day}>
@@ -42,3 +44,17 @@ const styles = StyleSheet.create({
     color: COLOR.red_light,
   },
 });
+
+const mapStateToProps = state => {
+  return {
+    tasks: state.tasks,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    // getTaskOverdue:
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DayTask);
