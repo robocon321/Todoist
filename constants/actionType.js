@@ -30,3 +30,4 @@ export const QUERY_COMMENT_TASK = 20;
 
 //other
 export const UPDATE_STATUS_TASK = 21;
+export const UPDATE_TIME_TASK = 22;

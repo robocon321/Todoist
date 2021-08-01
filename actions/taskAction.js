@@ -23,6 +23,14 @@ export const updateStatusTask = (id, status) => {
   };
 };
 
+export const updateTimeTask = (id, time) => {
+  return {
+    type: types.UPDATE_TIME_TASK,
+    id,
+    time,
+  };
+};
+
 export const remove = id => {
   return {
     type: types.DELETE_TASK,

@@ -37,6 +37,17 @@ const taskReducer = (state = init, action) => {
           console.log('Error', err);
         });
       break;
+    case types.UPDATE_TIME_TASK:
+      db.updateTimeTask(action.id, action.time)
+        .then(result => {
+          if (result) {
+            console.log('Update success!');
+          }
+        })
+        .catch(err => {
+          console.log('Error', err);
+        });
+      break;
     case types.DELETE_TASK:
       db.remove(action.id)
         .then(result => {

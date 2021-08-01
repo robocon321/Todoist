@@ -10,6 +10,7 @@ import {
   ScrollView,
 } from 'react-native';
 import * as COLOR from '../constants/colors';
+import * as taskAction from '../actions/taskAction';
 import {STATUS_TASK} from '../constants/others';
 import Task from '../components/Task';
 
@@ -17,6 +18,15 @@ class DayTask extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  onReschedule = async tasks => {
+    const {updateTimeTask, loadTask} = this.props;
+    await tasks.map(item => {
+      var date = new Date();
+      updateTimeTask(item.id, date);
+    });
+    await loadTask();
+  };
 
   render() {
     let {onShowPopup, tasks, addToUndo} = this.props;
@@ -47,7 +57,8 @@ class DayTask extends React.Component {
         <View style={styles.container}>
           <View style={styles.day}>
             <Text style={styles.textLeft}>Overdue</Text>
-            <TouchableWithoutFeedback>
+            <TouchableWithoutFeedback
+              onPress={() => this.onReschedule(overdueTasks)}>
               <Text style={styles.textRight}>Reschedule</Text>
             </TouchableWithoutFeedback>
           </View>
@@ -112,7 +123,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // Todo
+    updateTimeTask: (id, time) => dispatch(taskAction.updateTimeTask(id, time)),
+    loadTask: taskAction.queryAll(dispatch),
   };
 };
 
