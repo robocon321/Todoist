@@ -28,13 +28,21 @@ const TYPE_PROJECT = 1;
 const TYPE_PRIORITY = 2;
 
 const Label = props => {
-  const {item} = props;
-  return <Text style={[styles.tag, {marginRight: 5}]}>@{item.title}</Text>;
+  const {item, onRemoveLabel} = props;
+  return (
+    <TouchableRipple onPress={() => onRemoveLabel(item.id)}>
+      <Text style={[styles.tag, {marginRight: 5}]}>@{item.title}</Text>
+    </TouchableRipple>
+  );
 };
 
 const Project = props => {
-  const {item} = props;
-  return <Text style={[styles.tag, {marginRight: 5}]}>#{item.title}</Text>;
+  const {item, onChangeToInboxProject} = props;
+  return (
+    <TouchableRipple onPress={() => onChangeToInboxProject()}>
+      <Text style={[styles.tag, {marginRight: 5}]}>#{item.title}</Text>
+    </TouchableRipple>
+  );
 };
 
 const MenuPriority = props => {
@@ -445,6 +453,24 @@ class TaskBottomPopUp_Add extends React.Component {
     this.onClosePopup();
   };
 
+  onRemoveLabel = id => {
+    const {labelIds} = this.state;
+    this.setState({
+      ...this.state,
+      labelIds: labelIds.filter(item => id !== item),
+    });
+  };
+
+  onChangeToInboxProject = () => {
+    this.setState({
+      ...this.state,
+      task: {
+        ...this.state.task,
+        projectId: '',
+      },
+    });
+  };
+
   render() {
     const {visible, task, menuPopup, labelIds, isShowPicker} = this.state;
     const {labels, projects} = this.props;
@@ -537,11 +563,16 @@ class TaskBottomPopUp_Add extends React.Component {
             <View style={[styles.row, {alignItems: 'center'}]}>
               {task.projectId.length > 0 && (
                 <Project
+                  onChangeToInboxProject={this.onChangeToInboxProject}
                   item={projects.find(item => item.id === task.projectId)}
                 />
               )}
               {labelIds.map((item, index) => (
-                <Label item={labels.find(i => i.id === item)} key={index} />
+                <Label
+                  onRemoveLabel={this.onRemoveLabel}
+                  item={labels.find(i => i.id === item)}
+                  key={index}
+                />
               ))}
               <TextInput
                 style={styles.textInput}

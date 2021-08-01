@@ -140,7 +140,7 @@ export default class DateChooseBottomPopup extends React.Component {
                 <CalendarList
                   onVisibleMonthsChange={this.onVisibleMonthsChange}
                   onDayPress={this.onDayPress}
-                  // minDate={Date.now()}
+                  minDate={Date.now()}
                   pastScrollRange={50}
                   futureScrollRange={50}
                   scrollEnabled={true}
