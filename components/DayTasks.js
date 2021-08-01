@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import {connect} from 'react-redux';
@@ -18,7 +19,7 @@ class DayTask extends React.Component {
   }
 
   render() {
-    let {onShowPopup, tasks} = this.props;
+    let {onShowPopup, tasks, addToUndo} = this.props;
     const currentDate = new Date();
     let todayTasks = tasks.filter(item => {
       return (
@@ -52,6 +53,7 @@ class DayTask extends React.Component {
           </View>
           {overdueTasks.map((item, index) => (
             <Task
+              addToUndo={addToUndo}
               onShowPopup={onShowPopup}
               data={item}
               isToday={false}
@@ -68,6 +70,7 @@ class DayTask extends React.Component {
           </View>
           {todayTasks.map((item, index) => (
             <Task
+              addToUndo={addToUndo}
               onShowPopup={onShowPopup}
               data={item}
               isToday={true}

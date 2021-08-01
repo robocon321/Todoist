@@ -1,16 +1,33 @@
 import React from 'react';
 import {StyleSheet, View, StatusBar} from 'react-native';
+import {Snackbar} from 'react-native-paper';
 import {connect} from 'react-redux';
 import TodayTopbar from '../components/TodayTopbar';
 import DayTask from '../components/DayTasks';
 import TaskBottomPopUp_Edit from '../components/TaskBottomPopUp_Edit';
 import * as COLOR from '../constants/colors';
+import {STATUS_TASK} from '../constants/others';
+import * as taskAciton from '../actions/taskAction';
 
 class Today extends React.Component {
   constructor(props) {
     super(props);
     this.popup = React.createRef();
+    this.state = {
+      undo: [],
+      snackbar: false,
+    };
   }
+
+  addToUndo = id => {
+    let {undo} = this.state;
+    undo.push(id);
+    this.setState({
+      ...this.state,
+      undo,
+      snackbar: true,
+    });
+  };
 
   openSideNav = () => {
     this.props.navigation.openDrawer();
@@ -20,12 +37,45 @@ class Today extends React.Component {
     this.popup.current.onShowPopup();
   };
 
+  undoTaskCompleted = async () => {
+    const {undo} = this.state;
+    const {changeStatus, loadTask} = this.props;
+    await undo.map(item => {
+      changeStatus(item, STATUS_TASK.NOT_COMPLETE);
+    });
+    await loadTask();
+    this.setState({
+      ...this.state,
+      snackbar: false,
+    });
+  };
+
+  onDismiss = () => {
+    this.setState({
+      ...this.state,
+      snackbar: false,
+    });
+  };
+
   render = () => {
+    const {snackbar} = this.state;
     return (
       <View style={styles.container}>
+        <Snackbar
+          style={{position: 'absolute', bottom: 0, left: 0, zIndex: 10}}
+          visible={snackbar}
+          onDismiss={() => this.onDismiss()}
+          action={{
+            label: 'Undo',
+            onPress: () => {
+              this.undoTaskCompleted();
+            },
+          }}>
+          Task completed! Do you want to undo?
+        </Snackbar>
         <StatusBar />
         <TodayTopbar openSideNav={this.openSideNav} />
-        <DayTask onShowPopup={this.onShowPopup} />
+        <DayTask onShowPopup={this.onShowPopup} addToUndo={this.addToUndo} />
         <TaskBottomPopUp_Edit ref={this.popup} />
       </View>
     );
@@ -49,7 +99,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // Todo
+    changeStatus: (id, status) => {
+      return dispatch(taskAciton.updateStatusTask(id, status));
+    },
+    loadTask: taskAciton.queryAll(dispatch),
   };
 };
 

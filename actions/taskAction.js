@@ -15,6 +15,14 @@ export const update = data => {
   };
 };
 
+export const updateStatusTask = (id, status) => {
+  return {
+    type: types.UPDATE_STATUS_TASK,
+    id,
+    status,
+  };
+};
+
 export const remove = id => {
   return {
     type: types.DELETE_TASK,

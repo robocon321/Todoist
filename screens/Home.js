@@ -44,7 +44,7 @@ class Home extends React.Component {
           />
           <FAB
             color={'white'}
-            style={styles.fab}
+            style={[styles.fab, {zIndex: 4}]}
             icon={ICON.add}
             onPress={() => addTaskPopup.current.onShowPopup()}
           />
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   },
   fab: {
     position: 'absolute',
-    margin: 30,
+    margin: 35,
     right: 0,
     bottom: 0,
     backgroundColor: COLOR.red_light,

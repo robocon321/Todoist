@@ -42,6 +42,22 @@ export const update = data =>
       });
   });
 
+export const updateStatusTask = (id, status) =>
+  new Promise((resolve, reject) => {
+    Realm.open(databaseOptions)
+      .then(realm => {
+        realm.write(() => {
+          let obj = realm.objectForPrimaryKey(SCHEMA_NAME, id);
+          obj.status = status;
+          resolve(true);
+        });
+      })
+      .catch(err => {
+        console.log('Update error', err);
+        reject(false);
+      });
+  });
+
 export const remove = id =>
   new Promise((resolve, reject) => {
     Realm.open(databaseOptions)

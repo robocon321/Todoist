@@ -20,28 +20,11 @@ class Task extends React.Component {
   }
 
   changeStatus = async status => {
-    const {task} = this.state;
-    const {updateTask, loadTask} = this.props;
-    await this.setState({
-      ...this.state,
-      task: {
-        id: task.id,
-        title: task.title,
-        parentId: task.parentId,
-        priorityType: task.priorityType,
-        alarm: task.alarm,
-        projectId: task.projectId,
-        time: task.time,
-        status,
-      },
-    });
-    await updateTask(this.state.task);
+    const {updateStatusTask, loadTask, addToUndo, data} = this.props;
+    await updateStatusTask(data.id, status);
     await loadTask();
+    addToUndo(data.id);
   };
-
-  componentDidMount() {
-    this.setState({task: this.props.data});
-  }
 
   render() {
     const {onShowPopup, data, allLabels, allProjects, allLabelTasks, isToday} =
@@ -166,8 +149,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateTask: data => {
-      return dispatch(taskAction.update(data));
+    updateStatusTask: (id, status) => {
+      return dispatch(taskAction.updateStatusTask(id, status));
     },
     loadTask: taskAction.queryAll(dispatch),
   };
