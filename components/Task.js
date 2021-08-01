@@ -1,4 +1,6 @@
+/* eslint-disable react/no-did-mount-set-state */
 import React from 'react';
+import Realm from 'realm';
 import {connect} from 'react-redux';
 import {
   StyleSheet,
@@ -9,11 +11,38 @@ import {
 } from 'react-native';
 import * as ICON from '../constants/icons';
 import * as COLOR from '../constants/colors';
+import {STATUS_TASK} from '../constants/others';
+import * as taskAction from '../actions/taskAction';
 
 class Task extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  changeStatus = async status => {
+    const {task} = this.state;
+    const {updateTask, loadTask} = this.props;
+    await this.setState({
+      ...this.state,
+      task: {
+        id: task.id,
+        title: task.title,
+        parentId: task.parentId,
+        priorityType: task.priorityType,
+        alarm: task.alarm,
+        projectId: task.projectId,
+        time: task.time,
+        status,
+      },
+    });
+    await updateTask(this.state.task);
+    await loadTask();
+  };
+
+  componentDidMount() {
+    this.setState({task: this.props.data});
+  }
+
   render() {
     const {onShowPopup, data, allLabels, allProjects, allLabelTasks, isToday} =
       this.props;
@@ -29,7 +58,10 @@ class Task extends React.Component {
       <TouchableWithoutFeedback onPress={() => onShowPopup()}>
         <View style={styles.container}>
           <View style={styles.left}>
-            <Image style={styles.check} source={ICON.o} />
+            <TouchableWithoutFeedback
+              onPress={() => this.changeStatus(STATUS_TASK.COMPLETE)}>
+              <Image style={styles.check} source={ICON.o} />
+            </TouchableWithoutFeedback>
             <View style={styles.col2}>
               <Text style={styles.title}>{data.title}</Text>
               {!isToday && (
@@ -134,7 +166,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // To do
+    updateTask: data => {
+      return dispatch(taskAction.update(data));
+    },
+    loadTask: taskAction.queryAll(dispatch),
   };
 };
 
