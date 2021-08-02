@@ -10,7 +10,6 @@ import {
   Modal,
   TouchableWithoutFeedback,
   TextInput,
-  KeyboardAvoidingView,
 } from 'react-native';
 import {connect} from 'react-redux';
 import {TouchableRipple} from 'react-native-paper';
@@ -25,6 +24,7 @@ import * as OTHER from '../constants/others';
 import {priorities} from '../constants/others';
 import TimeChooseBottomPopup from './TimeChooseBottomPopup';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import TaskBottomPopUp_Add from './TaskBottomPopUp_Add';
 
 const {height} = Dimensions.get('window');
 
@@ -37,15 +37,6 @@ const Label = props => {
   return (
     <TouchableRipple onPress={() => onRemoveLabel(item.id)}>
       <Text style={styles.labelItem}>{item.title}</Text>
-    </TouchableRipple>
-  );
-};
-
-const Project = props => {
-  const {item, onChangeToInboxProject} = props;
-  return (
-    <TouchableRipple onPress={() => onChangeToInboxProject()}>
-      <Text style={[styles.tag, {marginRight: 5}]}>#{item.title}</Text>
     </TouchableRipple>
   );
 };
@@ -129,6 +120,31 @@ const MenuAddProject = props => {
   );
 };
 
+const SubTaskItem = props => {
+  return (
+    <View>
+      <View style={styles.sub}>
+        <Image style={styles.iconSub} source={ICON.o} />
+        <Text style={styles.titleSub}>To do Item</Text>
+      </View>
+      <View
+        style={[
+          styles.row,
+          {marginLeft: 60, alignItems: 'center', paddingBottom: 10},
+        ]}>
+        <View style={[styles.row, {alignItems: 'center'}]}>
+          <Image style={styles.imgCmtSub} source={ICON.comment} />
+          <Text style={styles.textCmtSub}>0</Text>
+        </View>
+        <View style={[styles.row, {alignItems: 'center'}]}>
+          <Image style={styles.imgCmtSub} source={ICON.branch} />
+          <Text style={styles.textCmtSub}>0/2</Text>
+        </View>
+      </View>
+    </View>
+  );
+};
+
 const init = {
   currentPopUpY: 0,
   visible: false,
@@ -152,6 +168,7 @@ class TaskBottomPopUp_Edit extends React.Component {
     super(props);
     this.levelBottom = [-300, -200, 0];
     this.state = init;
+    this.addRef = React.createRef();
     this.selection = {
       start: 0,
       end: 0,
@@ -496,10 +513,11 @@ class TaskBottomPopUp_Edit extends React.Component {
 
   onMove = e => {
     const {pageY} = e.nativeEvent;
+    let bottom = height - pageY - (this.heightComponent - currentPopUpY);
     const {currentPopUpY} = this.state;
     this.setState({
       ...this.state,
-      bottom: height - pageY - (this.heightComponent - currentPopUpY),
+      bottom,
     });
   };
 
@@ -684,93 +702,100 @@ class TaskBottomPopUp_Edit extends React.Component {
                   <MenuPriority onChangePriority={this.onChangePriority} />
                 )}
               </View>
-              <KeyboardAvoidingView>
-                <View style={styles.row}>
-                  <Image style={styles.check} source={ICON.o} />
-                  <View style={styles.col2}>
-                    <TextInput
-                      style={styles.title}
-                      value={task.title}
-                      placeholder="@Label, #Project"
-                      onKeyPress={({nativeEvent}) =>
-                        this.onKeyPress(nativeEvent)
-                      }
-                      onSelectionChange={({nativeEvent: {selection}}) => {
-                        this.selection = selection;
-                      }}
-                      onChangeText={text => this.onChangeText(text)}
-                    />
+              <View style={styles.row}>
+                <Image style={styles.check} source={ICON.o} />
+                <View style={styles.col2}>
+                  <TextInput
+                    style={styles.title}
+                    value={task.title}
+                    placeholder="@Label, #Project"
+                    onKeyPress={({nativeEvent}) => this.onKeyPress(nativeEvent)}
+                    onSelectionChange={({nativeEvent: {selection}}) => {
+                      this.selection = selection;
+                    }}
+                    onChangeText={text => this.onChangeText(text)}
+                  />
+                  <TouchableRipple
+                    onPress={() => {
+                      this.dateChooseRef.current.onShowPopup();
+                    }}>
+                    <View style={styles.time}>
+                      <Image style={styles.iconTime} source={ICON.yesterday} />
+                      <Text style={styles.textTime}>{timeStr}</Text>
+                    </View>
+                  </TouchableRipple>
+                  <View style={styles.label}>
+                    {labelIds.map((item, index) => (
+                      <Label
+                        onRemoveLabel={this.onRemoveLabel}
+                        item={labels.find(i => i.id === item)}
+                        key={index}
+                      />
+                    ))}
+                  </View>
+                  <View style={styles.row}>
                     <TouchableRipple
                       onPress={() => {
-                        this.dateChooseRef.current.onShowPopup();
+                        this.setState({
+                          ...this.state,
+                          menuPopup: {
+                            type: TYPE_LABEL,
+                            isAdd: false,
+                            data: labels.filter(
+                              item => !labelIds.find(k => k === item.id),
+                            ),
+                          },
+                        });
                       }}>
-                      <View style={styles.time}>
-                        <Image
-                          style={styles.iconTime}
-                          source={ICON.yesterday}
-                        />
-                        <Text style={styles.textTime}>{timeStr}</Text>
-                      </View>
+                      <Image
+                        style={[styles.iconOption, {marginRight: 30}]}
+                        source={ICON.label}
+                      />
                     </TouchableRipple>
-                    <View style={styles.label}>
-                      {labelIds.map((item, index) => (
-                        <Label
-                          onRemoveLabel={this.onRemoveLabel}
-                          item={labels.find(i => i.id === item)}
-                          key={index}
-                        />
-                      ))}
-                    </View>
-                    <View style={styles.row}>
-                      <TouchableRipple
-                        onPress={() => {
-                          this.setState({
-                            ...this.state,
-                            menuPopup: {
-                              type: TYPE_LABEL,
-                              isAdd: false,
-                              data: labels.filter(
-                                item => !labelIds.find(k => k === item.id),
-                              ),
-                            },
-                          });
-                        }}>
-                        <Image
-                          style={[styles.iconOption, {marginRight: 30}]}
-                          source={ICON.label}
-                        />
-                      </TouchableRipple>
-                      <TouchableRipple
-                        onPress={() => {
-                          this.setState({
-                            ...this.state,
-                            menuPopup: {
-                              type: TYPE_PRIORITY,
-                              isAdd: false,
-                            },
-                          });
-                        }}>
-                        <Image
-                          style={[styles.iconOption, {marginRight: 30}]}
-                          source={ICON.flag}
-                        />
-                      </TouchableRipple>
-                      <TouchableRipple onPress={() => this.onShowTimePicker()}>
-                        <Image
-                          style={[styles.iconOption, {marginRight: 30}]}
-                          source={ICON.alarm}
-                        />
-                      </TouchableRipple>
-                      <TouchableRipple onPress={() => this.onComment()}>
-                        <Image
-                          style={[styles.iconOption, {marginRight: 30}]}
-                          source={ICON.comment}
-                        />
-                      </TouchableRipple>
-                    </View>
+                    <TouchableRipple
+                      onPress={() => {
+                        this.setState({
+                          ...this.state,
+                          menuPopup: {
+                            type: TYPE_PRIORITY,
+                            isAdd: false,
+                          },
+                        });
+                      }}>
+                      <Image
+                        style={[
+                          styles.iconOption,
+                          {
+                            marginRight: 30,
+                            tintColor: priorities.find(
+                              item => item.id === priorityType,
+                            ).color,
+                          },
+                        ]}
+                        source={ICON.flag}
+                      />
+                    </TouchableRipple>
+                    <TouchableRipple onPress={() => this.onShowTimePicker()}>
+                      <Image
+                        style={[
+                          styles.iconOption,
+                          {
+                            marginRight: 30,
+                            tintColor: alarm ? COLOR.green_light : COLOR.black,
+                          },
+                        ]}
+                        source={ICON.alarm}
+                      />
+                    </TouchableRipple>
+                    <TouchableRipple onPress={() => this.onComment()}>
+                      <Image
+                        style={[styles.iconOption, {marginRight: 30}]}
+                        source={ICON.comment}
+                      />
+                    </TouchableRipple>
                   </View>
                 </View>
-              </KeyboardAvoidingView>
+              </View>
               <View style={styles.col3}>
                 <TouchableRipple onPress={() => this.onDeleteTask()}>
                   <Image style={styles.iconOption} source={ICON.delete_} />
@@ -784,33 +809,22 @@ class TaskBottomPopUp_Edit extends React.Component {
               </View>
               <View>
                 <View style={{marginLeft: 40}}>
-                  <View style={styles.sub}>
-                    <Image style={styles.iconSub} source={ICON.o} />
-                    <Text style={styles.titleSub}>To do Item</Text>
-                  </View>
-                  <View
-                    style={[
-                      styles.row,
-                      {marginLeft: 60, alignItems: 'center', paddingBottom: 10},
-                    ]}>
-                    <View style={[styles.row, {alignItems: 'center'}]}>
-                      <Image style={styles.imgCmtSub} source={ICON.comment} />
-                      <Text style={styles.textCmtSub}>0</Text>
+                  {/* <SubTaskItem /> */}
+                  <TouchableRipple
+                    onPress={async () => {
+                      await this.addRef.current.onShowPopup();
+                      await this.addRef.current.onChangeParentTask(task.id);
+                    }}>
+                    <View style={styles.sub}>
+                      <Image
+                        style={[styles.iconSub, {tintColor: COLOR.gray_dark}]}
+                        source={ICON.add}
+                      />
+                      <Text style={[styles.titleSub, {color: COLOR.gray_dark}]}>
+                        Add sub-task
+                      </Text>
                     </View>
-                    <View style={[styles.row, {alignItems: 'center'}]}>
-                      <Image style={styles.imgCmtSub} source={ICON.branch} />
-                      <Text style={styles.textCmtSub}>0/2</Text>
-                    </View>
-                  </View>
-                  <View style={styles.sub}>
-                    <Image
-                      style={[styles.iconSub, {tintColor: COLOR.gray_dark}]}
-                      source={ICON.add}
-                    />
-                    <Text style={[styles.titleSub, {color: COLOR.gray_dark}]}>
-                      Add sub-task
-                    </Text>
-                  </View>
+                  </TouchableRipple>
                 </View>
               </View>
             </View>
@@ -819,6 +833,7 @@ class TaskBottomPopUp_Edit extends React.Component {
             ref={this.dateChooseRef}
             onChangeTime={this.onChangeTime}
           />
+          <TaskBottomPopUp_Add ref={this.addRef} />
         </View>
       </Modal>
     );

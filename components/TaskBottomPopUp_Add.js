@@ -165,14 +165,14 @@ class TaskBottomPopUp_Add extends React.Component {
 
   onChangeText = text => {
     let str = '';
-    const {labelIds} = this.state;
+    const {labelIds, task} = this.state;
     const {selection} = this;
     const {labels, projects} = this.props;
     let menuPopup = {};
 
     for (var i = selection.start; i >= 0; i--) {
       if (i > 0) {
-        if (text[i] === '#' && text[i - 1] === ' ') {
+        if (text[i] === '#' && text[i - 1] === ' ' && !task.parentId) {
           str = text.substring(i + 1, selection.start + 1).trim();
           if (str.length === 0) {
             menuPopup = {
@@ -231,7 +231,7 @@ class TaskBottomPopUp_Add extends React.Component {
           break;
         }
       } else {
-        if (text[i] === '#') {
+        if (text[i] === '#' && !task.parentId) {
           str = text.substring(i + 1, selection.start + 1).trim();
           if (str.length === 0) {
             menuPopup = {
@@ -299,6 +299,16 @@ class TaskBottomPopUp_Add extends React.Component {
         title: text,
       },
       menuPopup,
+    });
+  };
+
+  onChangeParentTask = async parentId => {
+    this.setState({
+      ...this.state,
+      task: {
+        ...this.state.task,
+        parentId,
+      },
     });
   };
 
@@ -601,31 +611,33 @@ class TaskBottomPopUp_Add extends React.Component {
                   </Text>
                 </View>
               </TouchableRipple>
-              <TouchableRipple
-                onPress={() => {
-                  this.setState({
-                    ...this.state,
-                    menuPopup: {
-                      type: TYPE_PROJECT,
-                      isAdd: false,
-                      data: projects.filter(
-                        item => item.id !== this.state.task.projectId,
-                      ),
-                    },
-                  });
-                }}>
-                <View style={[styles.wrap, {marginLeft: 10}]}>
-                  <Image
-                    source={ICON.inbox}
-                    style={[styles.icon, {tintColor: COLOR.blue_dark}]}
-                  />
-                  <Text style={styles.text}>
-                    {projectId.length > 0
-                      ? projects.find(item => item.id === projectId).title
-                      : 'Inbox'}
-                  </Text>
-                </View>
-              </TouchableRipple>
+              {!task.parentId && (
+                <TouchableRipple
+                  onPress={() => {
+                    this.setState({
+                      ...this.state,
+                      menuPopup: {
+                        type: TYPE_PROJECT,
+                        isAdd: false,
+                        data: projects.filter(
+                          item => item.id !== this.state.task.projectId,
+                        ),
+                      },
+                    });
+                  }}>
+                  <View style={[styles.wrap, {marginLeft: 10}]}>
+                    <Image
+                      source={ICON.inbox}
+                      style={[styles.icon, {tintColor: COLOR.blue_dark}]}
+                    />
+                    <Text style={styles.text}>
+                      {projectId.length > 0
+                        ? projects.find(item => item.id === projectId).title
+                        : 'Inbox'}
+                    </Text>
+                  </View>
+                </TouchableRipple>
+              )}
             </View>
             <View
               style={[
@@ -670,7 +682,7 @@ class TaskBottomPopUp_Add extends React.Component {
                       styles.iconOption,
                       {
                         marginRight: 30,
-                        tintColor: priorities.filter(
+                        tintColor: priorities.find(
                           item => item.id === priorityType,
                         ).color,
                       },

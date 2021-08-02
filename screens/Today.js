@@ -63,7 +63,7 @@ class Today extends React.Component {
     return (
       <View style={styles.container}>
         <Snackbar
-          style={{position: 'absolute', bottom: 0, left: 0, zIndex: 10}}
+          style={{position: 'absolute', bottom: 0, left: 0}}
           visible={snackbar}
           onDismiss={() => this.onDismiss()}
           action={{
