@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {StyleSheet, View, StatusBar} from 'react-native';
 import {Snackbar} from 'react-native-paper';
@@ -33,10 +34,6 @@ class Today extends React.Component {
     this.props.navigation.openDrawer();
   };
 
-  onShowPopup = () => {
-    this.popup.current.onShowPopup();
-  };
-
   undoTaskCompleted = async () => {
     const {undo} = this.state;
     const {changeStatus, loadTask} = this.props;
@@ -57,6 +54,10 @@ class Today extends React.Component {
     });
   };
 
+  onChooseTask = task => {
+    this.popup.current.onShowPopup(task);
+  };
+
   render = () => {
     const {snackbar} = this.state;
     return (
@@ -75,7 +76,7 @@ class Today extends React.Component {
         </Snackbar>
         <StatusBar />
         <TodayTopbar openSideNav={this.openSideNav} />
-        <DayTask onShowPopup={this.onShowPopup} addToUndo={this.addToUndo} />
+        <DayTask onChooseTask={this.onChooseTask} addToUndo={this.addToUndo} />
         <TaskBottomPopUp_Edit ref={this.popup} />
       </View>
     );

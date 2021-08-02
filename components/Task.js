@@ -27,7 +27,7 @@ class Task extends React.Component {
   };
 
   render() {
-    const {onShowPopup, data, allLabels, allProjects, allLabelTasks, isToday} =
+    const {onChooseTask, data, allLabels, allProjects, allLabelTasks, isToday} =
       this.props;
     const projectName =
       data.projectId.length === 0
@@ -38,7 +38,7 @@ class Task extends React.Component {
       return labelTasks.find(i => item.id === i.labelId);
     });
     return (
-      <TouchableWithoutFeedback onPress={() => onShowPopup()}>
+      <TouchableWithoutFeedback onPress={() => onChooseTask(data)}>
         <View style={styles.container}>
           <View style={styles.left}>
             <TouchableWithoutFeedback
@@ -56,8 +56,10 @@ class Task extends React.Component {
                 </View>
               )}
               <View style={styles.label}>
-                {labels.map(item => (
-                  <Text style={styles.labelItem}>{item.title}</Text>
+                {labels.map((item, index) => (
+                  <Text style={styles.labelItem} key={index}>
+                    {item.title}
+                  </Text>
                 ))}
               </View>
             </View>
