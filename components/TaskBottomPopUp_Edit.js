@@ -409,6 +409,25 @@ class TaskBottomPopUp_Edit extends React.Component {
     this.props.navigation.navigate('Comment');
   };
 
+  onDeleteTask = async () => {
+    const {
+      labelTasks,
+      deleteLabelTask,
+      deleteTask,
+      onLoadLabelTask,
+      onLoadTask,
+    } = this.props;
+    const {id} = this.state.task;
+    await labelTasks.map(item => {
+      if (item.taskId === id) deleteLabelTask(item.id);
+    });
+    await onLoadLabelTask();
+    await deleteTask(id);
+    await onLoadTask();
+    this.setState(init);
+    this.onClosePopup();
+  };
+
   onAddLabel = async title => {
     let id = new Date().getTime().toString();
     await this.props.onSaveLabel({
@@ -753,7 +772,9 @@ class TaskBottomPopUp_Edit extends React.Component {
                 </View>
               </KeyboardAvoidingView>
               <View style={styles.col3}>
-                <Image style={styles.iconOption} source={ICON.option} />
+                <TouchableRipple onPress={() => this.onDeleteTask()}>
+                  <Image style={styles.iconOption} source={ICON.delete_} />
+                </TouchableRipple>
               </View>
             </View>
             <View>
@@ -975,6 +996,12 @@ const mapDispatchToProps = dispatch => {
     },
     onSaveLabelTask: labelTask => {
       return dispatch(labelTaskAction.insert(labelTask));
+    },
+    deleteLabelTask: id => {
+      return dispatch(labelTaskAction.remove(id));
+    },
+    deleteTask: id => {
+      return dispatch(taskAction.remove(id));
     },
     onLoadLabelTask: labelTaskAction.queryAll(dispatch),
     onLoadLabel: labelAction.queryAll(dispatch),

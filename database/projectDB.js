@@ -44,7 +44,7 @@ export const remove = id =>
       .then(realm => {
         realm.write(() => {
           let obj = realm.objectForPrimaryKey(SCHEMA_NAME, id);
-          obj.delete();
+          realm.delete(obj);
           resolve(true);
         });
       })
