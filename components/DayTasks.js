@@ -36,12 +36,14 @@ class DayTask extends React.Component {
         currentDate.getDate() === item.time.getDate() &&
         currentDate.getMonth() === item.time.getMonth() &&
         currentDate.getFullYear() === item.time.getFullYear() &&
-        item.status === STATUS_TASK.NOT_COMPLETE
+        item.status === STATUS_TASK.NOT_COMPLETE &&
+        !item.parentId
       );
     });
 
     let overdueTasks = tasks.filter(item => {
       return (
+        !item.parentId &&
         item.status === STATUS_TASK.NOT_COMPLETE &&
         ((currentDate.getFullYear() === item.time.getFullYear() &&
           currentDate.getMonth() === item.time.getMonth() &&

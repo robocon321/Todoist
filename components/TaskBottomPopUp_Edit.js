@@ -20,11 +20,11 @@ import * as labelTaskAction from '../actions/labelTaskAction';
 import colorType from '../constants/colorType';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
-import * as OTHER from '../constants/others';
-import {priorities} from '../constants/others';
+import {STATUS_TASK, priorities} from '../constants/others';
 import TimeChooseBottomPopup from './TimeChooseBottomPopup';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import TaskBottomPopUp_Add from './TaskBottomPopUp_Add';
+import SubTask from './SubTask';
 
 const {height} = Dimensions.get('window');
 
@@ -120,31 +120,6 @@ const MenuAddProject = props => {
   );
 };
 
-const SubTaskItem = props => {
-  return (
-    <View>
-      <View style={styles.sub}>
-        <Image style={styles.iconSub} source={ICON.o} />
-        <Text style={styles.titleSub}>To do Item</Text>
-      </View>
-      <View
-        style={[
-          styles.row,
-          {marginLeft: 60, alignItems: 'center', paddingBottom: 10},
-        ]}>
-        <View style={[styles.row, {alignItems: 'center'}]}>
-          <Image style={styles.imgCmtSub} source={ICON.comment} />
-          <Text style={styles.textCmtSub}>0</Text>
-        </View>
-        <View style={[styles.row, {alignItems: 'center'}]}>
-          <Image style={styles.imgCmtSub} source={ICON.branch} />
-          <Text style={styles.textCmtSub}>0/2</Text>
-        </View>
-      </View>
-    </View>
-  );
-};
-
 const init = {
   currentPopUpY: 0,
   visible: false,
@@ -155,7 +130,7 @@ const init = {
     alarm: null,
     projectId: '',
     time: new Date(),
-    status: OTHER.STATUS_TASK.NOT_COMPLETE,
+    status: STATUS_TASK.NOT_COMPLETE,
   },
   labelIds: [],
   menuPopup: {},
@@ -436,7 +411,9 @@ class TaskBottomPopUp_Edit extends React.Component {
     } = this.props;
     const {id} = this.state.task;
     await labelTasks.map(item => {
-      if (item.taskId === id) deleteLabelTask(item.id);
+      if (item.taskId === id) {
+        deleteLabelTask(item.id);
+      }
     });
     await onLoadLabelTask();
     await deleteTask(id);
@@ -513,11 +490,10 @@ class TaskBottomPopUp_Edit extends React.Component {
 
   onMove = e => {
     const {pageY} = e.nativeEvent;
-    let bottom = height - pageY - (this.heightComponent - currentPopUpY);
     const {currentPopUpY} = this.state;
     this.setState({
       ...this.state,
-      bottom,
+      bottom: height - pageY - (this.heightComponent - currentPopUpY),
     });
   };
 
@@ -545,13 +521,15 @@ class TaskBottomPopUp_Edit extends React.Component {
     }
   };
 
-  onShowPopup = task => {
+  onShowPopup = () => {
     const {id, title, parentId, priorityType, alarm, projectId, time, status} =
-      task;
+      this.props.task;
     const {labelTasks} = this.props;
     let labelIds = [];
     labelTasks.map(item => {
-      if (item.taskId === id) labelIds.push(item.labelId);
+      if (item.taskId === id) {
+        labelIds.push(item.labelId);
+      }
     });
     this.setState({
       ...this.state,
@@ -583,13 +561,33 @@ class TaskBottomPopUp_Edit extends React.Component {
     this.heightComponent = layout.height;
   };
 
+  tickTask = async () => {
+    const {tasks, updateStatusTask, onLoadTask} = this.props;
+    const {task} = this.state;
+    const subTasks = tasks.filter(item => item.parentId === task.id);
+    if (task.status === STATUS_TASK.NOT_COMPLETE) {
+      await subTasks.forEach(item => {
+        updateStatusTask(item.id, STATUS_TASK.COMPLETE);
+      });
+      task.status = STATUS_TASK.COMPLETE;
+    } else {
+      task.status = STATUS_TASK.NOT_COMPLETE;
+    }
+    await onLoadTask();
+    this.setState({
+      ...this.state,
+      task,
+    });
+  };
+
   render() {
     const {visible, task, bottom, menuPopup, labelIds, isShowPicker} =
       this.state;
-    const {labels, projects} = this.props;
+    const {labels, projects, tasks} = this.props;
     const {time, alarm, projectId, priorityType} = task;
     let current = new Date();
     let timeStr = `${time.toDateString()}`;
+    const subTasks = tasks.filter(item => item.parentId === task.id);
 
     if (
       current.getFullYear() === time.getFullYear() &&
@@ -703,7 +701,21 @@ class TaskBottomPopUp_Edit extends React.Component {
                 )}
               </View>
               <View style={styles.row}>
-                <Image style={styles.check} source={ICON.o} />
+                <TouchableRipple
+                  style={{width: 25, height: 25}}
+                  onPress={() => this.tickTask()}>
+                  {task.status === STATUS_TASK.COMPLETE ? (
+                    <Image
+                      style={[styles.check, {tintColor: COLOR.green_light}]}
+                      source={ICON.check}
+                    />
+                  ) : (
+                    <Image
+                      style={[styles.check, {tintColor: COLOR.black}]}
+                      source={ICON.o}
+                    />
+                  )}
+                </TouchableRipple>
                 <View style={styles.col2}>
                   <TextInput
                     style={styles.title}
@@ -809,7 +821,20 @@ class TaskBottomPopUp_Edit extends React.Component {
               </View>
               <View>
                 <View style={{marginLeft: 40}}>
-                  {/* <SubTaskItem /> */}
+                  {subTasks.map((item, index) => {
+                    const {id, title, parentId, priorityType, alarm, time, status} = item;
+                    const subTask = {
+                      id,
+                      title,
+                      parentId,
+                      priorityType,
+                      alarm,
+                      projectId: this.props.task.projectId,
+                      time,
+                      status,
+                    };
+                    return <SubTask data={subTask} key={index} />;
+                  })}
                   <TouchableRipple
                     onPress={async () => {
                       await this.addRef.current.onShowPopup();
@@ -886,11 +911,9 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   check: {
-    width: 35,
-    height: 35,
-    tintColor: COLOR.black,
+    width: 25,
+    height: 25,
     borderRadius: 50,
-    backgroundColor: '#fff5f5',
   },
   icon: {
     width: 20,
@@ -962,10 +985,12 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: 5,
     paddingHorizontal: 20,
     borderTopColor: COLOR.gray_light,
     borderTopWidth: 1,
+    borderBottomColor: COLOR.gray_light,
+    borderBottomWidth: 1,
   },
   iconSub: {
     width: 20,
@@ -995,6 +1020,7 @@ const mapStateToProps = state => {
     labels: state.labels,
     projects: state.projects,
     labelTasks: state.labelTasks,
+    tasks: state.tasks,
   };
 };
 
@@ -1017,6 +1043,9 @@ const mapDispatchToProps = dispatch => {
     },
     deleteTask: id => {
       return dispatch(taskAction.remove(id));
+    },
+    updateStatusTask: (id, status) => {
+      return dispatch(taskAction.updateStatusTask(id, status));
     },
     onLoadLabelTask: labelTaskAction.queryAll(dispatch),
     onLoadLabel: labelAction.queryAll(dispatch),

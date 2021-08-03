@@ -15,26 +15,20 @@ import {STATUS_TASK} from '../constants/others';
 import * as taskAction from '../actions/taskAction';
 import TaskBottomPopUp_Edit from './TaskBottomPopUp_Edit';
 
-class Task extends React.Component {
+class SubTask extends React.Component {
   constructor(props) {
     super(props);
     this.popup = createRef();
   }
 
   changeStatus = async status => {
-    const {updateStatusTask, loadTask, addToUndo, data} = this.props;
+    const {updateStatusTask, loadTask, data} = this.props;
     await updateStatusTask(data.id, status);
     await loadTask();
-    addToUndo(data.id);
   };
 
   render() {
-    const {data, allLabels, allProjects, allLabelTasks, isToday, allTasks} =
-      this.props;
-    const projectName =
-      data.projectId.length === 0
-        ? 'Inbox'
-        : allProjects.find(item => item.id === data.projectId).title;
+    const {data, allLabels, allLabelTasks, isToday, allTasks} = this.props;
     const labelTasks = allLabelTasks.filter(item => item.taskId === data.id);
     const labels = allLabels.filter(item => {
       return labelTasks.find(i => item.id === i.labelId);
@@ -49,11 +43,35 @@ class Task extends React.Component {
         <View style={styles.container}>
           <View style={styles.row}>
             <TouchableWithoutFeedback
-              onPress={() => this.changeStatus(STATUS_TASK.COMPLETE)}>
-              <Image style={styles.check} source={ICON.o} />
+              onPress={() =>
+                this.changeStatus(
+                  data.status === STATUS_TASK.COMPLETE
+                    ? STATUS_TASK.NOT_COMPLETE
+                    : STATUS_TASK.COMPLETE,
+                )
+              }>
+              {data.status === STATUS_TASK.COMPLETE ? (
+                <Image
+                  style={[styles.check, {tintColor: COLOR.green_light}]}
+                  source={ICON.check}
+                />
+              ) : (
+                <Image
+                  style={[styles.check, {tintColor: COLOR.black}]}
+                  source={ICON.o}
+                />
+              )}
             </TouchableWithoutFeedback>
             <View style={styles.col2}>
-              <Text style={styles.title}>{data.title}</Text>
+              <Text
+                style={[
+                  styles.title,
+                  data.status === STATUS_TASK.COMPLETE
+                    ? {textDecorationLine: 'line-through'}
+                    : {textDecorationLine: 'none'},
+                ]}>
+                {data.title}
+              </Text>
               {!isToday && (
                 <View style={[styles.yesterday, {marginTop: 5}]}>
                   <Image style={styles.iconYesterday} source={ICON.yesterday} />
@@ -86,10 +104,6 @@ class Task extends React.Component {
                 )}
               </View>
             </View>
-          </View>
-          <View style={styles.col3}>
-            <Text style={styles.text}>{projectName}</Text>
-            <Image style={styles.icon} source={ICON.inbox} />
           </View>
           <TaskBottomPopUp_Edit ref={this.popup} task={data} />
         </View>
@@ -180,4 +194,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Task);
+export default connect(mapStateToProps, mapDispatchToProps)(SubTask);

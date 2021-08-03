@@ -5,7 +5,6 @@ import {Snackbar} from 'react-native-paper';
 import {connect} from 'react-redux';
 import TodayTopbar from '../components/TodayTopbar';
 import DayTask from '../components/DayTasks';
-import TaskBottomPopUp_Edit from '../components/TaskBottomPopUp_Edit';
 import * as COLOR from '../constants/colors';
 import {STATUS_TASK} from '../constants/others';
 import * as taskAciton from '../actions/taskAction';
@@ -13,7 +12,6 @@ import * as taskAciton from '../actions/taskAction';
 class Today extends React.Component {
   constructor(props) {
     super(props);
-    this.popup = React.createRef();
     this.state = {
       undo: [],
       snackbar: false,
@@ -54,16 +52,12 @@ class Today extends React.Component {
     });
   };
 
-  onChooseTask = task => {
-    this.popup.current.onShowPopup(task);
-  };
-
   render = () => {
     const {snackbar} = this.state;
     return (
       <View style={styles.container}>
         <Snackbar
-          style={{position: 'absolute', bottom: 0, left: 0}}
+          style={{position: 'absolute', bottom: 0, left: 0, zIndex: 10}}
           visible={snackbar}
           onDismiss={() => this.onDismiss()}
           action={{
@@ -76,8 +70,7 @@ class Today extends React.Component {
         </Snackbar>
         <StatusBar />
         <TodayTopbar openSideNav={this.openSideNav} />
-        <DayTask onChooseTask={this.onChooseTask} addToUndo={this.addToUndo} />
-        <TaskBottomPopUp_Edit ref={this.popup} />
+        <DayTask addToUndo={this.addToUndo} />
       </View>
     );
   };
