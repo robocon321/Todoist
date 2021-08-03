@@ -10,6 +10,7 @@ import {
   Modal,
   TouchableWithoutFeedback,
   TextInput,
+  Alert,
 } from 'react-native';
 import {connect} from 'react-redux';
 import {TouchableRipple} from 'react-native-paper';
@@ -500,11 +501,7 @@ class TaskBottomPopUp_Edit extends React.Component {
   onRelease = e => {
     const {bottom} = this.state;
     if (bottom < this.levelBottom[0]) {
-      this.setState({
-        ...this.state,
-        bottom: -this.heightComponent,
-        visible: false,
-      });
+      this.onClosePopup();
     } else if (
       bottom > this.levelBottom[0] &&
       bottom < this.levelBottom[1] + 50
@@ -550,10 +547,46 @@ class TaskBottomPopUp_Edit extends React.Component {
   };
 
   onClosePopup = () => {
-    this.setState({
-      ...this.state,
-      visible: false,
-    });
+    Alert.alert('Update', 'Do you want to save this update?', [
+      {
+        text: 'Cancel',
+        onPress: () => {
+          this.setState(init);
+        },
+      },
+      {
+        text: 'OK',
+        onPress: async () => {
+          const {task, labelIds} = this.state;
+          const {
+            onSaveLabelTask,
+            updateTask,
+            labelTasks,
+            deleteLabelTask,
+            onLoadLabelTask,
+            onLoadTask,
+          } = this.props;
+          const labelTaskFilters = labelTasks.filter(
+            item => item.taskId === task.id,
+          );
+          await labelTaskFilters.forEach(item => {
+            deleteLabelTask(item.id);
+          });
+          await onLoadLabelTask();
+          await labelIds.forEach(item => {
+            onSaveLabelTask({
+              id: `${Date.now()}`,
+              taskId: task.id,
+              labelId: item,
+            });
+          });
+          await onLoadLabelTask();
+          await updateTask(task);
+          await onLoadTask();
+          await this.setState(init);
+        },
+      },
+    ]);
   };
 
   onLayout = e => {
@@ -822,7 +855,15 @@ class TaskBottomPopUp_Edit extends React.Component {
               <View>
                 <View style={{marginLeft: 40}}>
                   {subTasks.map((item, index) => {
-                    const {id, title, parentId, priorityType, alarm, time, status} = item;
+                    const {
+                      id,
+                      title,
+                      parentId,
+                      priorityType,
+                      alarm,
+                      time,
+                      status,
+                    } = item;
                     const subTask = {
                       id,
                       title,
@@ -1046,6 +1087,9 @@ const mapDispatchToProps = dispatch => {
     },
     updateStatusTask: (id, status) => {
       return dispatch(taskAction.updateStatusTask(id, status));
+    },
+    updateTask: data => {
+      return dispatch(taskAction.update(data));
     },
     onLoadLabelTask: labelTaskAction.queryAll(dispatch),
     onLoadLabel: labelAction.queryAll(dispatch),
