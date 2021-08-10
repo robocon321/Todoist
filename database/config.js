@@ -47,13 +47,12 @@ const SchemaLabel = {
   },
 };
 
-const SchemaCommentProject = {
+const SchemaCommentTask = {
   name: 'CommentTask',
   primaryKey: 'id',
   properties: {
     id: {type: 'string'},
-    taskId: {type: 'string'},
-    type: {type: 'int'},
+    taskId: {type: 'string?'},
     content: {type: 'string?'},
     commentAccountId: {type: 'string'},
     fileType: {type: 'int'},
@@ -69,7 +68,7 @@ const databaseOptions = {
     SchemaProject,
     SchemaTask,
     SchemaLabelTask,
-    SchemaCommentProject,
+    SchemaCommentTask,
   ],
   schemeVersion: 0,
 };

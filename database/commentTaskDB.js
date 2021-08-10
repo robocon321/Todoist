@@ -26,10 +26,8 @@ export const update = data =>
         realm.write(() => {
           let obj = realm.objectForPrimaryKey(SCHEMA_NAME, data.id);
           obj.taskId = data.taskId;
-          obj.type = data.type;
           obj.content = data.content;
           obj.commentAccountId = data.commentAccountId;
-          obj.fileType = data.fileType;
           obj.fileLink = data.fileLink;
           obj.time = data.time;
           resolve(true);

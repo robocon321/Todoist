@@ -11,6 +11,7 @@ import * as ICON from '../constants/icons';
 import * as labelAction from '../actions/labelAction';
 import * as projectAction from '../actions/projectAction';
 import * as taskAction from '../actions/taskAction';
+import * as commentTaskAction from '../actions/commentTaskAction';
 import {connect} from 'react-redux';
 
 class Home extends React.Component {
@@ -79,6 +80,7 @@ const mapDispatchToProps = dispatch => {
     loadLabel: labelAction.queryAll(dispatch),
     loadProject: projectAction.queryAll(dispatch),
     loadTask: taskAction.queryAll(dispatch),
+    loadCommentTask: commentTaskAction.queryAll(dispatch),
   };
 };
 

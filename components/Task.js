@@ -29,8 +29,15 @@ class Task extends React.Component {
   };
 
   render() {
-    const {data, allLabels, allProjects, allLabelTasks, isToday, allTasks} =
-      this.props;
+    const {
+      data,
+      allLabels,
+      allProjects,
+      allLabelTasks,
+      isToday,
+      allTasks,
+      navigation,
+    } = this.props;
     const projectName =
       data.projectId.length === 0
         ? 'Inbox'
@@ -91,7 +98,11 @@ class Task extends React.Component {
             <Text style={styles.text}>{projectName}</Text>
             <Image style={styles.icon} source={ICON.inbox} />
           </View>
-          <TaskBottomPopUp_Edit ref={this.popup} task={data} />
+          <TaskBottomPopUp_Edit
+            ref={this.popup}
+            task={data}
+            navigation={navigation}
+          />
         </View>
       </TouchableWithoutFeedback>
     );

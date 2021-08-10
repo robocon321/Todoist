@@ -70,7 +70,10 @@ class Today extends React.Component {
         </Snackbar>
         <StatusBar />
         <TodayTopbar openSideNav={this.openSideNav} />
-        <DayTask addToUndo={this.addToUndo} />
+        <DayTask
+          addToUndo={this.addToUndo}
+          navigation={this.props.navigation}
+        />
       </View>
     );
   };

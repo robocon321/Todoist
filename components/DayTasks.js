@@ -29,7 +29,7 @@ class DayTask extends React.Component {
   };
 
   render() {
-    let {onChooseTask, tasks, addToUndo} = this.props;
+    let {onChooseTask, tasks, addToUndo, navigation} = this.props;
     const currentDate = new Date();
     let todayTasks = tasks.filter(item => {
       return (
@@ -83,6 +83,7 @@ class DayTask extends React.Component {
           </View>
           {todayTasks.map((item, index) => (
             <Task
+              navigation={navigation}
               addToUndo={addToUndo}
               onChooseTask={onChooseTask}
               data={item}

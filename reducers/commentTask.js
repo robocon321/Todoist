@@ -1,5 +1,5 @@
 import * as types from '../constants/actionType';
-import * as db from '../database/labelDB';
+import * as db from '../database/commentTaskDB';
 
 let init = [];
 

@@ -10,5 +10,5 @@ export default combineReducers({
   projects: projectReducer,
   tasks: taskReducer,
   labelTasks: labelTaskReducer,
-  commentTask: commentTaskReducer,
+  commentTasks: commentTaskReducer,
 });

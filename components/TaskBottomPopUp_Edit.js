@@ -399,7 +399,21 @@ class TaskBottomPopUp_Edit extends React.Component {
   };
 
   onComment = () => {
-    this.props.navigation.navigate('Comment');
+    const {task} = this.props;
+    this.props.navigation.navigate('CommentTask', {
+      id: task.id,
+      title: task.title,
+      parentId: task.parentId,
+      priorityType: task.priorityType,
+      alarm: task.alarm,
+      projectId: task.projectId,
+      time: task.time,
+      status: task.status,
+    });
+    this.setState({
+      ...this.state,
+      visible: false,
+    });
   };
 
   onDeleteTask = async () => {

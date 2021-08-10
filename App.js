@@ -17,7 +17,7 @@ import Home from './screens/Home';
 import Login from './screens/Login';
 import AddLabel from './screens/AddLabel';
 import AddProject from './screens/AddProject';
-import Comment from './screens/Comment';
+import CommentTask from './screens/CommentTask';
 
 const store = createStore(reducer);
 const App = () => {
@@ -34,7 +34,7 @@ const App = () => {
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="AddLabel" component={AddLabel} />
           <Stack.Screen name="AddProject" component={AddProject} />
-          <Stack.Screen name="Comment" component={Comment} />
+          <Stack.Screen name="CommentTask" component={CommentTask} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

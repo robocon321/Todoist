@@ -9,20 +9,22 @@ import {
 import * as ICON from '../constants/icons';
 import * as COLOR from '../constants/colors';
 
-export default class AddProjectTopbar extends React.Component {
+export default class CommentTopbar extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
+    const {task, onExit} = this.props;
     return (
       <View style={styles.container}>
-        <View style={styles.left}>
-          <TouchableWithoutFeedback>
+        <View style={styles.row}>
+          <TouchableWithoutFeedback onPress={() => onExit()}>
             <Image style={[styles.image, styles.item]} source={ICON.back} />
           </TouchableWithoutFeedback>
-          <Text style={[styles.text, styles.item]}>Comments</Text>
+          <Text style={[styles.title, styles.item]}>Comments</Text>
         </View>
+        <Text style={styles.text}>Task: {task.title}</Text>
       </View>
     );
   }
@@ -30,15 +32,9 @@ export default class AddProjectTopbar extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: 60,
-    flexDirection: 'row',
     backgroundColor: COLOR.red_light,
-    alignItems: 'center',
-    justifyContent: 'space-between',
   },
-  left: {
-    height: '100%',
+  row: {
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -47,10 +43,16 @@ const styles = StyleSheet.create({
     width: 35,
     height: 35,
   },
-  text: {
+  title: {
     fontSize: 25,
     color: COLOR.white,
     fontWeight: 'bold',
+  },
+  text: {
+    color: COLOR.white,
+    fontSize: 20,
+    marginLeft: 65,
+    paddingBottom: 10,
   },
   item: {
     paddingVertical: 10,
