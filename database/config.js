@@ -61,6 +61,17 @@ const SchemaCommentTask = {
   },
 };
 
+const SchemaAccount = {
+  name: 'Account',
+  primaryKey: 'id',
+  properties: {
+    id: {type: 'string'},
+    type: {type: 'int'},
+    name: {type: 'string'},
+    avatar: {type: 'string'},
+  },
+};
+
 const databaseOptions = {
   path: 'database.realm',
   schema: [
@@ -69,6 +80,7 @@ const databaseOptions = {
     SchemaTask,
     SchemaLabelTask,
     SchemaCommentTask,
+    SchemaAccount,
   ],
   schemeVersion: 0,
 };

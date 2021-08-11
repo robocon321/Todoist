@@ -66,6 +66,7 @@ class CommentTask extends React.Component {
       },
       isShowModal: false,
     };
+    this.props.onLoadCommentTask();
     this._retrieveData();
   }
 

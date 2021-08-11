@@ -1,4 +1,6 @@
+/* eslint-disable no-shadow */
 import React from 'react';
+import {connect} from 'react-redux';
 import {
   StyleSheet,
   View,
@@ -20,13 +22,14 @@ import * as accountApi from '../api/accountApi';
 import * as COLOR from '../constants/colors';
 import * as ICON from '../constants/icons';
 import * as IMAGE from '../constants/images';
+import * as accountAction from '../actions/accountAction';
 
 GoogleSignin.configure({
   webClientId:
     '1059667390919-rn5mjeq30qq68dhbs1gmv8re7qmoqs95.apps.googleusercontent.com',
   offlineAccess: true,
 });
-export default class Login extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -129,13 +132,19 @@ export default class Login extends React.Component {
                 accessToken,
             )
               .then(response => response.json())
-              .then(json => {
+              .then(async json => {
                 let info = {
                   id: `${json.id}`,
                   type: '2',
                   name: json.name,
                   avatar: json.picture.data.url,
                 };
+
+                await this.props.saveAccount({
+                  ...info,
+                  type: 2,
+                });
+
                 const getCallBack = result => {
                   const account = EJSON.parse(EJSON.stringify(result));
                   if (account == null) return;
@@ -311,3 +320,17 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
 });
+
+const mapStateToProps = state => {
+  return {
+    // Todo
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    saveAccount: account => dispatch(accountAction.insert(account)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
