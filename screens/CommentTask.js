@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {
   StyleSheet,
@@ -18,12 +18,55 @@ import {TouchableRipple} from 'react-native-paper';
 import CommentTopbar from '../components/CommentTopbar';
 import * as ICON from '../constants/icons';
 import * as COLOR from '../constants/colors';
-import {ATTACH_TYPE} from '../constants/others';
+import {ATTACH_TYPE, REACTION} from '../constants/others';
 import * as commentTaskAction from '../actions/commentTaskAction';
+import * as reactionAction from '../actions/reactionTaskAction';
 
 const ItemComment = props => {
+  const {comment, account, onSaveReaction, onLoadReaction, reactions} = props;
+  const [visible, setVisible] = useState(false);
+
+  const onAddReaction = async type => {
+    await onSaveReaction({
+      id: `${new Date()}`,
+      commentId: comment.id,
+      type,
+      accountId: account.id,
+    });
+    await onLoadReaction();
+    setVisible(false);
+  };
+
+  let statisticReaction = new Array(REACTION.length);
+  reactions.forEach(item => {
+    let count = statisticReaction[item.type];
+    if (count) {
+      statisticReaction[item.type] = count + 1;
+    } else {
+      statisticReaction[item.type] = 1;
+    }
+  });
+
   return (
     <View style={[styles.comment, styles.row]}>
+      <Modal animationType="slide" transparent={true} visible={visible}>
+        <TouchableWithoutFeedback onPress={() => setVisible(false)}>
+          <View style={styles.centerView}>
+            <View style={styles.modalView}>
+              <Text style={styles.title}>Choose reaction: </Text>
+              <View style={[styles.row, {justifyContent: 'center'}]}>
+                {REACTION.map((item, index) => (
+                  <TouchableRipple onPress={() => onAddReaction(item.id)}>
+                    <View style={{margin: 10, padding: 5}} key={index}>
+                      <Image source={item.path} style={styles.img} />
+                    </View>
+                  </TouchableRipple>
+                ))}
+              </View>
+            </View>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
       <View style={styles.row}>
         <View style={styles.wrap_img}>
           <Image style={styles.img} source={ICON.dot} />
@@ -31,19 +74,32 @@ const ItemComment = props => {
         <View style={{marginLeft: 10}}>
           <View style={styles.row}>
             <View style={styles.row}>
-              <Text style={styles.name}>Nguyễn Thanh Nhật</Text>
-              <Text style={styles.time}>5 Jul, 18:30</Text>
+              <Text style={styles.name}>{account.name}</Text>
+              <Text style={styles.time}>{comment.time.toDateString()}</Text>
             </View>
           </View>
-          <Text style={styles.title}>Hello world</Text>
+          <Text style={styles.title}>{comment.content}</Text>
           <View style={[styles.row, styles.wrap_reaction]}>
-            <View style={[styles.row, styles.item_reaction]}>
-              <Image style={styles.img_reaction} source={ICON.dot} />
-              <Text style={styles.text_reaction}>1</Text>
-            </View>
-            <View style={[styles.row, styles.item_reaction]}>
-              <Image style={styles.img_reaction} source={ICON.add} />
-            </View>
+            {statisticReaction.map((item, index) => {
+              if (item) {
+                return (
+                  <View style={[styles.row, styles.item_reaction]} key={index}>
+                    <Image
+                      style={styles.img_reaction}
+                      source={REACTION.find(i => i.id === index).path}
+                    />
+                    <Text style={styles.text_reaction}>{item}</Text>
+                  </View>
+                );
+              } else {
+                return <View />;
+              }
+            })}
+            <TouchableRipple onPress={() => setVisible(true)}>
+              <View style={[styles.row, styles.item_reaction]}>
+                <Image style={styles.img_reaction} source={ICON.add} />
+              </View>
+            </TouchableRipple>
           </View>
         </View>
       </View>
@@ -72,7 +128,7 @@ class CommentTask extends React.Component {
 
   _retrieveData = async () => {
     const id = await AsyncStorage.getItem('id');
-    this.setState({
+    await this.setState({
       ...this.state,
       comment: {
         ...this.state.comment,
@@ -159,9 +215,16 @@ class CommentTask extends React.Component {
   };
 
   render() {
-    const {route, commentTasks} = this.props;
+    const {
+      route,
+      commentTasks,
+      accounts,
+      onSaveReaction,
+      onLoadReaction,
+      reactionTasks,
+    } = this.props;
     const {comment, isShowModal} = this.state;
-    const {content, fileLink, fileType} = comment;
+    const {content, fileLink, fileType, commentAccountId} = comment;
 
     return (
       <View style={styles.container}>
@@ -223,9 +286,20 @@ class CommentTask extends React.Component {
           </TouchableWithoutFeedback>
         </Modal>
         <ScrollView>
-          {commentTasks.map((item, index) => (
-            <ItemComment comment={item} key={index} />
-          ))}
+          {commentAccountId ? (
+            commentTasks.map((item, index) => (
+              <ItemComment
+                reactions={reactionTasks.filter(i => item.id === i.commentId)}
+                onSaveReaction={onSaveReaction}
+                onLoadReaction={onLoadReaction}
+                comment={item}
+                account={accounts.find(i => i.id === commentAccountId)}
+                key={item.id}
+              />
+            ))
+          ) : (
+            <View />
+          )}
         </ScrollView>
         {fileLink ? (
           <TouchableWithoutFeedback
@@ -340,6 +414,7 @@ const styles = StyleSheet.create({
     borderColor: COLOR.black,
   },
   text_reaction: {
+    marginLeft: 5,
     fontSize: 15,
   },
   img_reaction: {
@@ -381,6 +456,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
   return {
     commentTasks: state.commentTasks,
+    accounts: state.accounts,
+    reactionTasks: state.reactionTasks,
   };
 };
 
@@ -388,7 +465,9 @@ const mapDispatchToProps = dispatch => {
   return {
     onSaveCommentTask: commentTask =>
       dispatch(commentTaskAction.insert(commentTask)),
+    onSaveReaction: reaction => dispatch(reactionAction.insert(reaction)),
     onLoadCommentTask: commentTaskAction.queryAll(dispatch),
+    onLoadReaction: reactionAction.queryAll(dispatch),
   };
 };
 

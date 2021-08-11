@@ -5,6 +5,7 @@ import taskReducer from './task';
 import labelTaskReducer from './labelTask';
 import commentTaskReducer from './commentTask';
 import accountReducer from './account';
+import reactionTaskReducer from './reactionTask';
 
 export default combineReducers({
   labels: labelReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   labelTasks: labelTaskReducer,
   commentTasks: commentTaskReducer,
   accounts: accountReducer,
+  reactionTasks: reactionTaskReducer,
 });

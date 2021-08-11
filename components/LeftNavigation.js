@@ -57,6 +57,7 @@ class LeftNavigaiton extends React.Component {
   render() {
     const {info} = this.state;
     const {navigation, labels, projects} = this.props;
+
     return (
       <ScrollView>
         <View style={styles.container}>

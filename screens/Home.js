@@ -12,6 +12,7 @@ import * as labelAction from '../actions/labelAction';
 import * as projectAction from '../actions/projectAction';
 import * as taskAction from '../actions/taskAction';
 import * as commentTaskAction from '../actions/commentTaskAction';
+import * as accountAction from '../actions/accountAction';
 import {connect} from 'react-redux';
 
 class Home extends React.Component {
@@ -24,6 +25,8 @@ class Home extends React.Component {
     this.props.loadProject();
     this.props.loadLabel();
     this.props.loadTask();
+    this.props.loadAccount();
+    this.props.loadCommentTask();
   }
 
   render() {
@@ -81,6 +84,7 @@ const mapDispatchToProps = dispatch => {
     loadProject: projectAction.queryAll(dispatch),
     loadTask: taskAction.queryAll(dispatch),
     loadCommentTask: commentTaskAction.queryAll(dispatch),
+    loadAccount: accountAction.queryAll(dispatch),
   };
 };
 

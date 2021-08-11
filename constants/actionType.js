@@ -37,3 +37,9 @@ export const ADD_ACCOUNT = 23;
 export const UPDATE_ACCOUNT = 24;
 export const DELETE_ACCOUNT = 25;
 export const QUERY_ACCOUNT = 26;
+
+// reaction
+export const ADD_REACTION_TASK = 27;
+export const UPDATE_REACTION_TASK = 28;
+export const DELETE_REACTION_TASK = 29;
+export const QUERY_REACTION_TASK = 30;
