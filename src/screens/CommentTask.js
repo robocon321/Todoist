@@ -21,6 +21,8 @@ import * as COLOR from '../constants/colors';
 import {ATTACH_TYPE, REACTION} from '../constants/others';
 import * as commentTaskAction from '../actions/commentTaskAction';
 import * as reactionAction from '../actions/reactionTaskAction';
+import storage from '@react-native-firebase/storage';
+import RNFetchBlob from 'rn-fetch-blob';
 
 const ItemComment = props => {
   const {comment, account, onSaveReaction, onLoadReaction, reactions} = props;
@@ -69,7 +71,10 @@ const ItemComment = props => {
       </Modal>
       <View style={styles.row}>
         <View style={styles.wrap_img}>
-          <Image style={styles.img} source={ICON.dot} />
+          <Image
+            style={[styles.img, {borderRadius: 50}]}
+            source={{uri: account.avatar}}
+          />
         </View>
         <View style={{marginLeft: 10}}>
           <View style={styles.row}>
@@ -79,6 +84,21 @@ const ItemComment = props => {
             </View>
           </View>
           <Text style={styles.title}>{comment.content}</Text>
+          {comment.filePath ? (
+            <View style={styles.wrapImgComment}>
+              <Image
+                style={styles.imgComment}
+                source={
+                  comment.fileType === ATTACH_TYPE.IMAGE
+                    ? {uri: `file://${comment.filePath}`}
+                    : ICON.file
+                }
+              />
+            </View>
+          ) : (
+            <View />
+          )}
+
           <View style={[styles.row, styles.wrap_reaction]}>
             {statisticReaction.map((item, index) => {
               if (item) {
@@ -118,6 +138,7 @@ class CommentTask extends React.Component {
         content: '',
         commentAccountId: '',
         fileType: ATTACH_TYPE.NONE,
+        filePath: '',
         fileLink: '',
       },
       isShowModal: false,
@@ -158,16 +179,50 @@ class CommentTask extends React.Component {
       } else if (response.error) {
         console.log('FilePickerManager Error: ', response.error);
       } else {
+        const path = '/images/' + new Date().getTime() + response.fileName;
         this.setState({
           ...this.state,
           comment: {
             ...this.state.comment,
-            fileLink: 'file://' + response.path,
+            filePath: response.path,
             fileType:
               response.type.indexOf('image') >= 0
                 ? ATTACH_TYPE.IMAGE
                 : ATTACH_TYPE.FILE,
           },
+        });
+
+        const reference = storage().ref(path);
+        const pathToFile = response.path;
+        const task = reference.putFile(pathToFile);
+
+        task.then(async () => {
+          const url = await storage().ref(path).getDownloadURL();
+          let dirs = RNFetchBlob.fs.dirs;
+          RNFetchBlob.config({
+            addAndroidDownloads: {
+              useDownloadManager: true,
+              notification: true,
+              description: 'File downloaded by download manager.',
+              path: dirs.DownloadDir + '/' + response.fileName,
+            },
+          })
+            .fetch('GET', url)
+            .then(async res => {
+              await this.setState({
+                ...this.state,
+                comment: {
+                  ...this.state.comment,
+                  fileLink: url,
+                  filePath: res.data,
+                  fileType:
+                    response.type.indexOf('image') >= 0
+                      ? ATTACH_TYPE.IMAGE
+                      : ATTACH_TYPE.FILE,
+                },
+              });
+            })
+            .catch(err => console.log('Error', err));
         });
       }
     });
@@ -221,10 +276,12 @@ class CommentTask extends React.Component {
       accounts,
       onSaveReaction,
       onLoadReaction,
+      onLoadCommentTask,
       reactionTasks,
+      updateComment,
     } = this.props;
     const {comment, isShowModal} = this.state;
-    const {content, fileLink, fileType, commentAccountId} = comment;
+    const {content, fileLink, fileType, commentAccountId, filePath} = comment;
 
     return (
       <View style={styles.container}>
@@ -289,19 +346,21 @@ class CommentTask extends React.Component {
           {commentAccountId ? (
             commentTasks.map((item, index) => (
               <ItemComment
+                key={index}
                 reactions={reactionTasks.filter(i => item.id === i.commentId)}
                 onSaveReaction={onSaveReaction}
                 onLoadReaction={onLoadReaction}
+                onLoadCommentTask={onLoadCommentTask}
+                updateComment={updateComment}
                 comment={item}
                 account={accounts.find(i => i.id === commentAccountId)}
-                key={item.id}
               />
             ))
           ) : (
             <View />
           )}
         </ScrollView>
-        {fileLink ? (
+        {filePath ? (
           <TouchableWithoutFeedback
             onPress={() =>
               this.setState({
@@ -310,6 +369,7 @@ class CommentTask extends React.Component {
                   ...this.state.comment,
                   fileType: ATTACH_TYPE.NONE,
                   fileLink: '',
+                  filePath: '',
                 },
               })
             }>
@@ -320,7 +380,7 @@ class CommentTask extends React.Component {
                   fileType === ATTACH_TYPE.FILE
                     ? ICON.file
                     : {
-                        uri: fileLink,
+                        uri: `file://${filePath}`,
                       }
                 }
               />
@@ -451,6 +511,17 @@ const styles = StyleSheet.create({
     minWidth: 60,
     minHeight: 60,
   },
+  wrapImgComment: {
+    marginTop: 10,
+    minWidth: 100,
+    minHeight: 100,
+    alignSelf: 'flex-start',
+  },
+  imgComment: {
+    minWidth: 100,
+    minHeight: 100,
+    resizeMode: 'contain',
+  },
 });
 
 const mapStateToProps = state => {
@@ -468,6 +539,7 @@ const mapDispatchToProps = dispatch => {
     onSaveReaction: reaction => dispatch(reactionAction.insert(reaction)),
     onLoadCommentTask: commentTaskAction.queryAll(dispatch),
     onLoadReaction: reactionAction.queryAll(dispatch),
+    updateComment: comment => dispatch(commentTaskAction.update(comment)),
   };
 };
 

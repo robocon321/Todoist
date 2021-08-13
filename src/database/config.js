@@ -56,6 +56,7 @@ const SchemaCommentTask = {
     content: {type: 'string?'},
     commentAccountId: {type: 'string'},
     fileType: {type: 'int'},
+    filePath: {type: 'string?'},
     fileLink: {type: 'string'},
     time: {type: 'date'},
   },
